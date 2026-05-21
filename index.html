@@ -240,6 +240,9 @@
     margin-top: 20px;
   }
   .foot {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-inline: 24px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px 28px;
@@ -277,8 +280,9 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
-      <a href="privacy.html">Policy</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="age-suitability.html">Age Suitability</a>
     </nav>
   </div>
 </header>
@@ -348,6 +352,7 @@
         <h2>Your data never leaves your device.</h2>
         <p>No accounts. No analytics. No ads. No third-party trackers. Awaab is a quiet, local app — and that is the whole story.</p>
         <p style="margin-top:18px;"><a href="privacy.html">Read the full privacy policy →</a></p>
+        <p style="margin-top:10px; font-size: 0.88rem; color: var(--ink-soft);">See also <a href="accessibility.html">Accessibility</a> and <a href="age-suitability.html">Age Suitability</a>.</p>
       </div>
     </div>
   </section>
@@ -355,10 +360,14 @@
 </main>
 
 <footer class="site">
-  <div class="container foot">
+  <div class="foot">
     <div class="brand-mini">Awaab</div>
     <div>
+      <a href="index.html">Home</a>
+      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
       <a href="privacy.html">Privacy Policy</a>
+      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
+      <a href="accessibility.html">Accessibility</a>
       <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
       <a href="age-suitability.html">Age Suitability</a>
       <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
