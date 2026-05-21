@@ -194,7 +194,7 @@ header.site {
   font-weight: 400;
   font-size: 1.3rem;
   color: var(--ink-soft);
-  margin-inline-start: 6px;
+  margin-inline-start: 14px;
 }
 
 nav.site-nav {
@@ -865,7 +865,7 @@ article.prose a:hover { text-decoration-color: var(--bronze-text); }
   user-select: none;
 }
 .lang-switch {
-  margin-inline-start: 18px;
+  margin-inline-start: 36px;
   font-family: var(--font-sans);
   font-size: 0.82rem;
   padding: 5px 12px;
