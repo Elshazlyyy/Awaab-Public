@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elshazlyyy.github.io/Awaab-Public/sitemap.xml

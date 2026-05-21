@@ -237,6 +237,35 @@ nav.site-nav a:hover { color: var(--bronze); }
   color: var(--bg);
   transform: translateY(-1px);
 }
+
+/* "Coming soon" non-interactive badge */
+.badge-soon {
+  cursor: default;
+  opacity: 0.92;
+  position: relative;
+}
+.badge-soon:hover {
+  background: var(--ink);
+  color: var(--bg);
+  transform: none;
+}
+.badges-note {
+  margin: 14px 0 24px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.badges-note::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bronze);
+  margin-right: 10px;
+  vertical-align: middle;
+  animation: aw-pulse 3.2s ease-in-out infinite;
+}
 .badge small {
   display: block;
   font-size: 0.7rem;
@@ -820,13 +849,17 @@ article.prose a:hover { text-decoration-color: var(--bronze); }
   gap: 32px;
   align-items: end;
 }
-@media (max-width: 980px) {
+@media (max-width: 760px) {
   .gallery {
     grid-template-columns: 1fr;
     gap: 56px;
     max-width: 360px;
     margin-inline: auto;
   }
+}
+@media (min-width: 761px) and (max-width: 980px) {
+  .gallery { gap: 18px; }
+  .gallery .device { max-width: 240px; }
 }
 .gallery .device {
   width: 100%;
@@ -972,6 +1005,65 @@ article.prose a:hover { text-decoration-color: var(--bronze); }
   }
   .card:hover { transform: none; }
   .badge:hover { transform: none; }
+}
+
+/* ───── Print stylesheet ───── */
+@media print {
+  /* Hide page chrome and visual flourishes */
+  header.site,
+  footer.site,
+  .badges,
+  .badges-note,
+  .pills-row,
+  .hero-device,
+  .gallery,
+  .band-verse,
+  .bilingual,
+  .band-facts,
+  .promise-card .also,
+  nav,
+  .reveal {
+    display: none !important;
+  }
+
+  /* Reset to black-on-white at a comfortable print scale */
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --surface-2: #fff;
+    --ink: #000;
+    --ink-soft: #333;
+    --ink-faint: #555;
+    --hair: #ccc;
+    --bronze: #6b5430;
+  }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.55;
+  }
+  h1, h2, h3, h4 { color: #000; page-break-after: avoid; }
+  a { color: #000; text-decoration: underline; }
+  /* Render mailto and external URLs after the link text */
+  a[href^="mailto:"]::after,
+  a[href^="http"]::after {
+    content: " <" attr(href) ">";
+    font-size: 9pt;
+    color: #555;
+  }
+  /* But not for in-page anchors and local file links */
+  a[href^="#"]::after,
+  a[href$=".html"]::after {
+    content: "";
+  }
+  .summary, .contact-card, .note {
+    border: 1px solid #ccc;
+    background: #fff;
+    page-break-inside: avoid;
+  }
+  article.prose { padding-block: 0; }
+  .updated, .eyebrow { color: #555; }
 }
 
 /* ───── Mobile tweaks ───── */
