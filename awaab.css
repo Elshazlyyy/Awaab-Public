@@ -165,10 +165,16 @@ nav.site-nav {
 }
 nav.site-nav a {
   color: var(--ink-soft);
-  font-size: 0.95rem;
-  margin-inline-start: 22px;
+  font-size: 0.92rem;
+  margin-inline-start: 26px;
+  letter-spacing: 0.01em;
 }
 nav.site-nav a:hover { color: var(--bronze); }
+[dir="ltr"] nav.site-nav a {
+  /* Slightly more tracking on Latin nav for visual rhythm — Arabic glyphs
+     connect naturally and don't need it. */
+  letter-spacing: 0.015em;
+}
 
 /* ───── Eyebrow + pill ───── */
 .eyebrow {
