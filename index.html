@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
 <title>Awaab — A quiet companion for the daily prayer</title>
-<meta name="description" content="Awaab is a free, private Islamic companion for iPhone, iPad, and Android. Read the Quran in Uthmānī or IndoPak, know your prayer times, find the qibla — bilingually, beautifully, entirely on your device." />
+<meta name="description" content="Awaab is a free, private Islamic companion for iPhone, iPad, and Android. Read the Quran in Uthmānī, IndoPak, or Naskh; know your prayer times; find the qibla — bilingually, beautifully, entirely on your device." />
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
 <meta property="og:title" content="Awaab — A quiet companion for the daily prayer" />
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <!-- ───── Device mockup: a rendering of the Today screen ───── -->
+        <!-- Today screen mockup -->
         <div class="hero-device" aria-hidden="true">
           <div class="device">
             <div class="device-screen">
@@ -85,22 +85,120 @@
     </div>
   </section>
 
+  <!-- ───── Three devices gallery ───── -->
+  <section class="band" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Three companions</span>
+        <h2>One peaceful surface.</h2>
+        <p>The same calm typography across prayer times, the qibla, and the Quran.</p>
+      </div>
+
+      <div class="gallery">
+
+        <!-- Today (gallery copy) -->
+        <div class="reveal">
+          <div class="device" aria-hidden="true">
+            <div class="device-screen">
+              <span class="device-eyebrow">Today</span>
+              <div class="device-city">Mecca</div>
+              <div class="device-hijri">4 Dhul-Qaʿdah 1447</div>
+              <div class="device-countdown">3:17:00</div>
+              <div class="device-countdown-label">Next prayer · Asr</div>
+              <div class="device-row"><span class="name">Fajr</span><span class="time">04:48</span></div>
+              <div class="device-row"><span class="name">Dhuhr</span><span class="time">12:24</span></div>
+              <div class="device-row next"><span class="name">Asr</span><span class="time">15:43</span></div>
+              <div class="device-row"><span class="name">Maghrib</span><span class="time">18:37</span></div>
+              <div class="device-row"><span class="name">Isha</span><span class="time">19:58</span></div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-label">Today</div>
+            <div class="gallery-caption-title">Prayer times at a glance</div>
+          </div>
+        </div>
+
+        <!-- Qibla -->
+        <div class="reveal">
+          <div class="device" aria-hidden="true">
+            <div class="device-screen device-screen-qibla">
+              <span class="device-eyebrow">Qibla</span>
+              <div class="device-city">Mecca · 0 km</div>
+              <div class="device-hijri">Bearing toward the Kaaba</div>
+              <div class="qibla-compass">
+                <div class="qibla-ring">
+                  <span class="qibla-tick n">N</span>
+                  <span class="qibla-tick e">E</span>
+                  <span class="qibla-tick s">S</span>
+                  <span class="qibla-tick w">W</span>
+                  <div class="qibla-needle"></div>
+                  <div class="qibla-marker"></div>
+                </div>
+              </div>
+              <div class="qibla-bearing">118°</div>
+              <div class="qibla-bearing-label">Southeast</div>
+              <p class="qibla-help">Hold device flat — face the bronze marker</p>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-label">Qibla</div>
+            <div class="gallery-caption-title">A calm bronze marker</div>
+          </div>
+        </div>
+
+        <!-- Quran -->
+        <div class="reveal">
+          <div class="device" aria-hidden="true">
+            <div class="device-screen device-screen-quran">
+              <span class="device-eyebrow">Sūrah 1 of 114</span>
+              <div class="quran-title">
+                <span class="quran-title-ar">الفاتحة</span>
+                <span class="quran-title-en">The Opening</span>
+              </div>
+              <div class="quran-bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+
+              <div class="quran-verse">
+                <p class="quran-verse-ar">ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ <span class="quran-verse-num">٢</span></p>
+                <p class="quran-verse-en">All praise is for Allāh — Lord of all the worlds,</p>
+              </div>
+
+              <div class="quran-verse">
+                <p class="quran-verse-ar">ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ <span class="quran-verse-num">٣</span></p>
+                <p class="quran-verse-en">The Most Compassionate, the Most Merciful,</p>
+              </div>
+
+              <div class="quran-verse">
+                <p class="quran-verse-ar">مَـٰلِكِ يَوْمِ ٱلدِّينِ <span class="quran-verse-num">٤</span></p>
+                <p class="quran-verse-en">Master of the Day of Judgement.</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-label">Quran</div>
+            <div class="gallery-caption-title">Uthmānī, indexed locally</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ───── Three main features ───── -->
   <section class="band" id="features">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">What it does</span>
         <h2>Three companions. One peaceful app.</h2>
         <p>Each feature works offline. Nothing leaves your device.</p>
       </div>
 
       <div class="feature-grid">
-        <article class="card">
+        <article class="card reveal">
           <div class="icon-tile" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.5a.5.5 0 0 1-.8.4L17 19l-2.2 1.9a.5.5 0 0 1-.6 0L12 19l-2.2 1.9a.5.5 0 0 1-.6 0L7 19l-2.2 1.9a.5.5 0 0 1-.8-.4V5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
           </div>
           <h3>Quran reader</h3>
-          <p>The full Mushaf, bundled with the app and indexed in a local SQLite database for fast, gentle reading.</p>
+          <p>The full Mushaf, bundled in a local SQLite database and read directly from the device — no network, no waiting.</p>
           <ul class="card-list">
             <li>All 114 sūrahs</li>
             <li>Uthmānī, IndoPak, or Naskh script</li>
@@ -110,12 +208,12 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <div class="icon-tile" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </div>
           <h3>Prayer times</h3>
-          <p>Daily prayer times calculated on your device from your location, with quiet local notifications when each prayer enters.</p>
+          <p>Daily times computed on your device using the <em>adhan</em> astronomical library and your location — never fetched from a server.</p>
           <ul class="card-list">
             <li>Fajr · Dhuhr · Asr · Maghrib · Isha</li>
             <li>Plus Sunrise, Midnight, last third</li>
@@ -125,17 +223,17 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <div class="icon-tile" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.1 5L8.5 15.5l2.1-5z"/></svg>
           </div>
           <h3>Qibla finder</h3>
-          <p>Hold your phone flat and turn — the compass aligns toward the Kaaba, guided by the device's motion sensor.</p>
+          <p>Hold your phone flat — the compass needle eases toward the Kaaba using your device's motion sensor. Smooth, never jittery.</p>
           <ul class="card-list">
             <li>Bronze marker for the qibla</li>
-            <li>Smooth, low-jitter needle</li>
-            <li>Works offline anywhere on Earth</li>
+            <li>1.2s cubic-bezier needle motion</li>
             <li>Subtle haptic feedback on lock-on</li>
+            <li>Works offline anywhere on Earth</li>
             <li>Heading never leaves the device</li>
           </ul>
         </article>
@@ -146,61 +244,71 @@
   <!-- ───── Crafted details ───── -->
   <section class="band" id="craft">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">Crafted details</span>
         <h2>The small things, looked after.</h2>
         <p>Awaab is a quiet utility — and quiet apps live in their details.</p>
       </div>
 
       <div class="craft-grid">
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">01 · Reading</span>
           <h4>Bookmarks that stay yours</h4>
-          <p>Saved verses live in a local database on your phone. Nothing is uploaded — and nothing can be lost to a server you don't control.</p>
+          <p>Saved verses live in a local SQLite table on your phone. Nothing is uploaded — and nothing can be lost to a server you don't control.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">02 · Reading</span>
           <h4>Three Arabic scripts</h4>
-          <p>Choose Uthmānī for the classical mushaf, IndoPak for South-Asian reading, or Naskh for a cleaner sans feel. Switch anytime.</p>
+          <p>Choose <strong>Uthmānī</strong> for the classical mushaf, <strong>IndoPak</strong> for South-Asian reading, or <strong>Naskh</strong> for a cleaner sans feel. Switch any time.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">03 · Reading</span>
           <h4>Tafsīr and translation</h4>
-          <p>Read the English translation alongside Arabic, with Tafsīr context tucked one tap away. Stays out of the way until you ask.</p>
+          <p>Read the English translation alongside Arabic, with Tafsīr context one tap away. Stays out of the way until you ask.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">04 · Reading</span>
           <h4>Share a verse, beautifully</h4>
-          <p>Tap to render a verse as a calm typographic card and send it via the system share sheet — no Awaab account or server involved.</p>
+          <p>Render any verse as a calm typographic card and send it via the system share sheet. No Awaab account or server is involved.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">05 · Prayer</span>
           <h4>Six calculation methods</h4>
           <p>Umm al-Qura, Muslim World League, ISNA, Egyptian Authority, Karachi, and Tehran — pick the method your community follows.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">06 · Prayer</span>
           <h4>Asr madhab toggle</h4>
-          <p>Standard or Hanafi. The calculation respects your school of jurisprudence, and remembers it across launches.</p>
+          <p>Standard or Hanafi. The calculation respects your school of jurisprudence and remembers it across launches.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">07 · Prayer</span>
           <h4>Hijri calendar, today</h4>
           <p>Both Gregorian and Hijri dates appear on the Today screen — the Islamic calendar isn't an afterthought, it's part of the home view.</p>
         </div>
 
-        <div class="craft-item">
+        <div class="craft-item reveal">
           <span class="craft-key">08 · System</span>
           <h4>Follows your system theme</h4>
-          <p>Awaab respects your phone's appearance setting — cream and bronze by day, deep slate and warm cream by night, with no toggle to remember.</p>
+          <p>Cream and bronze by day, deep slate and warm cream by night. Awaab respects your phone's appearance setting — no toggle to remember.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ───── Verse of the moment ───── -->
+  <section class="band band-verse">
+    <div class="container">
+      <span class="eyebrow center">Verse of the moment</span>
+      <p class="verse-ar reveal">أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ</p>
+      <p class="verse-en reveal">Surely in the remembrance of Allāh do hearts find rest.</p>
+      <p class="verse-attr">Sūrah Ar-Raʿd · 13 : 28</p>
     </div>
   </section>
 
@@ -217,10 +325,38 @@
     </div>
   </section>
 
+  <!-- ───── Facts band ───── -->
+  <section class="band band-facts">
+    <div class="container">
+      <div class="facts-grid">
+        <div class="fact reveal">
+          <span class="fact-n">0</span>
+          <span class="fact-l">analytics SDKs</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-n">0</span>
+          <span class="fact-l">remote URLs in source</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-n">114</span>
+          <span class="fact-l">sūrahs bundled</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-n">6</span>
+          <span class="fact-l">calculation methods</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-n">2.6<small>&nbsp;MB</small></span>
+          <span class="fact-l">local Quran database</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ───── Privacy promise ───── -->
   <section class="band" id="promise">
     <div class="container">
-      <div class="promise-card">
+      <div class="promise-card reveal">
         <span class="eyebrow">Privacy by design</span>
         <h2>Your data never leaves your device.</h2>
         <p class="lead">No accounts. No analytics. No advertising. No third-party trackers. Awaab is a quiet, local app — and that is the whole story.</p>
