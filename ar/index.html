@@ -30,9 +30,29 @@
 <meta name="twitter:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="manifest" href="../manifest.webmanifest" />
 <link rel="stylesheet" href="../awaab.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "أواب",
+  "alternateName": "Awaab",
+  "url": "https://elshazlyyy.github.io/Awaab-Public/ar/",
+  "description": "تطبيق إسلامي مجاني وخاص لآيفون وآيباد وأندرويد. قارئ القرآن، أوقات الصلاة، محدّد القبلة. بلغتين.",
+  "image": "https://elshazlyyy.github.io/Awaab-Public/og.png",
+  "applicationCategory": "ReferenceApplication",
+  "operatingSystem": ["iOS", "iPadOS", "Android"],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "inLanguage": ["ar", "en"],
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">تخطّي إلى المحتوى</a>
 
 <header class="site">
   <div class="site-bar">
@@ -51,7 +71,7 @@
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
   <!-- ───── Hero ───── -->
   <section class="hero">
@@ -369,6 +389,48 @@
     </div>
   </section>
 
+  <!-- ───── FAQ ───── -->
+  <section class="band band-faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">أسئلة</span>
+        <h2>ما يسأله الناس.</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>هل أواب مجاني فعلاً للأبد؟</summary>
+          <p>نعم. لا توجد مشتريات داخل التطبيق، ولا اشتراكات، ولا إعلانات. أواب تطبيق إسلامي مجاني — وهذه هي النيّة كاملة. إن تغيّر شيء يوماً، فسترى ذلك موثّقاً هنا بوضوح.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>لماذا سُمّي التطبيق "أواب"؟</summary>
+          <p>كلمة <em>أوّاب</em> وردت في القرآن لتصف من يُكثر الرجوع إلى الله. أسمينا التطبيق على روح الرجوع — فعل التذكّر اليومي اللطيف.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>هل يعمل أواب بدون اتصال بالإنترنت؟</summary>
+          <p>نعم. القرآن كاملاً موجود داخل التطبيق، وأوقات الصلاة تُحسب على هاتفك انطلاقاً من موقعك، وبوصلة القبلة تستخدم مستشعر هاتفك. أنت تحتاج إلى الإنترنت لمرّة واحدة فقط — لتنزيل التطبيق من المتجر.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>أيّ طريقة حساب يجب أن أختار؟</summary>
+          <p>الطريقة التي يتّبعها مجتمعك المحلّي. إن لم تكن متأكّداً: <strong>أمّ القرى</strong> شائعة في السعودية، و<strong>رابطة العالم الإسلامي</strong> خيار افتراضي عالمي، و<strong>ISNA</strong> مستخدمة في أمريكا الشمالية. يمكنك تغييرها في أي وقت من داخل التطبيق.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>ما الفرق بين العصر العادي والحنفي؟</summary>
+          <p>في المذهب العادي (الشافعي والمالكي والحنبلي)، يبدأ العصر حين يصير ظلّ الشيء مثله. وفي المذهب الحنفي، يبدأ حين يصير ظلّ الشيء مثليه. أواب يدعك تختار، ويتذكّر اختيارك.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>هل تتتبّعونني؟</summary>
+          <p>لا. أواب لا يجمع أي بيانات، ولا يستخدم تحليلات، ولا إعلانات، ولا متتبّعات خارجية. اقرأ <a href="privacy.html">سياسة الخصوصية</a> لكامل التفاصيل.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ───── Privacy promise ───── -->
   <section class="band" id="promise">
     <div class="container">
@@ -398,6 +460,41 @@
     <div class="version">الإصدار ١.٠ · صُنع لمن يذكر</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const eastern = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  const toEastern = n => String(n).replace(/\d/g, d => eastern[+d]);
+  const isEastern = s => /[٠-٩]/.test(s);
+  const parseNum = s => parseInt(
+    String(s).replace(/[٠-٩]/g, d => eastern.indexOf(d).toString()),
+    10
+  ) || 0;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting || e.target.dataset.animated) return;
+      e.target.dataset.animated = '1';
+      const final = e.target.textContent.trim();
+      const target = parseNum(final);
+      const useEastern = isEastern(final);
+      if (target === 0) return;
+      const duration = 800;
+      const t0 = performance.now();
+      function step(now) {
+        const k = Math.min(1, (now - t0) / duration);
+        const eased = 1 - Math.pow(1 - k, 3);
+        const v = Math.round(target * eased);
+        e.target.textContent = useEastern ? toEastern(v) : String(v);
+        if (k < 1) requestAnimationFrame(step);
+        else e.target.textContent = final;
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.fact-n').forEach(el => observer.observe(el));
+})();
+</script>
 
 </body>
 </html>

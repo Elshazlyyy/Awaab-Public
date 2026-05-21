@@ -30,9 +30,29 @@
 <meta name="twitter:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="manifest" href="manifest.webmanifest" />
 <link rel="stylesheet" href="awaab.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Awaab",
+  "alternateName": "أواب",
+  "url": "https://elshazlyyy.github.io/Awaab-Public/",
+  "description": "A free, private Islamic companion app for iPhone, iPad, and Android. Quran reader, prayer times, qibla finder. Bilingual (English + Arabic).",
+  "image": "https://elshazlyyy.github.io/Awaab-Public/og.png",
+  "applicationCategory": "ReferenceApplication",
+  "operatingSystem": ["iOS", "iPadOS", "Android"],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "inLanguage": ["en", "ar"],
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site">
   <div class="site-bar">
@@ -49,7 +69,7 @@
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
   <!-- ───── Hero ───── -->
   <section class="hero">
@@ -367,6 +387,48 @@
     </div>
   </section>
 
+  <!-- ───── FAQ ───── -->
+  <section class="band band-faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Questions</span>
+        <h2>What people ask us.</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Awaab really free forever?</summary>
+          <p>Yes. There are no in-app purchases, no subscriptions, and no advertising. Awaab is a free Islamic companion app — that is the whole intention. If we ever change that, you will see it documented openly on this site.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Why is the app called Awaab?</summary>
+          <p>The word <em lang="ar" dir="rtl">awwāb</em> (<span lang="ar" dir="rtl">أوّاب</span>) appears in the Qur'an describing one who turns frequently back to God. We named the app after that spirit of return — the daily, gentle act of remembrance.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does Awaab work without an internet connection?</summary>
+          <p>Yes. The full Quran is included with the app, prayer times are calculated on your phone from your location, and the qibla compass uses your phone's sensor. You only need an internet connection once — to download the app from the store.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Which calculation method should I choose?</summary>
+          <p>Whichever your local community follows. If you are not sure: <strong>Umm al-Qura</strong> is common in Saudi Arabia, <strong>Muslim World League</strong> is a popular global default, and <strong>ISNA</strong> is widely used in North America. You can change it any time inside the app.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is the difference between Standard and Hanafi Asr?</summary>
+          <p>In the Standard view (followed by the Shafi'i, Maliki, and Hanbali schools), Asr begins when an object's shadow equals its own length. In the Hanafi view, it begins when the shadow equals twice the object's length. Awaab lets you choose, and remembers your choice.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you track me?</summary>
+          <p>No. Awaab collects no data, has no analytics, no advertising, and no third-party trackers. Read the <a href="privacy.html">privacy policy</a> for the full details.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ───── Privacy promise ───── -->
   <section class="band" id="promise">
     <div class="container">
@@ -396,6 +458,51 @@
     <div class="version">v1.0 · Built for those who remember</div>
   </div>
 </footer>
+
+<script>
+/* Count-up animation for the facts band.
+   Triggered by IntersectionObserver, respects prefers-reduced-motion,
+   supports Western and Eastern-Arabic numerals. */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const eastern = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  const toEastern = n => String(n).replace(/\d/g, d => eastern[+d]);
+  const isEastern = s => /[٠-٩]/.test(s);
+  const parseNum = s => parseInt(
+    String(s).replace(/[٠-٩]/g, d => eastern.indexOf(d).toString()),
+    10
+  ) || 0;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting || e.target.dataset.animated) return;
+      e.target.dataset.animated = '1';
+
+      const final = e.target.textContent.trim();
+      const target = parseNum(final);
+      const useEastern = isEastern(final);
+      if (target === 0) return;
+
+      const duration = 800;
+      const t0 = performance.now();
+
+      function step(now) {
+        const k = Math.min(1, (now - t0) / duration);
+        const eased = 1 - Math.pow(1 - k, 3);
+        const v = Math.round(target * eased);
+        e.target.textContent = useEastern ? toEastern(v) : String(v);
+        if (k < 1) requestAnimationFrame(step);
+        else e.target.textContent = final;
+      }
+
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.fact-n').forEach(el => observer.observe(el));
+})();
+</script>
 
 </body>
 </html>

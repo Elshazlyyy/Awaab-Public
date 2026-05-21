@@ -9,6 +9,7 @@
 <title>Not found — Awaab</title>
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
+<link rel="manifest" href="manifest.webmanifest" />
 <link rel="stylesheet" href="awaab.css" />
 <style>
   .nf {
@@ -53,6 +54,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site">
   <div class="site-bar">
     <a class="brand" href="index.html" aria-label="Awaab home">
@@ -69,7 +72,7 @@
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
   <section class="nf">
     <div class="nf-code">404</div>
     <h1>This page is not here.</h1>

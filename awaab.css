@@ -47,6 +47,36 @@
   }
 }
 
+/* ───── Selection ───── */
+::selection {
+  background: rgba(138, 110, 58, 0.20);
+  color: var(--ink);
+}
+
+/* ───── Skip to content (keyboard accessibility) ───── */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  inset-inline-start: 8px;
+  z-index: 100;
+  padding: 10px 18px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 0 0 10px 10px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: none;
+  color: var(--bg);
+}
+[dir="rtl"] .skip-link { font-family: var(--font-arabic-sans); }
+
 /* ───── Reset + base ───── */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -203,6 +233,49 @@ nav.site-nav a:hover { color: var(--bronze); }
 
 /* ───── Hero ───── */
 .hero { padding-block: clamp(56px, 9vw, 112px); }
+
+/* Entrance animation on first paint — staggered cascade.
+   Disabled for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes aw-enter {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > .eyebrow,
+  .hero-text > h1,
+  .hero-text > .tagline,
+  .hero-text > .badges,
+  .hero-text > .badges-note,
+  .hero-text > .pills-row {
+    animation: aw-enter 0.7s cubic-bezier(.22, .61, .36, 1) both;
+  }
+  .hero-text > .eyebrow      { animation-delay: 0.04s; }
+  .hero-text > h1            { animation-delay: 0.12s; }
+  .hero-text > .tagline      { animation-delay: 0.22s; }
+  .hero-text > .badges       { animation-delay: 0.32s; }
+  .hero-text > .badges-note  { animation-delay: 0.40s; }
+  .hero-text > .pills-row    { animation-delay: 0.48s; }
+
+  .hero-device .device {
+    animation: aw-enter 0.9s cubic-bezier(.22, .61, .36, 1) both;
+    animation-delay: 0.30s;
+  }
+}
+
+/* Subtle tilt on hover — only on the hero device, not the gallery ones */
+.hero-device .device {
+  transition: transform 0.45s cubic-bezier(.22, .61, .36, 1),
+              box-shadow 0.45s cubic-bezier(.22, .61, .36, 1);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-device:hover .device {
+    transform: rotate(-1.4deg) translateY(-3px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 40px 80px rgba(26, 24, 20, 0.20),
+      0 12px 28px rgba(26, 24, 20, 0.10);
+  }
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -412,6 +485,25 @@ nav.site-nav a:hover { color: var(--bronze); }
 section.band {
   padding-block: clamp(64px, 9vw, 100px);
   border-top: 1px solid var(--hair);
+  position: relative;
+}
+/* Subtle bronze dot punctuating each band-to-band transition.
+   Sits centred on the top hairline. */
+section.band::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--bronze);
+  opacity: 0.30;
+  pointer-events: none;
+}
+[dir="rtl"] section.band::before {
+  transform: translateX(50%);
 }
 .section-head { text-align: center; margin-bottom: 56px; }
 .section-head p { max-width: 540px; margin-inline: auto; }
@@ -1100,6 +1192,62 @@ article.prose a:hover { text-decoration-color: var(--bronze); }
     }
   }
 }
+
+/* ───── FAQ (native <details> disclosure) ───── */
+.faq-list {
+  max-width: 760px;
+  margin-inline: auto;
+  border-top: 1px solid var(--hair);
+}
+.faq-item {
+  border-bottom: 1px solid var(--hair);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 4px;
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  color: var(--ink);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  transition: color 0.15s ease;
+}
+[dir="rtl"] .faq-item summary {
+  font-family: var(--font-arabic);
+  font-weight: 700;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--bronze);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item summary:hover { color: var(--bronze); }
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.faq-item p {
+  padding: 0 4px 22px;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 0 12px;
+  line-height: 1.65;
+}
+[dir="rtl"] .faq-item p { font-family: var(--font-arabic-sans); }
+.faq-item p:last-of-type { margin-bottom: 0; }
+.faq-item a { text-decoration: underline; text-decoration-color: rgba(138, 110, 58, 0.4); text-underline-offset: 3px; }
 
 /* ───── Reduced motion ───── */
 @media (prefers-reduced-motion: reduce) {

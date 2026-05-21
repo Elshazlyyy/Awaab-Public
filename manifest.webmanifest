@@ -1,0 +1,21 @@
+{
+  "name": "Awaab — A quiet companion for the daily prayer",
+  "short_name": "Awaab",
+  "description": "A free, private Islamic companion. Quran reader, prayer times, qibla finder. Bilingual.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#F4EFE3",
+  "theme_color": "#F4EFE3",
+  "categories": ["lifestyle", "education", "books"],
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
