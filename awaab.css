@@ -194,7 +194,7 @@ header.site {
   font-weight: 400;
   font-size: 1.3rem;
   color: var(--ink-soft);
-  margin-inline-start: 14px;
+  margin-inline-start: 22px;
 }
 
 nav.site-nav {
@@ -864,8 +864,11 @@ article.prose a:hover { text-decoration-color: var(--bronze-text); }
   color: var(--ink-faint);
   user-select: none;
 }
-.lang-switch {
-  margin-inline-start: 36px;
+/* The selector is qualified by nav.site-nav so it beats the (0,1,1)
+   specificity of `nav.site-nav a` — without that qualifier, the base
+   nav margin (26px) overrides the larger lang-switch margin. */
+nav.site-nav a.lang-switch {
+  margin-inline-start: 44px;
   font-family: var(--font-sans);
   font-size: 0.82rem;
   padding: 5px 12px;
@@ -875,11 +878,11 @@ article.prose a:hover { text-decoration-color: var(--bronze-text); }
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
-.lang-switch:hover {
+nav.site-nav a.lang-switch:hover {
   border-color: var(--bronze-text);
   color: var(--bronze-text);
 }
-[dir="rtl"] .lang-switch {
+[dir="rtl"] nav.site-nav a.lang-switch {
   font-family: var(--font-sans);
   font-style: italic;
 }
@@ -1358,13 +1361,13 @@ article.prose a:hover { text-decoration-color: var(--bronze-text); }
     font-size: 0.86rem;
     padding-block: 4px;
   }
-  .lang-switch {
+  nav.site-nav a.lang-switch {
     margin-inline-start: auto;
     margin-inline-end: 0;
   }
   /* In RTL, the language switch (which links to English) should sit on
      the start side too. Override the auto-margin direction. */
-  [dir="rtl"] .lang-switch {
+  [dir="rtl"] nav.site-nav a.lang-switch {
     margin-inline-start: auto;
   }
 }
