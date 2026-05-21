@@ -98,7 +98,12 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-feature-settings: 'tnum' 0, 'lnum' 1;
+  /* Safety-net: never allow horizontal scroll on mobile, even if a
+     descendant misbehaves. The hero device is the most likely culprit
+     at very narrow viewports. */
+  overflow-x: clip;
 }
+html { overflow-x: clip; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
@@ -1325,8 +1330,93 @@ article.prose a:hover { text-decoration-color: var(--bronze-text); }
 }
 
 /* ───── Mobile tweaks ───── */
+
+/* Tablet and below — nav still inline but tighter */
+@media (max-width: 760px) {
+  nav.site-nav a {
+    margin-inline-start: 18px;
+    font-size: 0.88rem;
+  }
+}
+
+/* Phone — stack nav below brand for breathing room */
+@media (max-width: 640px) {
+  header.site { padding-block: 16px; }
+  .site-bar {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  nav.site-nav {
+    flex-basis: 100%;
+    gap: 10px 0;
+    padding-block-start: 6px;
+    border-block-start: 1px solid var(--hair);
+  }
+  nav.site-nav a {
+    margin-inline-start: 0;
+    margin-inline-end: 20px;
+    font-size: 0.86rem;
+    padding-block: 4px;
+  }
+  .lang-switch {
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+  }
+  /* In RTL, the language switch (which links to English) should sit on
+     the start side too. Override the auto-margin direction. */
+  [dir="rtl"] .lang-switch {
+    margin-inline-start: auto;
+  }
+}
+
+/* Small phone — tighten hero + device + bilingual + sections */
 @media (max-width: 540px) {
-  nav.site-nav a { margin-inline-start: 14px; font-size: 0.88rem; }
   .badge { padding: 10px 18px; }
+  .badge strong { font-size: 0.95rem; }
+  .badge small { font-size: 0.66rem; }
   .device { width: min(300px, 100%); }
+  section.band { padding-block: 56px; }
+  .hero { padding-block: 32px 56px; }
+  .section-head { margin-bottom: 40px; }
+  .promise-card { padding: 32px 24px; }
+  .feature-grid { gap: 16px; }
+  .craft-grid { gap: 14px; }
+  .craft-item { padding: 20px 18px; }
+  .card { padding: 26px 22px; }
+  .device-screen { min-height: 540px; padding: 56px 18px 22px; }
+  .device-countdown { font-size: 2.2rem; }
+  .device-city { font-size: 1.2rem; }
+  .gallery .device-screen { min-height: 460px; padding: 52px 16px 20px; }
+  .gallery .device-countdown { font-size: 1.75rem; }
+}
+
+/* Very narrow — iPhone SE and similar */
+@media (max-width: 380px) {
+  h1 { font-size: 2.2rem; }
+  .tagline { font-size: 1.02rem; }
+  .bilingual-pair { gap: 18px; }
+  .bilingual-pair .en, .bilingual-pair .ar { font-size: 2.6rem; }
+  .verse-ar { font-size: 1.85rem; line-height: 1.55; }
+  .verse-en { font-size: 1.12rem; }
+  .device { width: min(280px, 100%); }
+  .device-screen { padding: 52px 16px 18px; }
+  .device-countdown { font-size: 2rem; }
+  .device-row .name { font-size: 1.1rem; }
+  .device-row .time { font-size: 0.95rem; }
+  .fact-n { font-size: 2.4rem; }
+}
+
+/* Footer: cleaner stack on phones */
+@media (max-width: 640px) {
+  .foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: start;
+  }
+  .foot .nav-row {
+    line-height: 1.9;
+    gap: 0 14px;
+  }
+  .foot .sep { display: none; }
 }
