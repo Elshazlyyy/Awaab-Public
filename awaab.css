@@ -1390,20 +1390,44 @@ article.prose a:hover { text-decoration-color: var(--bronze-text); }
   .gallery .device-countdown { font-size: 1.75rem; }
 }
 
-/* Very narrow — iPhone SE and similar */
+/* Very narrow — iPhone SE class */
 @media (max-width: 380px) {
-  h1 { font-size: 2.2rem; }
-  .tagline { font-size: 1.02rem; }
+  .container { padding-inline: 18px; }
+  h1 { font-size: 2.15rem; }
+  .tagline { font-size: 1rem; }
   .bilingual-pair { gap: 18px; }
-  .bilingual-pair .en, .bilingual-pair .ar { font-size: 2.6rem; }
-  .verse-ar { font-size: 1.85rem; line-height: 1.55; }
-  .verse-en { font-size: 1.12rem; }
-  .device { width: min(280px, 100%); }
-  .device-screen { padding: 52px 16px 18px; }
-  .device-countdown { font-size: 2rem; }
-  .device-row .name { font-size: 1.1rem; }
-  .device-row .time { font-size: 0.95rem; }
+  .bilingual-pair .en, .bilingual-pair .ar { font-size: 2.5rem; }
+  .verse-ar { font-size: 1.75rem; line-height: 1.55; }
+  .verse-en { font-size: 1.1rem; }
+
+  /* Device — tighter at very narrow so prayer times never clip */
+  .device { width: min(248px, 100%); padding: 10px; }
+  .device::before { width: 70px; height: 20px; top: 12px; }
+  .device-screen { min-height: 480px; padding: 46px 14px 18px; }
+  .device-eyebrow { font-size: 0.62rem; letter-spacing: 0.18em; }
+  .device-city { font-size: 1.05rem; }
+  .device-hijri { font-size: 0.74rem; margin-bottom: 10px; }
+  .device-countdown { font-size: 1.85rem; margin: 2px 0; }
+  .device-countdown-label { font-size: 0.72rem; margin-bottom: 14px; }
+  .device-row { padding: 7px 0; }
+  .device-row .name { font-size: 1rem; }
+  .device-row .time { font-size: 0.85rem; }
+  .device-row.next::before { width: 2px; height: 14px; }
+
+  .gallery .device { width: min(252px, 100%); }
+  .gallery .device-screen { min-height: 420px; padding: 44px 14px 18px; }
+
   .fact-n { font-size: 2.4rem; }
+  .promise-card { padding: 28px 20px; }
+}
+
+/* Defensive: never let grid/flex items refuse to shrink */
+.hero-grid > *,
+.gallery > *,
+.feature-grid > *,
+.craft-grid > *,
+.facts-grid > * {
+  min-width: 0;
 }
 
 /* Footer: cleaner stack on phones */
