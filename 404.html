@@ -30,8 +30,23 @@
     font-weight: 300;
   }
   .nf h1 { margin-bottom: 14px; }
-  .nf p { color: var(--ink-soft); max-width: 480px; margin: 0 auto 28px; }
-  .nf .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+  .nf p { color: var(--ink-soft); max-width: 480px; margin: 0 auto 24px; }
+  .nf-ar {
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid var(--hair);
+    max-width: 520px;
+    direction: rtl;
+    font-family: var(--font-arabic-sans);
+  }
+  .nf-ar h2 {
+    font-family: var(--font-arabic);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  .nf-ar p { font-family: var(--font-arabic-sans); }
+  .nf .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 12px; }
   .nf .links a { color: var(--ink-soft); }
   .nf .links a:hover { color: var(--bronze); }
 </style>
@@ -49,6 +64,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="accessibility.html">Accessibility</a>
       <a href="age-suitability.html">Age Suitability</a>
+      <a class="lang-switch" href="ar/index.html" lang="ar" dir="rtl">العربية</a>
     </nav>
   </div>
 </header>
@@ -60,9 +76,20 @@
     <p>The path you followed leads somewhere quiet — perhaps somewhere that never existed. Try one of the pages below.</p>
     <div class="links">
       <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Privacy</a>
       <a href="accessibility.html">Accessibility</a>
       <a href="age-suitability.html">Age Suitability</a>
+    </div>
+
+    <div class="nf-ar" lang="ar">
+      <h2>هذه الصفحة غير موجودة.</h2>
+      <p>المسار الذي اتّبعته يؤدّي إلى مكان هادئ — ربّما إلى مكان لم يكن موجوداً أصلاً.</p>
+      <div class="links">
+        <a href="ar/index.html">الرئيسية</a>
+        <a href="ar/privacy.html">الخصوصية</a>
+        <a href="ar/accessibility.html">إمكانية الوصول</a>
+        <a href="ar/age-suitability.html">ملاءمة العمر</a>
+      </div>
     </div>
   </section>
 </main>
@@ -75,7 +102,8 @@
       <a href="privacy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>
       <a href="accessibility.html">Accessibility</a><span class="sep" aria-hidden="true">·</span>
       <a href="age-suitability.html">Age Suitability</a><span class="sep" aria-hidden="true">·</span>
-      <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
+      <a href="mailto:ahmed.shazly15@gmail.com">Contact</a><span class="sep" aria-hidden="true">·</span>
+      <a href="ar/index.html" lang="ar" dir="rtl">العربية</a>
     </div>
     <div class="version">v1.0 · Built for those who remember</div>
   </div>
