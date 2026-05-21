@@ -3,176 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
 <title>Age Suitability — Awaab</title>
 <meta name="description" content="Awaab is suitable for all ages: rated 4+ / Everyone, with no objectionable content, no ads, no user-generated content, no purchases, and no data collection." />
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
-<style>
-  :root {
-    --cream: #F4EFE3;
-    --cream-deep: #ECE5D2;
-    --gold: #8A6E3A;
-    --gold-soft: #B8965A;
-    --ink: #2A2218;
-    --ink-soft: #5C5141;
-    --line: #DDD3BC;
-    --radius: 14px;
-    --max: 760px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Naskh Arabic", sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  h1, h2, h3 {
-    font-family: "Cormorant Garamond", "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    margin: 0 0 0.4em;
-  }
-
-  h1 { font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.15; }
-  h2 { font-size: 1.5rem; margin-top: 2em; }
-  h3 { font-size: 1.15rem; margin-top: 1.6em; }
-
-  p { margin: 0 0 1em; color: var(--ink-soft); }
-  ul { color: var(--ink-soft); padding-inline-start: 22px; margin: 0 0 1em; }
-  li { margin-bottom: 8px; }
-
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { color: var(--ink); text-decoration: underline; }
-
-  .container {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding-inline: 24px;
-  }
-
-  /* ───── Header ───── */
-  header.site {
-    padding-block: 22px;
-    border-bottom: 1px solid var(--line);
-    background: var(--cream);
-  }
-  .site-bar {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-inline: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-    font-size: 1.45rem;
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .brand img {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(60, 45, 20, 0.12);
-  }
-  nav.site-nav a {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-inline-start: 22px;
-  }
-  nav.site-nav a:hover { color: var(--gold); }
-
-  /* ───── Page intro ───── */
-  .intro {
-    padding-block: clamp(50px, 8vw, 84px) 32px;
-  }
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-  .updated {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-top: 18px;
-  }
-
-  /* ───── Article ───── */
-  article.policy {
-    padding-block: 12px 64px;
-  }
-  article.policy p:first-of-type { font-size: 1.08rem; color: var(--ink); }
-
-  .summary {
-    background: var(--cream-deep);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-block: 32px;
-  }
-  .summary h2 { margin-top: 0; font-size: 1.25rem; }
-  .summary ul { margin-bottom: 0; }
-
-  .contact-card {
-    background: var(--cream-deep);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-top: 28px;
-  }
-  .contact-card p { margin: 0; color: var(--ink); }
-
-  /* ───── Footer ───── */
-  footer.site {
-    padding-block: 44px 36px;
-    border-top: 1px solid var(--line);
-    margin-top: 20px;
-    background: var(--cream);
-  }
-  .foot {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-inline: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 28px;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-  }
-  .foot a { color: var(--ink-soft); }
-  .foot a:hover { color: var(--gold); }
-  .foot .brand-mini {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 1.1rem;
-    color: var(--ink);
-  }
-
-  [dir="rtl"] .brand,
-  [dir="rtl"] .foot { font-family: "Noto Naskh Arabic", "Amiri", "Scheherazade New", serif; }
-
-  @media (max-width: 540px) {
-    nav.site-nav a { margin-inline-start: 14px; font-size: 0.88rem; }
-  }
-</style>
+<link rel="stylesheet" href="awaab.css" />
 </head>
 <body>
 
@@ -180,7 +17,7 @@
   <div class="site-bar">
     <a class="brand" href="index.html" aria-label="Awaab home">
       <img src="icon.png" alt="" />
-      <span>Awaab</span>
+      <span>Awaab<span class="ar-mark" aria-hidden="true">أواب</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html">Home</a>
@@ -193,15 +30,15 @@
 
 <main>
   <section class="intro">
-    <div class="container">
+    <div class="container prose">
       <span class="eyebrow">Age Suitability</span>
       <h1>Safe for everyone, at any age.</h1>
       <p class="updated">Last updated: May 21, 2026</p>
     </div>
   </section>
 
-  <article class="policy">
-    <div class="container">
+  <article class="prose">
+    <div class="container prose">
 
       <p>Awaab is a free Islamic companion app — a Quran reader, prayer times, and a qibla finder. It is designed to be a calm, trustworthy daily tool, and it is suitable for users of all ages.</p>
 
@@ -210,8 +47,8 @@
         <ul>
           <li>Rated <strong>4+</strong> on the App Store and <strong>Everyone</strong> on Google Play — suitable for all ages.</li>
           <li>No objectionable content of any kind.</li>
-          <li>No advertising.</li>
-          <li>No user-generated content, no chat, no social features.</li>
+          <li>No advertising — first-party or third-party.</li>
+          <li>No user-generated content, no chat, no social features, no profiles.</li>
           <li>No in-app purchases, no subscriptions — the app is free.</li>
           <li>No data collection. Nothing leaves your device.</li>
         </ul>
@@ -223,13 +60,13 @@
       <p>Awaab contains the Quran, calculated prayer times, and a qibla compass. There is no fictional content, no violence, no profanity, and no mature themes. The Quran text is presented faithfully and respectfully.</p>
 
       <h3>No advertising</h3>
-      <p>Awaab shows no ads — first-party or third-party. Children using the app will never see a banner, an interstitial, or a promoted product.</p>
+      <p>Awaab shows no ads — first-party or third-party. Children using the app will never see a banner, an interstitial, or a promoted product. There is no advertising SDK in the codebase.</p>
 
-      <h3>No user-generated content, no chat, no social features</h3>
-      <p>There are no forums, no comments, no profiles, no chat, and no way for one user of Awaab to reach another user of Awaab. Children cannot be contacted by strangers through the app, because the app has no way to do so.</p>
+      <h3>No way to be contacted by strangers</h3>
+      <p>There are no forums, no comments, no profiles, no chat, no friend lists, and no way for one user of Awaab to reach another user of Awaab. The app has no server to contact and no account system, so there is structurally no path for a stranger to message a child through it.</p>
 
       <h3>No purchases</h3>
-      <p>Awaab is free, with no in-app purchases and no subscriptions. There is no checkout flow, no payment screen, and no way for a child to spend money inside the app.</p>
+      <p>Awaab is free, with no in-app purchases and no subscriptions. There is no checkout flow, no payment screen, and no way for a child to spend money inside the app. No payment SDK is included in the app.</p>
 
       <h3>No data collection</h3>
       <p>Awaab does not collect, store, or transmit personal data — see the <a href="privacy.html">privacy policy</a> for the full details. There is no account, no analytics, and no tracking.</p>
@@ -249,18 +86,14 @@
 <footer class="site">
   <div class="foot">
     <div class="brand-mini">Awaab</div>
-    <div>
-      <a href="index.html">Home</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="privacy.html">Privacy Policy</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="accessibility.html">Accessibility</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="age-suitability.html">Age Suitability</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
+    <div class="nav-row">
+      <a href="index.html">Home</a><span class="sep" aria-hidden="true">·</span>
+      <a href="privacy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>
+      <a href="accessibility.html">Accessibility</a><span class="sep" aria-hidden="true">·</span>
+      <a href="age-suitability.html">Age Suitability</a><span class="sep" aria-hidden="true">·</span>
       <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
     </div>
-    <div>&copy; 2026 Awaab. Made with care.</div>
+    <div class="version">v1.0 · Built for those who remember</div>
   </div>
 </footer>
 

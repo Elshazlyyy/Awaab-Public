@@ -3,176 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
 <title>Accessibility — Awaab</title>
-<meta name="description" content="Awaab accessibility statement: what we support today and what we are actively improving — VoiceOver, Dynamic Type, color contrast, and reduced motion." />
+<meta name="description" content="Awaab accessibility statement: Dark Mode is supported today; VoiceOver, Dynamic Type, color contrast, and reduced motion are on the active roadmap." />
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
-<style>
-  :root {
-    --cream: #F4EFE3;
-    --cream-deep: #ECE5D2;
-    --gold: #8A6E3A;
-    --gold-soft: #B8965A;
-    --ink: #2A2218;
-    --ink-soft: #5C5141;
-    --line: #DDD3BC;
-    --radius: 14px;
-    --max: 760px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Naskh Arabic", sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  h1, h2, h3 {
-    font-family: "Cormorant Garamond", "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    margin: 0 0 0.4em;
-  }
-
-  h1 { font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.15; }
-  h2 { font-size: 1.5rem; margin-top: 2em; }
-  h3 { font-size: 1.15rem; margin-top: 1.6em; }
-
-  p { margin: 0 0 1em; color: var(--ink-soft); }
-  ul { color: var(--ink-soft); padding-inline-start: 22px; margin: 0 0 1em; }
-  li { margin-bottom: 8px; }
-
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { color: var(--ink); text-decoration: underline; }
-
-  .container {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding-inline: 24px;
-  }
-
-  /* ───── Header ───── */
-  header.site {
-    padding-block: 22px;
-    border-bottom: 1px solid var(--line);
-    background: var(--cream);
-  }
-  .site-bar {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-inline: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-    font-size: 1.45rem;
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .brand img {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(60, 45, 20, 0.12);
-  }
-  nav.site-nav a {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-inline-start: 22px;
-  }
-  nav.site-nav a:hover { color: var(--gold); }
-
-  /* ───── Page intro ───── */
-  .intro {
-    padding-block: clamp(50px, 8vw, 84px) 32px;
-  }
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-  .updated {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-top: 18px;
-  }
-
-  /* ───── Article ───── */
-  article.policy {
-    padding-block: 12px 64px;
-  }
-  article.policy p:first-of-type { font-size: 1.08rem; color: var(--ink); }
-
-  .summary {
-    background: var(--cream-deep);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-block: 32px;
-  }
-  .summary h2 { margin-top: 0; font-size: 1.25rem; }
-  .summary ul { margin-bottom: 0; }
-
-  .contact-card {
-    background: var(--cream-deep);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-top: 28px;
-  }
-  .contact-card p { margin: 0; color: var(--ink); }
-
-  /* ───── Footer ───── */
-  footer.site {
-    padding-block: 44px 36px;
-    border-top: 1px solid var(--line);
-    margin-top: 20px;
-    background: var(--cream);
-  }
-  .foot {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-inline: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 28px;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-  }
-  .foot a { color: var(--ink-soft); }
-  .foot a:hover { color: var(--gold); }
-  .foot .brand-mini {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 1.1rem;
-    color: var(--ink);
-  }
-
-  [dir="rtl"] .brand,
-  [dir="rtl"] .foot { font-family: "Noto Naskh Arabic", "Amiri", "Scheherazade New", serif; }
-
-  @media (max-width: 540px) {
-    nav.site-nav a { margin-inline-start: 14px; font-size: 0.88rem; }
-  }
-</style>
+<link rel="stylesheet" href="awaab.css" />
 </head>
 <body>
 
@@ -180,7 +17,7 @@
   <div class="site-bar">
     <a class="brand" href="index.html" aria-label="Awaab home">
       <img src="icon.png" alt="" />
-      <span>Awaab</span>
+      <span>Awaab<span class="ar-mark" aria-hidden="true">أواب</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html">Home</a>
@@ -193,22 +30,22 @@
 
 <main>
   <section class="intro">
-    <div class="container">
+    <div class="container prose">
       <span class="eyebrow">Accessibility</span>
       <h1>Working to make Awaab usable for everyone.</h1>
       <p class="updated">Last updated: May 21, 2026</p>
     </div>
   </section>
 
-  <article class="policy">
-    <div class="container">
+  <article class="prose">
+    <div class="container prose">
 
       <p>Awaab is a quiet, daily companion — and a daily companion is only useful if you can actually use it. We are committed to accessibility, and we want to be honest about where the app stands today and what we are still working on.</p>
 
       <div class="summary">
         <h2>The short version</h2>
         <ul>
-          <li>Awaab supports your device's system <strong>Dark Mode</strong>.</li>
+          <li>Awaab supports your device's system <strong>Dark Mode</strong>, and a manual light/dark/system toggle in Settings.</li>
           <li>We are actively working to improve <strong>VoiceOver</strong>, <strong>Dynamic Type</strong>, <strong>color contrast</strong>, and <strong>reduced motion</strong> in upcoming releases.</li>
           <li>If something is hard to use, please tell us — your feedback shapes the next update.</li>
         </ul>
@@ -217,22 +54,28 @@
       <h2>What works today</h2>
 
       <h3>System Dark Mode</h3>
-      <p>Awaab follows your device's Dark Mode setting. When your phone is in dark mode, the app switches to a darker theme automatically — no separate toggle to remember.</p>
+      <p>Awaab follows your device's appearance setting and switches between a warm cream-and-bronze light theme and a deep slate dark theme automatically. You can also override the system preference from <em>Settings → Appearance</em> if you want to lock the app to light or dark independently of the OS.</p>
+
+      <h3>Adjustable Arabic text size</h3>
+      <p>The Quran reader has its own Arabic-text scale (independent of the system text size), so you can size Arabic letterforms up or down without affecting the rest of the interface. This is a quiet accessibility win for low-vision readers of Arabic in particular.</p>
+
+      <h3>On-device sensors and quiet motion</h3>
+      <p>The qibla compass uses a smooth, low-jitter needle motion rather than abrupt snaps. We chose this for calm — it also incidentally helps anyone sensitive to sudden movement.</p>
 
       <h2>What we are actively working on</h2>
-      <p>The following areas are on our active roadmap. We are not claiming full support for them yet — we want you to know what to expect, and what we are still polishing.</p>
+      <p>The following areas are on our active roadmap. We are <em>not</em> claiming full support for them yet — we want you to know what to expect, and what we are still polishing.</p>
 
       <h3>VoiceOver and screen reader support</h3>
       <p>We are working to label buttons, controls, and Quran navigation in a way that VoiceOver and TalkBack can announce clearly. Reading the Quran with a screen reader should feel calm and predictable, and we are not there yet.</p>
 
-      <h3>Dynamic Type (larger text)</h3>
-      <p>We are improving how Awaab responds when you increase the system text size. The goal is that Arabic and English text both scale up cleanly, without lines being clipped or controls becoming hard to reach.</p>
+      <h3>Dynamic Type (system text size)</h3>
+      <p>Awaab respects the system text size in some places today, but not consistently across every screen. We are working through the app to make every label, button, and body of text honor your device's Text Size setting.</p>
 
       <h3>Color contrast</h3>
       <p>The app's cream-and-bronze palette is part of what makes it feel calm, but we know some combinations may not yet meet contrast guidelines for low-vision readers. We are reviewing every screen and adjusting tones where they fall short.</p>
 
       <h3>Reduced motion</h3>
-      <p>For people who prefer reduced motion, we are working to honor your device's "Reduce Motion" setting throughout the app — softening transitions and animations where the system asks us to.</p>
+      <p>For people who prefer reduced motion, we are working to honor your device's "Reduce Motion" setting throughout the app — softening transitions and animations where the system asks us to. This website already respects that setting.</p>
 
       <h2>How to send feedback</h2>
       <p>If something in Awaab is hard to use, slow to read, or confusing with assistive technology, we want to know. Specific feedback — even a single screen or a single button — helps more than you would expect.</p>
@@ -248,18 +91,14 @@
 <footer class="site">
   <div class="foot">
     <div class="brand-mini">Awaab</div>
-    <div>
-      <a href="index.html">Home</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="privacy.html">Privacy Policy</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="accessibility.html">Accessibility</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="age-suitability.html">Age Suitability</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
+    <div class="nav-row">
+      <a href="index.html">Home</a><span class="sep" aria-hidden="true">·</span>
+      <a href="privacy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>
+      <a href="accessibility.html">Accessibility</a><span class="sep" aria-hidden="true">·</span>
+      <a href="age-suitability.html">Age Suitability</a><span class="sep" aria-hidden="true">·</span>
       <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
     </div>
-    <div>&copy; 2026 Awaab. Made with care.</div>
+    <div class="version">v1.0 · Built for those who remember</div>
   </div>
 </footer>
 

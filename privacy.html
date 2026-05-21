@@ -3,176 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
 <title>Privacy Policy — Awaab</title>
 <meta name="description" content="Awaab privacy policy: no data collection, no analytics, no tracking. Everything stays on your device." />
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
-<style>
-  :root {
-    --cream: #F4EFE3;
-    --cream-deep: #ECE5D2;
-    --gold: #8A6E3A;
-    --gold-soft: #B8965A;
-    --ink: #2A2218;
-    --ink-soft: #5C5141;
-    --line: #DDD3BC;
-    --radius: 14px;
-    --max: 760px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Naskh Arabic", sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  h1, h2, h3 {
-    font-family: "Cormorant Garamond", "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    margin: 0 0 0.4em;
-  }
-
-  h1 { font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.15; }
-  h2 { font-size: 1.5rem; margin-top: 2em; }
-  h3 { font-size: 1.15rem; margin-top: 1.6em; }
-
-  p { margin: 0 0 1em; color: var(--ink-soft); }
-  ul { color: var(--ink-soft); padding-inline-start: 22px; margin: 0 0 1em; }
-  li { margin-bottom: 8px; }
-
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { color: var(--ink); text-decoration: underline; }
-
-  .container {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding-inline: 24px;
-  }
-
-  /* ───── Header ───── */
-  header.site {
-    padding-block: 22px;
-    border-bottom: 1px solid var(--line);
-    background: var(--cream);
-  }
-  .site-bar {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-inline: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-    font-size: 1.45rem;
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .brand img {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(60, 45, 20, 0.12);
-  }
-  nav.site-nav a {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-inline-start: 22px;
-  }
-  nav.site-nav a:hover { color: var(--gold); }
-
-  /* ───── Page intro ───── */
-  .intro {
-    padding-block: clamp(50px, 8vw, 84px) 32px;
-  }
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-  .updated {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-top: 18px;
-  }
-
-  /* ───── Article ───── */
-  article.policy {
-    padding-block: 12px 64px;
-  }
-  article.policy p:first-of-type { font-size: 1.08rem; color: var(--ink); }
-
-  .summary {
-    background: var(--cream-deep);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-block: 32px;
-  }
-  .summary h2 { margin-top: 0; font-size: 1.25rem; }
-  .summary ul { margin-bottom: 0; }
-
-  .contact-card {
-    background: var(--cream-deep);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-top: 28px;
-  }
-  .contact-card p { margin: 0; color: var(--ink); }
-
-  /* ───── Footer ───── */
-  footer.site {
-    padding-block: 44px 36px;
-    border-top: 1px solid var(--line);
-    margin-top: 20px;
-    background: var(--cream);
-  }
-  .foot {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding-inline: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 28px;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-  }
-  .foot a { color: var(--ink-soft); }
-  .foot a:hover { color: var(--gold); }
-  .foot .brand-mini {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 1.1rem;
-    color: var(--ink);
-  }
-
-  [dir="rtl"] .brand,
-  [dir="rtl"] .foot { font-family: "Noto Naskh Arabic", "Amiri", "Scheherazade New", serif; }
-
-  @media (max-width: 540px) {
-    nav.site-nav a { margin-inline-start: 14px; font-size: 0.88rem; }
-  }
-</style>
+<link rel="stylesheet" href="awaab.css" />
 </head>
 <body>
 
@@ -180,7 +17,7 @@
   <div class="site-bar">
     <a class="brand" href="index.html" aria-label="Awaab home">
       <img src="icon.png" alt="" />
-      <span>Awaab</span>
+      <span>Awaab<span class="ar-mark" aria-hidden="true">أواب</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html">Home</a>
@@ -193,15 +30,15 @@
 
 <main>
   <section class="intro">
-    <div class="container">
+    <div class="container prose">
       <span class="eyebrow">Privacy Policy</span>
       <h1>Your data stays with you.</h1>
       <p class="updated">Last updated: May 21, 2026</p>
     </div>
   </section>
 
-  <article class="policy">
-    <div class="container">
+  <article class="prose">
+    <div class="container prose">
 
       <p>Awaab is designed so that you never have to trust us with your information — because we never receive any. This page explains exactly what happens, in plain language.</p>
 
@@ -212,31 +49,42 @@
           <li>No account is required to use the app.</li>
           <li>No analytics, no advertising, no third-party trackers, no crash-reporting services.</li>
           <li>Location and motion sensors are used only on your device, and only for the features that need them.</li>
+          <li>All Quran content and prayer-time calculations are bundled with the app and run on-device.</li>
         </ul>
       </div>
 
       <h2>What Awaab does not collect</h2>
-      <p>Awaab does not collect, store, or transmit personal data. There is no account system, no sign-in, and no identifier that ties the app to you. We do not run analytics, we do not show advertising, we do not use any third-party tracking SDK, and we do not use any crash-reporting service.</p>
+      <p>Awaab does not collect, store, or transmit personal data. There is no account system, no sign-in, and no identifier that ties the app to you. We do not run analytics, we do not show advertising, we do not use any third-party tracking SDK, and we do not use any crash-reporting service. The app's source code contains zero remote URLs and zero network calls of its own.</p>
+
+      <h2>Where your data lives</h2>
+      <p>Anything Awaab needs to remember — your preferences, your bookmarks, your selected calculation method, your last known location — is written to a local SQLite database file on your device. It is never copied to a server, because Awaab does not operate any server.</p>
 
       <h2>On-device sensors</h2>
 
       <h3>Location</h3>
-      <p>If you grant location permission, your device's location is used <strong>only on your device</strong> to calculate accurate prayer times for where you are, and to determine the bearing toward the qibla. Your location is never sent off your device and never stored off your device. We do not see it.</p>
+      <p>If you grant location permission, your device's location is used <strong>only on your device</strong> to calculate accurate prayer times for where you are, and to determine the bearing toward the qibla. Awaab itself never transmits or stores your location off your device.</p>
+
+      <div class="note">
+        <strong>One honest nuance about reverse geocoding.</strong> When you ask Awaab to detect your location, the app may also ask your <em>operating system</em> to translate your coordinates into a city name to display ("Mecca, Saudi Arabia"). On iOS and Android, this lookup is handled by Apple's or Google's own geocoding services. That step is performed by the OS, not by Awaab, and is governed by their own privacy policies. Awaab cannot see or capture what the OS does with that request.
+      </div>
 
       <h3>Compass and motion sensor</h3>
       <p>The compass and motion sensors are used <strong>only on your device</strong> to power the qibla finder. Heading data stays on the device — it is not transmitted anywhere.</p>
 
       <h2>Quran and prayer-time content</h2>
-      <p>Quran text and prayer-time calculations are fully local. The Quran content is bundled inside the app as a local database, and prayer times are computed on your device from your location. The app does not make network requests to load Quran content or to fetch prayer times.</p>
+      <p>Quran text and prayer-time calculations are fully local. The Quran content ships inside the app as a bundled SQLite database (~2.6 MB) and is read directly from your device's storage. Prayer times are computed on your device using a standard astronomical formula and your location. The app does not make network requests to load Quran content or to fetch prayer times.</p>
 
       <h2>Notifications</h2>
-      <p>Awaab can schedule local notifications to remind you when each prayer time enters. These notifications are scheduled and delivered entirely by your device's operating system. They are not push notifications from a server — nothing leaves the device.</p>
+      <p>Awaab can schedule local notifications to remind you when each prayer time enters. These notifications are scheduled in advance, in a rolling window, and are delivered entirely by your device's operating system. They are not push notifications from a server — there is no server.</p>
 
       <h2>What Apple and Google may collect</h2>
       <p>When you download or use Awaab through the App Store or Google Play, the platforms themselves may collect standard platform-level information — for example, download counts, device model, operating-system diagnostics, and crash reports they collect on Awaab's behalf at the OS level. This data is governed by Apple's and Google's own privacy policies and is outside Awaab's control. Awaab does not access this data and does not have any analytics agreement with either platform.</p>
 
+      <h2>How Awaab is built</h2>
+      <p>Awaab is built with Expo and React Native — standard, well-known cross-platform frameworks. These provide the runtime that draws the screens; they do not add tracking, telemetry, or remote logging of their own to the production app. No additional analytics or tracking SDK is included in Awaab.</p>
+
       <h2>Children</h2>
-      <p>Because Awaab does not collect personal information from anyone, it does not collect personal information from children. The app is safe to use at any age.</p>
+      <p>Because Awaab does not collect personal information from anyone, it does not collect personal information from children. The app is safe to use at any age — see the <a href="age-suitability.html">Age Suitability statement</a> for more.</p>
 
       <h2>Changes to this policy</h2>
       <p>If anything about how Awaab handles data changes, this page will be updated and the "last updated" date above will change to reflect it. The privacy posture above is a core design commitment of the app — we don't intend to change it.</p>
@@ -253,18 +101,14 @@
 <footer class="site">
   <div class="foot">
     <div class="brand-mini">Awaab</div>
-    <div>
-      <a href="index.html">Home</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="privacy.html">Privacy Policy</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="accessibility.html">Accessibility</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
-      <a href="age-suitability.html">Age Suitability</a>
-      <span aria-hidden="true" style="margin: 0 10px; color: var(--line);">·</span>
+    <div class="nav-row">
+      <a href="index.html">Home</a><span class="sep" aria-hidden="true">·</span>
+      <a href="privacy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>
+      <a href="accessibility.html">Accessibility</a><span class="sep" aria-hidden="true">·</span>
+      <a href="age-suitability.html">Age Suitability</a><span class="sep" aria-hidden="true">·</span>
       <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
     </div>
-    <div>&copy; 2026 Awaab. Made with care.</div>
+    <div class="version">v1.0 · Built for those who remember</div>
   </div>
 </footer>
 
