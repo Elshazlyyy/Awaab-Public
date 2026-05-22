@@ -95,15 +95,41 @@ html, body {
   border-radius: 3px;
 }
 
-/* Skip-to-content link — visible on focus only */
+/* Skip-to-content link — visually hidden until focused.
+ *
+ * Uses the canonical "visually-hidden" pattern (clip + 1×1px square) so
+ * the link stays in the tab order without extending the document box.
+ * The previous `left: -9999px` parked the element 9999px to the LEFT of
+ * the containing block — fine under `dir="ltr"`, but in `dir="rtl"` the
+ * containing block's overflow direction reverses and the link inflates
+ * the document by 9999px to the visual right. Result: an 8× horizontal
+ * scroll on every `/ar/*` page.
+ */
 .skip {
-  position: absolute; left: -9999px; top: 12px;
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.skip:focus {
+  position: fixed;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: auto; height: auto;
+  padding: 10px 16px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
   background: var(--ink); color: var(--bg);
-  padding: 10px 16px; border-radius: var(--r);
+  border-radius: var(--r);
   font-family: var(--ff-mono); font-size: 12px; letter-spacing: 0.18em;
   z-index: 100;
 }
-.skip:focus { left: 50%; transform: translateX(-50%); }
 
 /* ─── Layout primitives ──────────────────────────────────── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-page); }
@@ -145,15 +171,22 @@ html, body {
 }
 .body-l { font-size: 17px; line-height: 1.55; color: var(--ink-soft); }
 .body   { font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
-.caption{ font-size: 12px; line-height: 1.45; color: var(--ink-faint); }
+.caption{ font-size: 12px; line-height: 1.45; color: var(--ink-soft); }
 
+/* Eyebrow default color is `accent-text` (WCAG-AA bronze on cream) so
+ * the 10px upper-case mono runs cross the 4.5:1 floor on both themes.
+ * Spec §12.7 lists `inkFaint` for eyebrows but only requires 3:1 there,
+ * which fails Lighthouse strict AA. Bumping to `accent-text` aligns
+ * with the brand-board's own eyebrow rendering and lands the site's
+ * Lighthouse Accessibility score at 100 per spec §10. */
 .eyebrow {
   font-family: var(--ff-mono); font-weight: 500;
   font-size: 10px; line-height: 1.2; letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--accent-text);
 }
 .eyebrow--accent { color: var(--accent-text); }
+.eyebrow--faint  { color: var(--ink-soft); }
 
 .mono { font-family: var(--ff-mono); font-feature-settings: 'tnum'; }
 
@@ -258,7 +291,7 @@ html, body {
   display: flex; align-items: center; gap: 8px;
   margin-top: 22px;
   font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.04em;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 .hero__note .dot {
   width: 6px; height: 6px; border-radius: 6px; background: var(--success);
@@ -356,7 +389,12 @@ html, body {
   content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 5px;
   background: var(--accent); margin-inline-end: 8px; vertical-align: middle;
 }
-.mock-today .row--past { color: var(--ink-faint); }
+/* Mock past-prayer rows: visually faded vs the app's `inkFaint` treatment,
+ * but bumped to `inkSoft` here (8:1 contrast vs 3.2:1) so the marketing
+ * site's Lighthouse A11y score reaches 100 per spec §10. The app itself
+ * keeps the `inkFaint` past-row treatment — this divergence applies only
+ * inside the decorative mockups on the marketing landing. */
+.mock-today .row--past { color: var(--ink-soft); }
 
 /* ─── 3-companions gallery ──────────────────────────────── */
 .gallery {
@@ -614,7 +652,7 @@ html, body {
 .site-footer__mark { display: flex; align-items: center; gap: 12px; }
 .site-footer__legal {
   font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.06em;
-  color: var(--ink-faint); margin-top: 16px; text-transform: uppercase;
+  color: var(--ink-soft); margin-top: 16px; text-transform: uppercase;
 }
 .footer-nav {
   display: flex; gap: 24px;
