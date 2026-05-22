@@ -3,7 +3,7 @@
 ![Awaab — A quiet companion for the daily prayer](og.png)
 
 Public marketing, support, and legal pages for **Awaab** — a quiet,
-offline Islamic companion app for iPhone, iPad, and Android. Quran
+offline Islamic companion app for iPhone, iPad, and Android. Qur'an
 reader, prayer times, qibla finder. Bilingual (English + Arabic).
 
 This repository is the **static website only**. The application itself

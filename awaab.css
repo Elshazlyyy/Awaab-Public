@@ -887,7 +887,7 @@ nav.site-nav a.lang-switch:hover {
   font-style: italic;
 }
 
-/* ───── Device variants: Qibla + Quran ───── */
+/* ───── Device variants: Qibla + Qur'an ───── */
 .device-screen-qibla,
 .device-screen-quran {
   /* same base as .device-screen but with feature-specific bodies */
@@ -984,7 +984,7 @@ nav.site-nav a.lang-switch:hover {
   margin: 14px 0 0;
 }
 
-/* Quran reader screen */
+/* Qur'an reader screen */
 .device-screen-quran .device-eyebrow { margin-bottom: 4px; }
 .quran-title {
   display: flex;
