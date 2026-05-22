@@ -1,0 +1,154 @@
+# ──────────────────────────────────────────────────────────────────────
+# Awaab marketing site — .gitignore
+#
+# This repo is a hand-written static site (HTML + CSS + a couple of
+# PNGs) served by GitHub Pages. There is no build step. Most of the
+# entries below are defensive — they keep the repo clean even when a
+# tool (Lighthouse, npx, an IDE) drops a stray file into the folder.
+# ──────────────────────────────────────────────────────────────────────
+
+
+# ─────── Operating-system noise ───────
+# macOS Finder metadata, resource forks, Spotlight indexes, custom icons.
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Icon$'\r'
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+
+# ─────── Editor & IDE ───────
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code (workspace settings are per-user for this project)
+.vscode/
+*.code-workspace
+
+# Sublime / Vim / Emacs / nano
+*.sublime-workspace
+*.sublime-project
+*~
+*.swp
+*.swo
+*.swn
+.netrwhist
+.#*
+\#*\#
+*.bak
+*.backup
+*.orig
+*.rej
+
+# Other editors
+.history/
+.ionide/
+
+
+# ─────── AI tools / assistants ───────
+# Claude Code keeps per-user worktrees + session state here. Not for sharing.
+.claude/
+# Aider chat history and config (per-user).
+.aider*
+# Cursor local state.
+.cursor/
+
+
+# ─────── Logs ───────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.npm/
+.yarn/
+.pnp.*
+
+
+# ─────── Node / package managers (defensive — no build step today) ───────
+node_modules/
+jspm_packages/
+bower_components/
+.eslintcache
+.stylelintcache
+.prettiercache
+
+
+# ─────── Build outputs (defensive) ───────
+dist/
+build/
+out/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist
+.docusaurus/
+
+
+# ─────── Audit / report outputs ───────
+# Lighthouse and similar tools often dump JSON/HTML into the repo root
+# when run from inside it.
+lighthouse-results.html
+lighthouse-results.json
+lighthouse_results/
+lh-*.json
+lh-*.html
+.lighthouseci/
+
+# Coverage (defensive)
+coverage/
+*.lcov
+.nyc_output/
+
+
+# ─────── Local scratch ───────
+# Anything that lives only on your machine. The trailing slash matters:
+# `scratch` would also match a tracked file named `scratch`.
+scratch/
+tmp/
+temp/
+.tmp/
+local/
+*.local
+*.local.png
+*-screenshot.png
+
+
+# ─────── Secrets & environment ───────
+# This site has no env vars or secrets — but if anyone ever adds them,
+# they must not land in git.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.keystore
+*.jks
+secrets.*
