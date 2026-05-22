@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
 <title>Privacy Policy — Awaab</title>
-<meta name="description" content="Awaab privacy policy: no data collection, no analytics, no tracking. Everything stays on your phone." />
+<meta name="description" content="Awaab's privacy policy. No personal data, no advertising trackers — only anonymous operational signals via Expo Application Services for OTA updates and aggregate adoption metrics. Fully disclosed." />
 <link rel="icon" type="image/png" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
 <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/privacy.html" />
@@ -17,14 +17,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Awaab" />
 <meta property="og:title" content="Privacy Policy — Awaab" />
-<meta property="og:description" content="Awaab privacy policy: no data collection, no analytics, no tracking. Everything stays on your phone." />
+<meta property="og:description" content="Awaab's privacy policy. No personal data, no advertising trackers — only anonymous operational signals via Expo Application Services for OTA updates and aggregate adoption metrics. Fully disclosed." />
 <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Privacy Policy — Awaab" />
-<meta name="twitter:description" content="No data collection, no analytics, no tracking. Everything stays on your phone." />
+<meta name="twitter:description" content="No personal data, no advertising trackers. Anonymous operational signals to Expo for OTA updates only — fully disclosed." />
 <meta name="twitter:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +37,7 @@
   "@type": "WebPage",
   "name": "Privacy Policy — Awaab",
   "url": "https://elshazlyyy.github.io/Awaab-Public/privacy.html",
-  "description": "Awaab privacy policy: no data collection, no analytics, no tracking. Everything stays on your phone.",
+  "description": "Awaab's privacy policy. No personal data, no advertising trackers — only anonymous operational signals via Expo Application Services for OTA updates and aggregate adoption metrics. Fully disclosed.",
   "inLanguage": "en",
   "isPartOf": { "@type": "WebSite", "name": "Awaab", "url": "https://elshazlyyy.github.io/Awaab-Public/" }
 }
@@ -68,31 +68,70 @@
     <div class="container prose">
       <span class="eyebrow">Privacy Policy</span>
       <h1>Your data stays with you.</h1>
-      <p class="updated">Last updated: May 21, 2026</p>
+      <p class="updated">Last updated: May 22, 2026</p>
     </div>
   </section>
 
   <article class="prose">
     <div class="container prose">
 
-      <p>Awaab is designed so that you never have to trust us with your information — because we never receive any. This page explains exactly what happens, in plain language.</p>
+      <p>Awaab is designed so that virtually nothing you do in the app reaches us. There is no account, no advertising, no third-party tracker. The only signals we receive are a small set of anonymous operational metrics — disclosed in full below — that let us ship bug fixes via over-the-air updates and understand which versions of the app are in use. This page explains exactly what happens, in plain language.</p>
 
       <div class="summary">
         <h2>The short version</h2>
         <ul>
-          <li>Awaab collects, stores, and transmits no personal data.</li>
+          <li>No personal data is collected, stored, or transmitted.</li>
           <li>No account is required to use the app.</li>
-          <li>No analytics, no advertising, no third-party trackers, no crash-reporting services.</li>
+          <li>No advertising. No third-party trackers. No cross-app advertising identifiers.</li>
+          <li>A small set of anonymous operational signals is transmitted to Expo Application Services — used to deliver over-the-air bug fixes and to count how many people are running each version. Full details below.</li>
           <li>Location and motion sensors are used only on your phone, and only for the features that need them.</li>
-          <li>The full Quran and all prayer-time calculations are included with the app and run on your phone.</li>
+          <li>The full Qur'an and all prayer-time calculations are included with the app and run on your phone.</li>
         </ul>
       </div>
 
       <h2>What Awaab does not collect</h2>
-      <p>Awaab does not collect, store, or transmit personal data. There is no account system, no sign-in, and no identifier that ties the app to you. We do not run analytics, we do not show advertising, we do not use any third-party tracker, and we do not use any crash-reporting service. Awaab does not connect to any server of ours — because there isn't one.</p>
+      <p>Awaab does not collect, store, or transmit personal data. There is no account system, no sign-in, and no identifier that ties the app to you as a person. We do not show advertising. We do not use any third-party advertising tracker. We do not use Google Analytics, Mixpanel, Amplitude, Firebase, Sentry, or any similar product-analytics or crash-reporting service. We do not operate a server that holds your data — your bookmarks, settings, reading position, and last-known location all live on your phone only.</p>
+
+      <h2>What Awaab transmits anonymously</h2>
+      <p>To deliver over-the-air bug fixes between App Store releases, and to surface aggregate adoption metrics so the developer can answer questions like <em>"is the latest update being adopted?"</em> and <em>"what OS versions do we still need to support?"</em>, the app transmits a small set of anonymous, non-personally-identifiable signals to Expo Application Services (the platform we use to build, ship, and update Awaab).</p>
+
+      <h3>Via <code>expo-updates</code> (over-the-air update check)</h3>
+      <p>On each launch, the app checks <code>u.expo.dev</code> to see whether a new JavaScript bundle is available for your installed version. The request contains:</p>
+      <ul>
+        <li>The Awaab Expo project ID (a public, anonymous identifier — the same value for every install)</li>
+        <li>The update channel name (e.g., <code>production</code>)</li>
+        <li>The installed runtime version (which maps to your installed App Store / Play Store version)</li>
+        <li>The platform (iOS or Android) and OS version</li>
+        <li>A randomly-generated install ID — <strong>not linked</strong> to your Apple ID, Google account, or any device identifier</li>
+      </ul>
+
+      <h3>Via <code>expo-insights</code> (anonymous operational telemetry)</h3>
+      <p>On each launch, the app sends an anonymous "app started" event to Expo's analytics endpoint. The event contains:</p>
+      <ul>
+        <li>The app version and EAS Build ID</li>
+        <li>The platform (iOS or Android) and OS version</li>
+        <li>The device model identifier (e.g., <code>iPhone15,3</code> — the hardware class, not a device-unique identifier)</li>
+        <li>The same randomly-generated install ID used by <code>expo-updates</code></li>
+      </ul>
+
+      <h3>What is <em>not</em> in either transmission</h3>
+      <ul>
+        <li>Your Apple ID, Google account, email, name, or any sign-in identifier</li>
+        <li>Your IP address as a logged or linked record (Expo's servers see the IP only long enough to deliver the response; it is not logged against your install ID)</li>
+        <li>Your precise location, contacts, photos, or any system-level data</li>
+        <li>Anything you typed, read, bookmarked, searched, or did inside the app</li>
+        <li>Cross-app advertising identifiers (<code>IDFA</code> on iOS, <code>AAID</code> on Android — these are actively blocked in Awaab's manifest)</li>
+      </ul>
+
+      <div class="note">
+        <strong>You can verify this independently.</strong> The Awaab source code is hosted at <a href="https://github.com/Elshazlyyy/Awaab">github.com/Elshazlyyy/Awaab</a>. The dependencies that perform the two transmissions above are <code>expo-updates</code> and <code>expo-insights</code> in <code>package.json</code>; the configuration that wires them is in <code>app.json</code>.
+      </div>
+
+      <h2>About Expo Application Services</h2>
+      <p>Awaab is built with Expo and React Native. Expo Application Services (Expo Inc.) processes the anonymous telemetry described above in accordance with Expo's own privacy policy at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. Expo does not sell this data, does not link it to advertising networks, and does not share it with third parties beyond their own infrastructure providers.</p>
 
       <h2>Where your data lives</h2>
-      <p>Anything Awaab needs to remember — your preferences, your bookmarks, your selected calculation method, your last known location — is saved on your phone. It is never copied to a server, because Awaab does not operate any server.</p>
+      <p>Anything Awaab needs to remember — your preferences, your bookmarks, your selected calculation method, your last known location, your reading position — is saved on your phone in a local SQLite database. It is never copied to a server, because no Awaab server exists to copy it to.</p>
 
       <h2>On-device sensors</h2>
 
@@ -106,20 +145,20 @@
       <h3>Compass and motion sensor</h3>
       <p>The compass and motion sensors are used <strong>only on your phone</strong> to power the qibla finder. Your heading stays on the phone — it is not transmitted anywhere.</p>
 
-      <h2>Quran and prayer-time content</h2>
-      <p>The Quran and all prayer-time calculations are fully on your phone. The Quran is included with the app and ready to read at any moment. Prayer times are calculated on your phone using a standard astronomical formula and your location. The app does not make any network request to load the Quran or to fetch prayer times.</p>
+      <h2>Qur'an and prayer-time content</h2>
+      <p>The Qur'an and all prayer-time calculations are fully on your phone. The Qur'an is included with the app and ready to read at any moment. Prayer times are calculated on your phone using a standard astronomical formula and your location. The app does not make any network request to load the Qur'an or to fetch prayer times.</p>
 
       <h2>Notifications</h2>
-      <p>Awaab can schedule quiet reminders for each prayer time. These reminders are scheduled in advance and delivered entirely by your phone. They are not push notifications from a server — there is no server.</p>
+      <p>Awaab can schedule quiet reminders for each prayer time. These reminders are scheduled in advance and delivered entirely by your phone, using the standard iOS and Android local-notification systems. They are not push notifications — Awaab does not operate any notification server.</p>
 
       <h2>What Apple and Google may collect</h2>
       <p>When you download or use Awaab through the App Store or Google Play, the platforms themselves may collect standard platform-level information — for example, download counts, device model, operating-system diagnostics, and crash reports they collect on Awaab's behalf at the OS level. This data is governed by Apple's and Google's own privacy policies and is outside Awaab's control. Awaab does not access this data and does not have any analytics agreement with either platform.</p>
 
       <h2>Children</h2>
-      <p>Because Awaab does not collect personal information from anyone, it does not collect personal information from children. The app is safe to use at any age — see the <a href="age-suitability.html">Age Suitability statement</a> for more.</p>
+      <p>Because Awaab does not collect personal information from anyone — and because the anonymous telemetry described above is not linked to any individual user — it does not collect personal information from children. The app is safe to use at any age — see the <a href="age-suitability.html">Age Suitability statement</a> for more.</p>
 
       <h2>Changes to this policy</h2>
-      <p>If anything about how Awaab handles data changes, this page will be updated and the "last updated" date above will change to reflect it. The privacy posture above is a core design commitment of the app — we don't intend to change it.</p>
+      <p>If anything about how Awaab handles data changes, this page will be updated and the "last updated" date above will change to reflect it. Material changes will additionally be noted in the app's "What's New" release notes for the relevant store version.</p>
 
       <h2>Contact</h2>
       <div class="contact-card">
