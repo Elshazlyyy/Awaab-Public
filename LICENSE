@@ -1,0 +1,47 @@
+Copyright (c) 2026 Ahmed Elshazly. All rights reserved.
+
+This repository contains the source for the public marketing, support,
+and legal pages of "Awaab" — an iOS and Android application by
+Ahmed Elshazly. The pages in this repository accompany the distribution
+of the compiled application on the Apple App Store and Google Play.
+
+This repository, including but not limited to its HTML, CSS, JavaScript,
+configuration files (.gitignore, manifest.webmanifest, robots.txt,
+sitemap.xml), written content (prose, headings, marketing copy, page
+text, and all natural-language strings in English and Arabic), images
+(icon.png, og.png), and visual design, is the proprietary and
+confidential property of Ahmed Elshazly. No part of this repository
+may be reproduced, distributed, modified, sublicensed, mirrored, or
+transmitted in any form or by any means — electronic, mechanical,
+photocopying, recording, or otherwise — without the prior written
+permission of Ahmed Elshazly.
+
+The repository is hosted publicly on GitHub Pages so that end users,
+app store reviewers, and other interested parties can access the pages
+required for the distribution of the application. Public visibility
+does not constitute permission to copy, fork, modify, or otherwise
+reuse the contents of this repository.
+
+Third-party content used in the site mockups is reproduced under the
+following terms:
+
+  • The Qur'ānic Arabic text rendered in the mockups is in the public
+    domain.
+
+  • The English translations of Qur'ānic verses rendered in the
+    mockups remain the intellectual property of their respective
+    translators and are reproduced here for the purpose of marketing
+    the application. No license is granted to reuse these translations
+    independently of this site.
+
+The name "Awaab" and the Arabic mark "أواب" are unregistered trademarks
+of Ahmed Elshazly. They may not be used to identify any product,
+service, or work other than the application authored by Ahmed Elshazly.
+
+THE CONTENTS OF THIS REPOSITORY ARE PROVIDED "AS IS", WITHOUT WARRANTY
+OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE CONTENTS OR
+THE USE OR OTHER DEALINGS IN THIS REPOSITORY.
