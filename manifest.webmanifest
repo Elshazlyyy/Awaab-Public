@@ -1,21 +1,52 @@
 {
   "name": "Awaab — A quiet companion for the daily prayer",
   "short_name": "Awaab",
-  "description": "A free, private Islamic companion. Quran reader, prayer times, qibla finder. Bilingual.",
-  "lang": "en",
-  "dir": "ltr",
+  "description": "Prayer times, qibla compass, and the full Qur'an. Offline. No accounts, no ads, no third-party trackers.",
   "start_url": "./",
   "scope": "./",
   "display": "browser",
-  "background_color": "#F4EFE3",
+  "orientation": "portrait",
   "theme_color": "#F4EFE3",
+  "background_color": "#F4EFE3",
   "categories": ["lifestyle", "education", "books"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
-      "src": "icon.png",
-      "sizes": "512x512",
+      "src": "favicon-16.png",
+      "sizes": "16x16",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon-48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
