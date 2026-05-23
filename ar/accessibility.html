@@ -1,142 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
-<title>إمكانية الوصول — أواب</title>
-<meta name="description" content="بيان إمكانية الوصول في أواب: الوضع الداكن مدعوم اليوم؛ VoiceOver، حجم النص الكبير، تباين الألوان، وتقليل الحركة على خارطة الطريق." />
-<link rel="icon" type="image/png" href="../icon.png" />
-<link rel="apple-touch-icon" href="../icon.png" />
-<link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html" />
-<link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html" />
-<link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html" />
-<link rel="alternate" hreflang="x-default" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html" />
-<meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html" />
-<meta property="og:type" content="article" />
-<meta property="og:site_name" content="أواب" />
-<meta property="og:title" content="إمكانية الوصول — أواب" />
-<meta property="og:description" content="الوضع الداكن مدعوم اليوم؛ VoiceOver، حجم النص الكبير، تباين الألوان، وتقليل الحركة على خارطة الطريق." />
-<meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="ar_SA" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="إمكانية الوصول — أواب" />
-<meta name="twitter:description" content="الوضع الداكن اليوم؛ VoiceOver، النص الكبير، التباين، وتقليل الحركة قيد التطوير." />
-<meta name="twitter:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" />
-<link rel="manifest" href="../manifest.webmanifest" />
-<link rel="stylesheet" href="../awaab.css" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "إمكانية الوصول — أواب",
-  "url": "https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html",
-  "description": "بيان إمكانية الوصول في أواب: الوضع الداكن مدعوم اليوم؛ VoiceOver، حجم النص الكبير، تباين الألوان، وتقليل الحركة على خارطة الطريق.",
-  "inLanguage": "ar",
-  "isPartOf": { "@type": "WebSite", "name": "أواب", "url": "https://elshazlyyy.github.io/Awaab-Public/ar/" }
-}
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إمكانية الوصول — أوّاب</title>
+  <meta name="description" content="أوّاب مصمّمٌ ليلبّي معايير WCAG 2.2 AA، وغالبًا AAA. التفاصيل الكاملة لإمكانية الوصول والاتّصال.">
+  <meta property="og:title" content="إمكانية الوصول — أوّاب">
+  <meta property="og:image" content="../og-ar.png">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="stylesheet" href="../awaab.css">
 </head>
 <body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
 
-<a class="skip-link" href="#main">انتقل إلى المحتوى</a>
-
-<header class="site">
-  <div class="site-bar">
-    <a class="brand" href="index.html" aria-label="الصفحة الرئيسية لأواب">
-      <img src="../icon.png" alt="" />
-      <span>أواب<span class="ar-mark" aria-hidden="true" lang="en">Awaab</span></span>
-    </a>
-    <nav class="site-nav" aria-label="القائمة الرئيسية">
-      <a href="index.html">الرئيسية</a>
-      <a href="privacy.html">الخصوصية</a>
-      <a href="accessibility.html">إمكانية الوصول</a>
-      <a href="age-suitability.html">ملاءمة العمر</a>
-      <a class="lang-switch" href="../accessibility.html" lang="en" hreflang="en" aria-label="English">English</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main" tabindex="-1">
-  <section class="intro">
-    <div class="container prose">
-      <span class="eyebrow">إمكانية الوصول</span>
-      <h1>نعمل على جعل أواب قابلاً للاستخدام للجميع.</h1>
-      <p class="updated">آخر تحديث: ٢١ مايو ٢٠٢٦</p>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name" style="font-family:var(--ff-quran);font-style:normal;">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="القائمة الرئيسية">
+        <a href="./">الرئيسية</a>
+        <a href="privacy.html">الخصوصية</a>
+        <a href="age-suitability.html">الفئة العمرية</a>
+        <a href="../accessibility.html" lang="en" dir="ltr">English</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <article class="prose">
-    <div class="container prose">
+  <main id="main" class="container long">
+    <aside class="long__toc" aria-label="في هذه الصفحة">
+      <p class="eyebrow">في هذه الصفحة</p>
+      <ul>
+        <li><a href="#commitment">التزامنا</a></li>
+        <li><a href="#contrast">التباين والألوان</a></li>
+        <li><a href="#type">الخط والأحجام</a></li>
+        <li><a href="#motion">الحركة</a></li>
+        <li><a href="#screen-readers">قارئات الشاشة</a></li>
+        <li><a href="#keyboard">لوحة المفاتيح</a></li>
+        <li><a href="#known">مشكلات معروفة</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </aside>
 
-      <p>أواب رفيق يومي هادئ — والرفيق اليومي لا يكون مفيداً إلا إذا استطعت أن تستخدمه فعلاً. نحن ملتزمون بإمكانية الوصول، ونريد أن نكون صريحين حول ما يدعمه التطبيق اليوم وما لا يزال قيد التحسين.</p>
+    <article class="long__article">
+      <p class="eyebrow eyebrow--accent">إمكانية الوصول</p>
+      <h1>إمكانية الوصول</h1>
+      <p class="updated">آخر تحديث · ٢٢ مايو ٢٠٢٦</p>
 
-      <div class="summary">
-        <h2>الخلاصة باختصار</h2>
-        <ul>
-          <li>أواب يدعم <strong>الوضع الداكن</strong> في هاتفك، مع إمكانية الاختيار اليدوي بين فاتح / داكن / تلقائي داخل التطبيق.</li>
-          <li>نعمل بنشاط على تحسين <strong>VoiceOver</strong>، <strong>حجم النص الكبير</strong>، <strong>تباين الألوان</strong>، و<strong>تقليل الحركة</strong> في الإصدارات القادمة.</li>
-          <li>إن كان شيء صعب الاستخدام، أخبرنا — ملاحظاتك تشكّل التحديث القادم.</li>
-        </ul>
+      <section class="card summary" aria-labelledby="commitment">
+        <h2 id="commitment" style="margin-top:0;font-size:22px;">التزامنا</h2>
+        <p>أوّاب مصمَّمٌ ليلبّي <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 مستوى AA</a> في كلّ شاشة، ويصل إلى AAA للنصّ الأساسي حيث يمكن ذلك دون المساس بالصوت التحريري. التطبيق مخصَّصٌ ليكون قابلًا للاستخدام من قِبل الجميع، في كلّ حال، على كلّ جهاز.</p>
+      </section>
+
+      <h2 id="contrast">التباين والألوان</h2>
+      <p>يجتاز نصّ الجسم WCAG <strong>AAA عند ٧:١</strong> في الوضعين الفاتح والداكن. تجتاز الأقواس والتسميات الثانوية AA. اللون البرونزي، اللون المميّز الوحيد، يأتي بقيمتين: قيمةٌ أغمق قليلًا "نصّ برونزي" (<code>#76592A</code> فاتح / <code>#C9A86A</code> داكن) تضمن قراءة التسميات الصغيرة عند ٩–١١ بكسل.</p>
+      <p>اللون لا يحمل المعنى الحرج وحده. كلّ حالةٍ يعرضها التطبيق مُرمَّزة بـ<strong>شكل وتسمية وموضع</strong> إلى جانب اللون. يمكنك استخدام أوّاب بإعدادات تدرّج الرمادي، أو عمى الألوان بأنواعه، دون فقدان أيّ معلومة.</p>
+
+      <h2 id="type">الخط والأحجام</h2>
+      <ul>
+        <li><strong>الخط الديناميكي</strong> محترَم على iOS وAndroid. كلّ النصّ يتمدّد دون اقتطاع حتى ٢٠٠٪.</li>
+        <li><strong>أهداف اللمس</strong> ٤٤×٤٤ نقطة على iOS و٤٨×٤٨ على Android على الأقلّ.</li>
+        <li><strong>النصّ القرآني</strong> بخطّ أميري قرآن، بارتفاع سطر ١٫٩٥ لتتنفّس التشكيل.</li>
+        <li><strong>أدوات الخط في القارئ</strong> تتيح تكبير الخطّ العربي حتى ٤٠ نقطة وتصغيره حتى ١٨ نقطة.</li>
+      </ul>
+
+      <h2 id="motion">الحركة</h2>
+      <p>يحترم أوّاب <code>prefers-reduced-motion</code> في التطبيق وهذا الموقع. لكلّ حركةٍ في النظام بديلٌ موثَّق إمّا فوريًّا أو ساكنًا. تستقرّ إبرة البوصلة بشكلٍ خطّيٍّ بدلًا من النابض؛ تظهر قائمة الضغط المطوّل بالتلاشي بدلًا من التكبير؛ لا يعمل العدّ التصاعدي في الموقع.</p>
+
+      <h2 id="screen-readers">قارئات الشاشة</h2>
+      <p>اختُبر التطبيق مع <strong>VoiceOver</strong> (iOS) و<strong>TalkBack</strong> (Android). كلّ عنصرٍ تفاعليٍّ يحمل تسمية إمكانية وصولٍ بلغة الواجهة التي اخترتها، بما في ذلك قائمة الضغط المطوّل، والأشرطة المقسّمة، وقرص القبلة. تُنطق الآيات العربية بسمة <code>lang="ar"</code> فيستخدم القارئ الصوت الصحيح.</p>
+
+      <h2 id="keyboard">لوحة المفاتيح والتحكّم بالمفاتيح</h2>
+      <p>على iPad، يمكن التنقّل في كلّ شاشةٍ بلوحة مفاتيح خارجية. حلقات التركيز مرئية ومتّسقة (إطار برونزي ٢ بكسل، إزاحة ٣ بكسل). يمكن لمستخدمي Switch Control المرور بكلّ عنصرٍ تفاعليٍّ بترتيب قراءةٍ منطقي.</p>
+
+      <h2 id="known">مشكلات معروفة</h2>
+      <ul>
+        <li>على Android 8، قد يظهر التشكيل في القارئ بشكلٍ غير متّسقٍ قليلًا بسبب احتياطيات الخط على مستوى النظام. نتابع هذا للإصدار 1.1.</li>
+        <li>تتطلّب بوصلة القبلة مقياس مغناطيسيٍّ ماديٍّ؛ تعرض موديلات iPad التي لا تحتويه شاشةً احتياطيّةً تشرح ذلك.</li>
+        <li>الوضع الداكن للنظام هو السبيل الوحيد لتبديل السمات؛ تجاوزٌ خاصٌّ بالتطبيق مخطَّطٌ للإصدار 1.1.</li>
+      </ul>
+
+      <section class="contact-card" id="contact">
+        <p class="eyebrow eyebrow--accent" style="margin-bottom:8px;">ملاحظات</p>
+        <p class="title-sm" style="color:var(--ink);font-family:var(--ff-quran);font-style:normal;">اكتب إلى <a href="mailto:ahmed.shazly15@gmail.com">ahmed.shazly15@gmail.com</a>.</p>
+        <p class="body" style="margin-top:8px;">نردّ على كلّ تقرير إمكانية وصولٍ خلال سبعة أيّام، غالبًا في اليوم ذاته.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-quran);font-size:22px;color:var(--ink);">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© ٢٠٢٦ · الترجمة © Saheeh International · صُنع لأهل الذِّكر</p>
       </div>
-
-      <h2>ما يعمل اليوم</h2>
-
-      <h3>إعداد المظهر في هاتفك</h3>
-      <p>يتّبع أواب إعداد المظهر في هاتفك، ويتنقّل تلقائياً بين سمة فاتحة بألوان كريمية وبرونزية، وسمة داكنة بألوان أردوازية وكريمية دافئة. يمكنك أيضاً تجاوز إعداد النظام من داخل التطبيق إذا أردت أن تُثبّت أواب على فاتح أو داكن بشكل مستقل عن باقي الهاتف.</p>
-
-      <h3>حجم النص العربي قابل للتعديل</h3>
-      <p>قارئ القرآن له حجم نص عربي خاصّ، مستقلّ عن حجم نص النظام. يمكنك تكبير الحروف العربية أو تصغيرها دون أن يؤثّر ذلك على باقي الواجهة — وهذا فائز صغير لمن يعاني من ضعف البصر مع القراءة العربية تحديداً.</p>
-
-      <h3>حركة هادئة على بوصلة القبلة</h3>
-      <p>تتجه إبرة البوصلة بهدوء نحو الكعبة بدلاً من القفز فجأة. اخترنا ذلك من أجل الهدوء — وهو يساعد أيضاً كل من لديه حساسية تجاه الحركات المفاجئة.</p>
-
-      <h2>ما نعمل عليه بنشاط</h2>
-      <p>المجالات التالية على خارطة طريقنا النشطة. نحن <em>لا</em> نزعم دعمها الكامل بعد — نريدك أن تعرف ما يمكن توقّعه، وما نزال نصقله.</p>
-
-      <h3>دعم VoiceOver وقارئات الشاشة</h3>
-      <p>نعمل على تسمية الأزرار والعناصر وملاحة القرآن بطريقة تستطيع VoiceOver وTalkBack الإعلان عنها بوضوح. قراءة القرآن مع قارئ شاشة يجب أن تشعر بالهدوء والترتيب، ولم نصل إلى ذلك بعد.</p>
-
-      <h3>حجم النص الكبير (حجم نص النظام)</h3>
-      <p>أواب يحترم حجم نص النظام في بعض الأماكن اليوم، لكن ليس باستمرار عبر كل الشاشات. نحن نمرّ بالتطبيق لنجعل كل تسمية وزرّ وكتلة نصّية تحترم إعداد حجم النص في هاتفك.</p>
-
-      <h3>تباين الألوان</h3>
-      <p>لوحة الكريمي والبرونزي جزء ممّا يجعل التطبيق يشعر بالهدوء، لكننا نعلم أن بعض التركيبات قد لا تستوفي إرشادات التباين لقرّاء ضعاف البصر بعد. نحن نراجع كل شاشة ونعدّل الدرجات حيث تقصر.</p>
-
-      <h3>تقليل الحركة</h3>
-      <p>لمن يفضّل تقليل الحركة، نعمل على احترام إعداد "تقليل الحركة" في هاتفك في كامل التطبيق — تخفيف الانتقالات والحركات حين يطلب النظام ذلك. هذا الموقع يحترم هذا الإعداد بالفعل.</p>
-
-      <h2>كيف ترسل ملاحظاتك</h2>
-      <p>إذا كان شيء في أواب صعب الاستخدام، أو بطيء القراءة، أو محيّراً مع التقنيات المساعدة، نريد أن نعرف. الملاحظات الدقيقة — حتى عن شاشة واحدة أو زرّ واحد — تساعد أكثر ممّا تتوقّع.</p>
-
-      <div class="contact-card">
-        <p>ملاحظات إمكانية الوصول: <a href="mailto:ahmed.shazly15@gmail.com" dir="ltr">ahmed.shazly15@gmail.com</a></p>
-      </div>
-
+      <nav class="footer-nav" aria-label="تذييل الصفحة">
+        <a href="./">الرئيسية</a>
+        <a href="privacy.html">الخصوصية</a>
+        <a href="age-suitability.html">الفئة العمرية</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">تواصل</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="../accessibility.html" lang="en" dir="ltr">English</a>
+      </nav>
     </div>
-  </article>
-</main>
-
-<footer class="site">
-  <div class="foot">
-    <div class="brand-mini">أواب</div>
-    <div class="nav-row">
-      <a href="index.html">الرئيسية</a><span class="sep" aria-hidden="true">·</span>
-      <a href="privacy.html">سياسة الخصوصية</a><span class="sep" aria-hidden="true">·</span>
-      <a href="accessibility.html">إمكانية الوصول</a><span class="sep" aria-hidden="true">·</span>
-      <a href="age-suitability.html">ملاءمة العمر</a><span class="sep" aria-hidden="true">·</span>
-      <a href="mailto:ahmed.shazly15@gmail.com">تواصل</a><span class="sep" aria-hidden="true">·</span>
-      <a href="../accessibility.html" lang="en" dir="ltr">English</a>
-    </div>
-    <div class="version">الإصدار ١.٠ · صُنع لمن يذكر</div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>

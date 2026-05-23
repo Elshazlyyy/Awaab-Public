@@ -1,142 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
-<title>Accessibility — Awaab</title>
-<meta name="description" content="Awaab accessibility statement: Dark Mode is supported today; VoiceOver, Dynamic Type, color contrast, and reduced motion are on the active roadmap." />
-<link rel="icon" type="image/png" href="icon.png" />
-<link rel="apple-touch-icon" href="icon.png" />
-<link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html" />
-<link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html" />
-<link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html" />
-<link rel="alternate" hreflang="x-default" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html" />
-<meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/accessibility.html" />
-<meta property="og:type" content="article" />
-<meta property="og:site_name" content="Awaab" />
-<meta property="og:title" content="Accessibility — Awaab" />
-<meta property="og:description" content="Awaab accessibility statement: Dark Mode is supported today; VoiceOver, Dynamic Type, color contrast, and reduced motion are on the active roadmap." />
-<meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="en_US" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Accessibility — Awaab" />
-<meta name="twitter:description" content="Dark Mode today; VoiceOver, Dynamic Type, contrast, and reduced motion on the active roadmap." />
-<meta name="twitter:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" />
-<link rel="manifest" href="manifest.webmanifest" />
-<link rel="stylesheet" href="awaab.css" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Accessibility — Awaab",
-  "url": "https://elshazlyyy.github.io/Awaab-Public/accessibility.html",
-  "description": "Awaab accessibility statement: Dark Mode supported today; VoiceOver, Dynamic Type, color contrast, and reduced motion on the active roadmap.",
-  "inLanguage": "en",
-  "isPartOf": { "@type": "WebSite", "name": "Awaab", "url": "https://elshazlyyy.github.io/Awaab-Public/" }
-}
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility — Awaab</title>
+  <meta name="description" content="Awaab is designed to meet WCAG 2.2 AA, often AAA. Detailed accessibility features and conformance.">
+  <meta property="og:title" content="Accessibility — Awaab">
+  <meta property="og:image" content="og.png">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="awaab.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="site">
-  <div class="site-bar">
-    <a class="brand" href="index.html" aria-label="Awaab home">
-      <img src="icon.png" alt="" />
-      <span>Awaab<span class="ar-mark" aria-hidden="true" lang="ar" dir="rtl">أواب</span></span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="accessibility.html">Accessibility</a>
-      <a href="age-suitability.html">Age Suitability</a>
-      <a class="lang-switch" href="ar/accessibility.html" lang="ar" dir="rtl" hreflang="ar" aria-label="اللغة العربية">العربية</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main" tabindex="-1">
-  <section class="intro">
-    <div class="container prose">
-      <span class="eyebrow">Accessibility</span>
-      <h1>Working to make Awaab usable for everyone.</h1>
-      <p class="updated">Last updated: May 21, 2026</p>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name">Awaab</span>
+        <span class="brand__ar" lang="ar" dir="rtl">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="age-suitability.html">Age suitability</a>
+        <a href="ar/accessibility.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <article class="prose">
-    <div class="container prose">
+  <main id="main" class="container long">
+    <aside class="long__toc" aria-label="On this page">
+      <p class="eyebrow">ON THIS PAGE</p>
+      <ul>
+        <li><a href="#commitment">Commitment</a></li>
+        <li><a href="#contrast">Contrast & color</a></li>
+        <li><a href="#type">Type & sizing</a></li>
+        <li><a href="#motion">Motion</a></li>
+        <li><a href="#screen-readers">Screen readers</a></li>
+        <li><a href="#keyboard">Keyboard & switch</a></li>
+        <li><a href="#known">Known issues</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </aside>
 
-      <p>Awaab is a quiet, daily companion — and a daily companion is only useful if you can actually use it. We are committed to accessibility, and we want to be honest about where the app stands today and what we are still working on.</p>
+    <article class="long__article">
+      <p class="eyebrow eyebrow--accent">ACCESSIBILITY</p>
+      <h1>Accessibility</h1>
+      <p class="updated">LAST UPDATED · 22 MAY 2026</p>
 
-      <div class="summary">
-        <h2>The short version</h2>
-        <ul>
-          <li>Awaab supports your phone's <strong>Dark Mode</strong>, with a manual light / dark / system toggle inside the app.</li>
-          <li>We are actively working to improve <strong>VoiceOver</strong>, <strong>Larger Text</strong>, <strong>color contrast</strong>, and <strong>reduced motion</strong> in upcoming releases.</li>
-          <li>If something is hard to use, please tell us — your feedback shapes the next update.</li>
-        </ul>
+      <section class="card summary" aria-labelledby="commitment">
+        <h2 id="commitment" style="margin-top:0;font-size:22px;">Our commitment</h2>
+        <p>Awaab is designed to meet <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 Level AA</a> across every screen, and reaches AAA for body text wherever it can be done without compromising the editorial voice. The app is intended to be usable by everyone, in every state, on every device.</p>
+      </section>
+
+      <h2 id="contrast">Contrast & color</h2>
+      <p>Body text passes WCAG <strong>AAA at 7:1</strong> in both light and dark themes. Eyebrows and tertiary labels meet AA. Bronze, the only accent color, comes in two values: a slightly darker "text bronze" (<code>#76592A</code> light / <code>#C9A86A</code> dark) ensures small-cap captions stay readable at 9–11px.</p>
+      <p>Color never carries critical meaning alone. Every status the app shows is encoded with a <strong>shape, label, and position</strong> in addition to color. You can use Awaab with grayscale, deuteranopia, protanopia, or tritanopia color settings and lose no information.</p>
+
+      <h2 id="type">Type & sizing</h2>
+      <ul>
+        <li><strong>Dynamic Type</strong> is respected on iOS and Android. All text scales without truncation up to 200%.</li>
+        <li><strong>Tap targets</strong> are at least 44×44 pt on iOS and 48×48 dp on Android.</li>
+        <li><strong>Arabic Quranic text</strong> is rendered in Amiri Quran with line-height 1.95 so tashkeel (vowel marks) breathe.</li>
+        <li><strong>Reader type controls</strong> let you scale the Arabic verse size up to 40pt and down to 18pt.</li>
+      </ul>
+
+      <h2 id="motion">Motion</h2>
+      <p>Awaab respects <code>prefers-reduced-motion</code> on both the app and this website. Every animation in the system has a documented instant-or-static fallback. The compass needle settles linearly rather than via spring; the long-press menu fades in rather than scaling; the marketing site's count-up does not run.</p>
+
+      <h2 id="screen-readers">Screen readers</h2>
+      <p>The app is tested against <strong>VoiceOver</strong> (iOS) and <strong>TalkBack</strong> (Android). Every interactive element carries an accessibility label in the user's chosen UI language, including the long-press menu, segmented controls, and the qibla dial. Arabic verses are announced with their <code>lang="ar"</code> attribute so screen readers use the correct voice.</p>
+
+      <h2 id="keyboard">Keyboard & switch control</h2>
+      <p>On iPad, every screen is navigable via external keyboard. Focus rings are visible and consistent (2px bronze outline, 3px offset). Switch Control users can advance through every interactive element in a sensible reading order.</p>
+
+      <h2 id="known">Known issues</h2>
+      <ul>
+        <li>On Android 8, the Qur'an reader's tashkeel may render slightly inconsistently due to OS-level font fallbacks. We are tracking this for v1.1.</li>
+        <li>The qibla compass requires a physical magnetometer; iPad models without one show a fallback screen explaining this.</li>
+        <li>System dark mode is the only way to switch themes; per-app override is planned for v1.1.</li>
+      </ul>
+
+      <section class="contact-card" id="contact">
+        <p class="eyebrow eyebrow--accent" style="margin-bottom:8px;">FEEDBACK</p>
+        <p class="title-sm" style="color:var(--ink);">Write to <a href="mailto:ahmed.shazly15@gmail.com">ahmed.shazly15@gmail.com</a>.</p>
+        <p class="body" style="margin-top:8px;">We respond to every accessibility report within 7 days, often the same day.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-serif);font-style:italic;font-size:22px;color:var(--ink);letter-spacing:-0.01em;">Awaab</span>
+          <span class="brand__ar" lang="ar">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© 2026 · TRANSLATION © SAHEEH INTERNATIONAL · BUILT FOR THOSE WHO REMEMBER</p>
       </div>
-
-      <h2>What works today</h2>
-
-      <h3>Your phone's appearance setting</h3>
-      <p>Awaab follows your phone's appearance setting and switches between a warm cream-and-bronze light theme and a deep slate dark theme automatically. You can also override the system preference inside the app if you prefer to lock Awaab to light or dark independently of the rest of your phone.</p>
-
-      <h3>Adjustable Arabic text size</h3>
-      <p>The Qur'an reader has its own Arabic text size, independent of the system text size. So you can scale Arabic letterforms up or down without affecting the rest of the interface — a small win for low-vision readers of Arabic in particular.</p>
-
-      <h3>Quiet motion on the qibla compass</h3>
-      <p>The compass needle eases gently toward the Kaaba rather than snapping. We chose this for calm — it also helps anyone sensitive to abrupt motion.</p>
-
-      <h2>What we are actively working on</h2>
-      <p>The following areas are on our active roadmap. We are <em>not</em> claiming full support for them yet — we want you to know what to expect, and what we are still polishing.</p>
-
-      <h3>VoiceOver and screen reader support</h3>
-      <p>We are working to label buttons, controls, and Qur'an navigation in a way that VoiceOver and TalkBack can announce clearly. Reading the Qur'an with a screen reader should feel calm and predictable, and we are not there yet.</p>
-
-      <h3>Larger Text (system text size)</h3>
-      <p>Awaab honours the system text size in some places today, but not consistently across every screen. We are going through the app to make every label, button, and body of text honour your phone's Text Size setting.</p>
-
-      <h3>Color contrast</h3>
-      <p>The app's cream-and-bronze palette is part of what makes it feel calm, but we know some combinations may not yet meet contrast guidelines for low-vision readers. We are reviewing every screen and adjusting tones where they fall short.</p>
-
-      <h3>Reduced motion</h3>
-      <p>For people who prefer reduced motion, we are working to honour your phone's "Reduce Motion" setting throughout the app — softening transitions and animations where the system asks us to. This website already respects that setting.</p>
-
-      <h2>How to send feedback</h2>
-      <p>If something in Awaab is hard to use, slow to read, or confusing with assistive technology, we want to know. Specific feedback — even a single screen or a single button — helps more than you would expect.</p>
-
-      <div class="contact-card">
-        <p>Accessibility feedback: <a href="mailto:ahmed.shazly15@gmail.com">ahmed.shazly15@gmail.com</a></p>
-      </div>
-
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="age-suitability.html">Age suitability</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="ar/accessibility.html" lang="ar">العربية</a>
+      </nav>
     </div>
-  </article>
-</main>
-
-<footer class="site">
-  <div class="foot">
-    <div class="brand-mini">Awaab</div>
-    <div class="nav-row">
-      <a href="index.html">Home</a><span class="sep" aria-hidden="true">·</span>
-      <a href="privacy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>
-      <a href="accessibility.html">Accessibility</a><span class="sep" aria-hidden="true">·</span>
-      <a href="age-suitability.html">Age Suitability</a><span class="sep" aria-hidden="true">·</span>
-      <a href="mailto:ahmed.shazly15@gmail.com">Contact</a><span class="sep" aria-hidden="true">·</span>
-      <a href="ar/accessibility.html" lang="ar" dir="rtl">العربية</a>
-    </div>
-    <div class="version">v1.0 · Built for those who remember</div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>

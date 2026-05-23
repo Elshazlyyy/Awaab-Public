@@ -1,501 +1,364 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)" />
-<title>أواب — رفيق هادئ للصلاة اليومية</title>
-<meta name="description" content="أواب تطبيق إسلامي مجاني وخاص لآيفون وآيباد وأندرويد. اقرأ القرآن، اعرف أوقات صلاتك، وحدّد قبلتك — بلغتين، في أي مكان في العالم." />
-<link rel="icon" type="image/png" href="../icon.png" />
-<link rel="apple-touch-icon" href="../icon.png" />
-<link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/ar/" />
-<link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/" />
-<link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/" />
-<link rel="alternate" hreflang="x-default" href="https://elshazlyyy.github.io/Awaab-Public/" />
-<meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/ar/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="أواب" />
-<meta property="og:title" content="أواب — رفيق هادئ للصلاة اليومية" />
-<meta property="og:description" content="تطبيق إسلامي مجاني وخاص. قارئ القرآن، أوقات الصلاة، محدّد القبلة. بلغتين. صُنع لمن يذكر." />
-<meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="أواب — رفيق هادئ للصلاة اليومية" />
-<meta property="og:locale" content="ar_SA" />
-<meta property="og:locale:alternate" content="en_US" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="أواب — رفيق هادئ للصلاة اليومية" />
-<meta name="twitter:description" content="تطبيق إسلامي مجاني وخاص. القرآن · أوقات الصلاة · القبلة. صُنع لمن يذكر." />
-<meta name="twitter:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" />
-<link rel="manifest" href="../manifest.webmanifest" />
-<link rel="stylesheet" href="../awaab.css" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "أواب",
-  "alternateName": "Awaab",
-  "url": "https://elshazlyyy.github.io/Awaab-Public/ar/",
-  "description": "تطبيق إسلامي مجاني وخاص لآيفون وآيباد وأندرويد. قارئ القرآن، أوقات الصلاة، محدّد القبلة. بلغتين.",
-  "image": "https://elshazlyyy.github.io/Awaab-Public/og.png",
-  "applicationCategory": "ReferenceApplication",
-  "operatingSystem": ["iOS", "iPadOS", "Android"],
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "inLanguage": ["ar", "en"],
-  "isAccessibleForFree": true,
-  "isFamilyFriendly": true
-}
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة، يعمل دون اتّصال</title>
+  <meta name="description" content="أوقات الصلاة، القبلة، والقرآن الكريم كاملًا. دون اتّصال. بلا حسابات، بلا إعلانات، بلا متتبّعات.">
+
+  <meta property="og:title" content="أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة">
+  <meta property="og:description" content="أوقات الصلاة، القبلة، والقرآن الكريم كاملًا. دون اتّصال.">
+  <meta property="og:image" content="../og-ar.png">
+  <meta property="og:locale" content="ar_SA">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://elshazlyyy.github.io/Awaab-Public/">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/ar/">
+
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+
+  <link rel="stylesheet" href="../awaab.css">
 </head>
 <body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
 
-<a class="skip-link" href="#main">انتقل إلى المحتوى</a>
-
-<header class="site">
-  <div class="site-bar">
-    <a class="brand" href="index.html" aria-label="الصفحة الرئيسية لأواب">
-      <img src="../icon.png" alt="" />
-      <span>أواب<span class="ar-mark" aria-hidden="true" lang="en">Awaab</span></span>
-    </a>
-    <nav class="site-nav" aria-label="القائمة الرئيسية">
-      <a href="#features">المزايا</a>
-      <a href="#craft">التفاصيل</a>
-      <a href="privacy.html">الخصوصية</a>
-      <a href="accessibility.html">إمكانية الوصول</a>
-      <a href="age-suitability.html">ملاءمة العمر</a>
-      <a class="lang-switch" href="../index.html" lang="en" hreflang="en" aria-label="English">English</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main" tabindex="-1">
-
-  <!-- ───── Hero ───── -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <span class="eyebrow">القرآن · أوقات الصلاة · القبلة</span>
-          <h1>رفيق هادئ للصلاة اليومية.</h1>
-          <p class="tagline">اقرأ القرآن، اعرف أوقات صلاتك، وحدّد قبلتك — بأناقة، بلغتين، في أي مكان في العالم.</p>
-
-          <div class="badges" role="group" aria-label="قريباً على متاجر التطبيقات">
-            <span class="badge badge-soon" aria-label="App Store — قريباً">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.12-3.84 2.22-3.9-1.21-1.77-3.1-2.01-3.77-2.04-1.6-.16-3.13.94-3.94.94-.82 0-2.07-.92-3.41-.89-1.75.03-3.37 1.02-4.27 2.59-1.83 3.17-.47 7.86 1.31 10.43.87 1.26 1.9 2.67 3.25 2.62 1.31-.05 1.81-.85 3.39-.85 1.58 0 2.03.85 3.41.82 1.41-.02 2.3-1.28 3.16-2.55.99-1.46 1.4-2.88 1.42-2.95-.03-.01-2.73-1.05-2.77-4.17zM14.51 4.5c.72-.87 1.21-2.08 1.08-3.29-1.04.04-2.31.69-3.05 1.56-.67.77-1.25 2-1.1 3.18 1.17.09 2.36-.59 3.07-1.45z"/></svg>
-              <span class="badge-text"><small>قريباً على</small><strong>App Store</strong></span>
-            </span>
-            <span class="badge badge-soon" aria-label="Google Play — قريباً">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.7C3.23 3.07 3 3.62 3 4.33v15.34c0 .71.23 1.26.6 1.63l.08.07L13 12.06v-.12L3.68 2.63l-.08.07zm10.97 9.49l-3.1-3.1L4.5 3l9.74 5.62.83.57zM4.5 21l6.97-6.09 3.1-3.1.83.57L5.66 17.5l-1.16 3.5zm15.93-9.61c.62.36.62 1.06 0 1.42l-2.69 1.55-3.4-3.26 3.4-3.26 2.69 1.55z"/></svg>
-              <span class="badge-text"><small>قريباً على</small><strong>Google Play</strong></span>
-            </span>
-          </div>
-          <p class="badges-note">قريباً على متجر آبل وجوجل بلاي.</p>
-
-          <div class="pills-row">
-            <span class="pill"><strong>مجاني</strong></span>
-            <span class="pill">بدون حساب</span>
-            <span class="pill">بدون تتبّع</span>
-            <span class="pill">آيفون · آيباد · أندرويد</span>
-          </div>
-        </div>
-
-        <!-- Today screen mockup -->
-        <div class="hero-device" aria-hidden="true">
-          <div class="device">
-            <div class="device-screen">
-              <span class="device-eyebrow">اليوم</span>
-              <div class="device-city">مكّة، السعودية</div>
-              <div class="device-hijri">الثلاثاء · ٤ ذو القعدة ١٤٤٧</div>
-              <div class="device-countdown">٣:١٧:٠٠</div>
-              <div class="device-countdown-label">الصلاة التالية · العصر بعد ٣ س ١٧ د</div>
-              <div class="device-row"><span class="name">الفجر</span><span class="time">٠٤:٤٨</span></div>
-              <div class="device-row"><span class="name">الشروق</span><span class="time">٠٦:١١</span></div>
-              <div class="device-row"><span class="name">الظهر</span><span class="time">١٢:٢٤</span></div>
-              <div class="device-row next"><span class="name">العصر</span><span class="time">١٥:٤٣</span></div>
-              <div class="device-row"><span class="name">المغرب</span><span class="time">١٨:٣٧</span></div>
-              <div class="device-row"><span class="name">العشاء</span><span class="time">١٩:٥٨</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name" style="font-family:var(--ff-quran);font-style:normal;">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="القائمة الرئيسية">
+        <a href="#features">المميّزات</a>
+        <a href="privacy.html">الخصوصية</a>
+        <a href="accessibility.html">إمكانية الوصول</a>
+        <a href="age-suitability.html">الفئة العمرية</a>
+        <a href="../" lang="en" dir="ltr">English</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- ───── Three devices gallery ───── -->
-  <section class="band" id="gallery">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">ثلاثة رفقاء</span>
-        <h2>سطح واحد هادئ.</h2>
-        <p>نفس الطباعة الهادئة في أوقات الصلاة والقبلة والقرآن.</p>
+  <main id="main">
+
+    <section class="container hero band" aria-labelledby="hero-h1">
+      <div>
+        <p class="eyebrow aw-enter aw-enter--1">أوّاب <span aria-hidden="true">·</span> AWWĀB <span aria-hidden="true">·</span> العَوَّاد إلى الله</p>
+        <h1 class="hero__h1 aw-enter aw-enter--2" id="hero-h1">رفيقٌ هادئٌ للصلاة اليوميّة، يعمل دون اتّصال.</h1>
+        <p class="hero__lede aw-enter aw-enter--3">أوقات الصلاة، القبلة، والقرآن الكريم كاملًا. بلا إعلانات، بلا حسابات، بلا متتبّعات خارجيّة. كلّ شيء يعمل على جهازك.</p>
+        <div class="hero__cta aw-enter aw-enter--4">
+          <a class="badge" href="#" aria-label="قريبًا على App Store">
+            <span class="badge__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4C4 12.7 5.2 17 6.8 19.3c.8 1.1 1.8 2.4 3 2.3 1.2-.1 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.1 3-2.3.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.9-1-2.9-3.9zM15.2 6c.7-.8 1.1-1.9 1-3.1-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.5 2.8-1.3z"/></svg>
+            </span>
+            <span>
+              <span class="badge__tag">قريبًا على</span>
+              <span class="badge__name">App Store</span>
+            </span>
+          </a>
+          <a class="badge" href="#" aria-label="قريبًا على Google Play">
+            <span class="badge__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5v19l11-9.5L4 2.5zm15.6 8.2-2.8-1.6-3.2 2.9 3.2 2.9 2.8-1.6c.7-.4 1.1-1.1 1.1-1.3s-.4-.9-1.1-1.3z" opacity="0.85"/></svg>
+            </span>
+            <span>
+              <span class="badge__tag">قريبًا على</span>
+              <span class="badge__name">Google Play</span>
+            </span>
+          </a>
+        </div>
+        <div class="hero__pills aw-enter aw-enter--6">
+          <span class="pill">مجّاني</span>
+          <span class="pill">بلا حساب</span>
+          <span class="pill">بلا تتبّع</span>
+          <span class="pill">iPhone · iPad · Android</span>
+        </div>
+        <p class="hero__note aw-enter aw-enter--6"><span class="dot" aria-hidden="true"></span> v1.0.2 · iOS 16+ · Android 8+</p>
       </div>
 
-      <div class="gallery">
-
-        <div class="reveal">
-          <div class="device" aria-hidden="true">
-            <div class="device-screen">
-              <span class="device-eyebrow">اليوم</span>
-              <div class="device-city">مكّة</div>
-              <div class="device-hijri">٤ ذو القعدة ١٤٤٧</div>
-              <div class="device-countdown">٣:١٧:٠٠</div>
-              <div class="device-countdown-label">الصلاة التالية · العصر</div>
-              <div class="device-row"><span class="name">الفجر</span><span class="time">٠٤:٤٨</span></div>
-              <div class="device-row"><span class="name">الظهر</span><span class="time">١٢:٢٤</span></div>
-              <div class="device-row next"><span class="name">العصر</span><span class="time">١٥:٤٣</span></div>
-              <div class="device-row"><span class="name">المغرب</span><span class="time">١٨:٣٧</span></div>
-              <div class="device-row"><span class="name">العشاء</span><span class="time">١٩:٥٨</span></div>
+      <div class="hero__device aw-enter aw-enter--device" aria-hidden="true">
+        <div class="device" role="img" aria-label="نموذج لشاشة التطبيق">
+          <div class="device__screen">
+            <div class="device__island"></div>
+            <div class="mock-today" dir="rtl">
+              <p class="eyebrow">الصلاة القادمة</p>
+              <p class="next" style="font-family:var(--ff-quran);font-style:normal;">العصر</p>
+              <p class="countdown">٠:٤٧:٠٠</p>
+              <div class="rows">
+                <div class="row row--past"><span style="font-family:var(--ff-quran);font-style:normal;">الفجر</span><span class="t">٠٤:١٥</span></div>
+                <div class="row row--past"><span style="font-family:var(--ff-quran);font-style:normal;">الشروق</span><span class="t">٠٥:٤٠</span></div>
+                <div class="row row--past"><span style="font-family:var(--ff-quran);font-style:normal;">الظهر</span><span class="t">١٢:١٧</span></div>
+                <div class="row row--active"><span style="font-family:var(--ff-quran);font-style:normal;">العصر</span><span class="t">١٥:٣٣</span></div>
+                <div class="row"><span style="font-family:var(--ff-quran);font-style:normal;">المغرب</span><span class="t">١٨:٥٥</span></div>
+                <div class="row"><span style="font-family:var(--ff-quran);font-style:normal;">العشاء</span><span class="t">٢٠:٢٥</span></div>
+              </div>
             </div>
           </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-label">اليوم</div>
-            <div class="gallery-caption-title">أوقات الصلاة بلمحة</div>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="reveal">
-          <div class="device" aria-hidden="true">
-            <div class="device-screen device-screen-qibla">
-              <span class="device-eyebrow">القبلة</span>
-              <div class="device-city">نحو الكعبة المشرّفة</div>
-              <div class="device-hijri">من أيّ مكان كنت</div>
-              <div class="qibla-compass">
-                <div class="qibla-ring">
-                  <span class="qibla-tick n">ش</span>
-                  <span class="qibla-tick e">شرق</span>
-                  <span class="qibla-tick s">ج</span>
-                  <span class="qibla-tick w">غ</span>
-                  <div class="qibla-needle"></div>
-                  <div class="qibla-marker"></div>
+    <section class="section section--muted band reveal" aria-labelledby="g-h">
+      <div class="container">
+        <h2 class="eyebrow" id="g-h">ثلاثة رفقاء · شركة واحدة</h2>
+        <div class="gallery">
+          <article class="gallery__item">
+            <div class="gallery__device" aria-hidden="true">
+              <div class="device" role="img" aria-label="نموذج لشاشة التطبيق">
+                <div class="device__screen">
+                  <div class="device__island"></div>
+                  <div class="mock-today" dir="rtl">
+                    <p class="eyebrow">الصلاة القادمة</p>
+                    <p class="next" style="font-family:var(--ff-quran);">العصر</p>
+                    <p class="countdown">٠:٤٧:٠٠</p>
+                  </div>
                 </div>
               </div>
-              <div class="qibla-bearing">١١٨°</div>
-              <div class="qibla-bearing-label">جنوب شرق</div>
-              <p class="qibla-help">أمسك هاتفك بشكل أفقي — واجه العلامة البرونزية</p>
             </div>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-label">القبلة</div>
-            <div class="gallery-caption-title">علامة برونزية هادئة</div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="device" aria-hidden="true">
-            <div class="device-screen device-screen-quran">
-              <span class="device-eyebrow">السورة ١ من ١١٤</span>
-              <div class="quran-title">
-                <span class="quran-title-ar">الفاتحة</span>
-                <span class="quran-title-en" lang="en">The Opening</span>
-              </div>
-              <div class="quran-bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
-
-              <div class="quran-verse">
-                <p class="quran-verse-ar">ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ <span class="quran-verse-num">٢</span></p>
-              </div>
-
-              <div class="quran-verse">
-                <p class="quran-verse-ar">ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ <span class="quran-verse-num">٣</span></p>
-              </div>
-
-              <div class="quran-verse">
-                <p class="quran-verse-ar">مَـٰلِكِ يَوْمِ ٱلدِّينِ <span class="quran-verse-num">٤</span></p>
-              </div>
-
-              <div class="quran-verse">
-                <p class="quran-verse-ar">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ <span class="quran-verse-num">٥</span></p>
+            <h3 class="title-sm">اليوم</h3>
+            <p class="body" style="text-align:center;max-width:260px;">ستّ صلوات في أفقٍ واحدٍ هادئ.</p>
+          </article>
+          <article class="gallery__item">
+            <div class="gallery__device" aria-hidden="true">
+              <div class="device" role="img" aria-label="نموذج لشاشة التطبيق">
+                <div class="device__screen">
+                  <div class="device__island"></div>
+                  <div class="mock-qibla">
+                    <p class="eyebrow">القبلة</p>
+                    <p class="bearing">٢٤٧<span style="font-size:18px;color:var(--ink-soft);">°</span></p>
+                    <p class="sub" style="font-family:var(--ff-quran);font-style:normal;">نحو الكعبة المشرّفة</p>
+                    <div class="qibla-dial">
+                      <span class="qibla-dial__N" style="font-family:var(--ff-quran);font-style:normal;">ش</span>
+                      <span class="qibla-dial__E" style="font-family:var(--ff-quran);font-style:normal;">ق</span>
+                      <span class="qibla-dial__S" style="font-family:var(--ff-quran);font-style:normal;">ج</span>
+                      <span class="qibla-dial__W" style="font-family:var(--ff-quran);font-style:normal;">غ</span>
+                      <span class="qibla-marker"></span>
+                      <span class="qibla-needle"></span>
+                      <span class="qibla-center"></span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <h3 class="title-sm">القبلة</h3>
+            <p class="body" style="text-align:center;max-width:260px;">بوصلة حقيقيّة. اتّجاهٌ يتحقّق، لا إعلانٌ يُرفع.</p>
+          </article>
+          <article class="gallery__item">
+            <div class="gallery__device" aria-hidden="true">
+              <div class="device" role="img" aria-label="نموذج لشاشة التطبيق">
+                <div class="device__screen">
+                  <div class="device__island"></div>
+                  <div class="mock-quran">
+                    <div class="head">
+                      <span class="title-row" style="font-family:var(--ff-quran);font-style:normal;">يس</span>
+                      <span class="ar-title" lang="ar">٣٦</span>
+                    </div>
+                    <p class="bismillah" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+                    <div class="verse">
+                      <span class="badge-num">١</span>
+                      <div><div class="ar">يسٓ ۚ</div></div>
+                    </div>
+                    <div class="verse">
+                      <span class="badge-num">٢</span>
+                      <div><div class="ar">وَٱلْقُرْءَانِ ٱلْحَكِيمِ</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="title-sm">القرآن</h3>
+            <p class="body" style="text-align:center;max-width:260px;">المصحف كاملًا، دون اتّصال. تحفظ علاماتُك أينما رحلت.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band reveal" aria-labelledby="features-h" id="features">
+      <div class="container">
+        <h2 class="eyebrow" id="features-h">ما يقدّمه</h2>
+        <div class="features">
+          <article class="feature">
+            <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
+            <h3>قارئ القرآن</h3>
+            <p>المصحف كاملًا بالرسم العثماني، مع ترجمة إنجليزيّة آية بآية. بحثٌ بالاسم والرقم والمعنى.</p>
+            <ul>
+              <li>١١٤ سورة، دون اتّصال</li>
+              <li>الرسم العثماني (مصحف المدينة)</li>
+              <li>ترجمة إنجليزيّة مدمجة</li>
+              <li>احفظ أيّ آية</li>
+              <li>اضغط مطوّلًا للمشاركة أو النسخ</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
+            <h3>أوقات الصلاة</h3>
+            <p>ستّ طرق حسابيّة تُكتشف تلقائيًّا من بلدك. مذهب العصر تختاره أنت. قواعد خطوط العرض العالية حيث تلزم.</p>
+            <ul>
+              <li>أمّ القرى، رابطة العالم الإسلامي، ISNA، الهيئة المصرية، كراتشي، طهران</li>
+              <li>العصر القياسي أو الحنفي</li>
+              <li>الشروق ومواقيت السنن</li>
+              <li>إشعارات لكلّ صلاة</li>
+              <li>بلا رقم تنبيهٍ على شاشتك الرئيسيّة</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
+            <h3>بوصلة القبلة</h3>
+            <p>بوصلةٌ مغناطيسيّة حقيقيّة تشير إلى الكعبة. اهتزازٌ خفيف عند المواجهة. تعمل دون اتّصال.</p>
+            <ul>
+              <li>مغناطيسي + تصحيح الشمال الحقيقي</li>
+              <li>الاتّجاه بالدرجات</li>
+              <li>المسافة إلى مكّة</li>
+              <li>تنبيه معايرة على شكل ٨</li>
+              <li>تعمل دون اتّصال دائمًا</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted band reveal" aria-labelledby="craft-h" id="craft">
+      <div class="container">
+        <h2 class="eyebrow" id="craft-h">تفاصيل مصقولة</h2>
+        <div class="craft">
+          <div class="craft-item"><div class="num">٠١</div><h3>القراءة</h3><p>الرسم العثماني بخطّ أميري قرآن، بمسافات تنفّسٍ للتشكيل (ارتفاع سطر ١٫٩٥) فلا تتزاحم الحركات.</p></div>
+          <div class="craft-item"><div class="num">٠٢</div><h3>الخط</h3><p>كورمورانت غارامون مائل للعرض؛ إنتر تايت للنصّ. المائل لاتيني فقط — العربية تبقى منتصبة.</p></div>
+          <div class="craft-item"><div class="num">٠٣</div><h3>البرونزي</h3><p>لونٌ مميّز واحد. قيمتان: واحدةٌ للزخارف، وأخرى — أغمق قليلًا — للنصّ المميّز. WCAG AA في كلّ مقاس.</p></div>
+          <div class="craft-item"><div class="num">٠٤</div><h3>الحركة</h3><p>افتح قائمة الضغط المطوّل، تظهر المعاينة بمقاس ٩٢٪، تستقرّ بتجاوزٍ ٣٪. تُحَسّ، لا تُلاحَظ.</p></div>
+          <div class="craft-item"><div class="num">٠٥</div><h3>الخصوصية</h3><p>لا حسابات. لا تتبّع. لا مكتبات خارجية. حركةُ الشبكة فقط حين تطلب أنت "تحقّق من التحديثات".</p></div>
+          <div class="craft-item"><div class="num">٠٦</div><h3>دون اتّصال</h3><p>كلّ وقتٍ، كلّ آيةٍ، كلّ علامةٍ — تُحسب وتُخزَّن على جهازك. اختبار وضع الطيران يمرّ بسلاسة.</p></div>
+          <div class="craft-item"><div class="num">٠٧</div><h3>ثنائي اللغة</h3><p>العربيّة والإنجليزيّة من الدرجة الأولى. السطح العربي صُمّم أصيلًا، لا انعكاسًا.</p></div>
+          <div class="craft-item"><div class="num">٠٨</div><h3>نظامي</h3><p>فاتح وداكن، تلقائيًّا. يحترم حجم الخطّ الديناميكي، تفضيل تقليل الحركة، تفضيل تقليل الشفافية.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band reveal" aria-labelledby="verse-m">
+      <div class="container verse-moment">
+        <h2 class="eyebrow" id="verse-m">آية اللحظة</h2>
+        <p class="arabic" lang="ar">وَمَنْ يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ</p>
+        <p class="english" style="font-family:var(--ff-quran);font-style:normal;color:var(--ink-soft);">سورة الطلاق · الآية ٣</p>
+      </div>
+    </section>
+
+    <section class="section section--muted band reveal" aria-labelledby="bi-h">
+      <div class="container bilingual">
+        <h2 class="eyebrow" id="bi-h">عربيٌّ كاملًا</h2>
+        <div class="bilingual__pair">
+          <span class="arabic" lang="ar">أوّاب</span>
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span class="latin" lang="en">Awaab</span>
+        </div>
+        <p class="bilingual__prose" style="font-family:var(--ff-quran);font-style:normal;">من اليمين إلى اليسار ليست تخطيطًا منعكسًا. صمّمنا السطح العربيّ أصيلًا، بخطّه، بإيقاعه، بإحساسه بالوزن.</p>
+      </div>
+    </section>
+
+    <section class="section band reveal" aria-labelledby="facts-h">
+      <div class="container">
+        <h2 class="eyebrow" id="facts-h" style="text-align:center;margin-bottom:36px;">بالأرقام</h2>
+        <div class="facts">
+          <div class="fact"><div class="n" data-count="114">١١٤</div><div class="l">سورة</div></div>
+          <div class="fact"><div class="n" data-count="6">٦</div><div class="l">طرق حسابية</div></div>
+          <div class="fact"><div class="n" data-count="2">٢</div><div class="l">لغة</div></div>
+          <div class="fact"><div class="n" data-count="0">٠</div><div class="l">إعلانات</div></div>
+          <div class="fact"><div class="n" data-count="0">٠</div><div class="l">متتبّعات</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted band reveal" aria-labelledby="faq-h">
+      <div class="container">
+        <h2 class="eyebrow" id="faq-h">أسئلة</h2>
+        <div class="faq">
+          <details open><summary>هل يعمل أوّاب دون اتّصال؟</summary>
+            <p>نعم — كلّ وقت صلاة، كلّ آية، كلّ علامة محفوظة تُحسب وتُخزَّن على جهازك. لا نحتاج إلى الشبكة.</p>
+          </details>
+          <details><summary>هل ستُضيفون حسابات يومًا ما؟</summary>
+            <p>لا. لا يحتوي التطبيق على حسابات مستخدمين، ولن يحتوي أبدًا. بياناتك تبقى حيث وضعتها.</p>
+          </details>
+          <details><summary>كيف يُستخدَم الموقع؟</summary>
+            <p>فقط لحساب أوقات الصلاة. لا نرسله إلى أيّ خادم، ويمكنك تجاوزه يدويًّا بأيّ مدينة.</p>
+          </details>
+          <details><summary>لمَ لا توجد إعلانات؟</summary>
+            <p>لأنّ الأذان والإعلانات لا يجتمعان على شاشةٍ واحدة. ندعم المشروع بطرقٍ أخرى.</p>
+          </details>
+          <details><summary>هل الترجمة موثوقة؟</summary>
+            <p>نستخدم ترجمة Saheeh International الإنجليزية، المقبولة على نطاقٍ واسع لدقّتها ووضوحها.</p>
+          </details>
+          <details><summary>ما الترجمة المستخدمة؟</summary>
+            <p>يستخدم أوّاب ترجمة Saheeh International الإنجليزية والنصّ العربيّ من موسوعة القرآن النبيلة (quranenc.com). حسابات أوقات الصلاة من <a href="https://github.com/batoulapps/adhan-js">adhan</a>. <a href="https://github.com/Elshazlyyy/Awaab-Public">المصدر على GitHub</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band reveal" aria-labelledby="pp-h">
+      <div class="container">
+        <div class="promise">
+          <div>
+            <h2 class="eyebrow eyebrow--accent" id="pp-h">وعد الخصوصية</h2>
+            <p class="promise__title" style="font-family:var(--ff-quran);font-style:normal;font-weight:600;">لا نجمع شيئًا. لم نفعل قطّ. ولن نفعل.</p>
+            <p class="promise__body">لا منصّة تحليلات، لا مُبلِّغ أعطال يتواصل مع خادم، لا مكتبات طرفٍ ثالث تتّصل من تلقاء نفسها. اقرأ السياسة كاملةً — قصيرةٌ جدًّا.</p>
           </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-label">القرآن</div>
-            <div class="gallery-caption-title">المصحف كاملاً، معك دائماً</div>
-          </div>
+          <a class="cta" href="privacy.html">اقرأ سياسة الخصوصية</a>
         </div>
-
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-quran);font-size:22px;color:var(--ink);">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© ٢٠٢٦ · الترجمة © Saheeh International · صُنع لأهل الذِّكر</p>
+      </div>
+      <nav class="footer-nav" aria-label="تذييل الصفحة">
+        <a href="privacy.html">الخصوصية</a>
+        <a href="accessibility.html">إمكانية الوصول</a>
+        <a href="age-suitability.html">الفئة العمرية</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">تواصل</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="../" lang="en" dir="ltr">English</a>
+      </nav>
     </div>
-  </section>
+  </footer>
 
-  <!-- ───── Three main features ───── -->
-  <section class="band" id="features">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">ماذا يقدّم</span>
-        <h2>ثلاثة رفقاء. تطبيق واحد هادئ.</h2>
-        <p>كل ميزة تعمل دون اتصال. لا شيء يغادر هاتفك.</p>
-      </div>
-
-      <div class="feature-grid">
-        <article class="card reveal">
-          <div class="icon-tile" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.5a.5.5 0 0 1-.8.4L17 19l-2.2 1.9a.5.5 0 0 1-.6 0L12 19l-2.2 1.9a.5.5 0 0 1-.6 0L7 19l-2.2 1.9a.5.5 0 0 1-.8-.4V5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-          </div>
-          <h3>قارئ القرآن</h3>
-          <p>المصحف كاملاً، جاهز للقراءة في أي لحظة — دون الحاجة إلى أي اتصال.</p>
-          <ul class="card-list">
-            <li>جميع السور الـ١١٤</li>
-            <li>الخط العثماني · ترجمة صحيح إنترناشيونال</li>
-            <li>حجم النص العربي قابل للتعديل</li>
-            <li>علامات · مشاركة الآية كصورة أنيقة</li>
-            <li>استئناف القراءة من الشاشة الرئيسية</li>
-          </ul>
-        </article>
-
-        <article class="card reveal">
-          <div class="icon-tile" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          </div>
-          <h3>أوقات الصلاة</h3>
-          <p>أوقات يومية دقيقة أينما كنت — مع تنبيهات هادئة عند دخول كل صلاة.</p>
-          <ul class="card-list">
-            <li>الفجر · الظهر · العصر · المغرب · العشاء</li>
-            <li>بالإضافة إلى الشروق ومنتصف الليل والثلث الأخير</li>
-            <li>ستّ طرق للحساب</li>
-            <li>العصر العادي أو الحنفي</li>
-            <li>التاريخ الهجري والميلادي</li>
-          </ul>
-        </article>
-
-        <article class="card reveal">
-          <div class="icon-tile" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.1 5L8.5 15.5l2.1-5z"/></svg>
-          </div>
-          <h3>محدّد القبلة</h3>
-          <p>أمسك هاتفك بشكل أفقي ودوّر — تتجه البوصلة بهدوء نحو الكعبة، أينما كنت في العالم.</p>
-          <ul class="card-list">
-            <li>علامة برونزية للقبلة</li>
-            <li>سلس، دون اهتزاز</li>
-            <li>اهتزاز خفيف عند المحاذاة</li>
-            <li>يعمل في أي مكان على الأرض</li>
-            <li>اتجاهك يبقى على هاتفك</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── Crafted details ───── -->
-  <section class="band" id="craft">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">تفاصيل مصنوعة بعناية</span>
-        <h2>الأمور الصغيرة، نُهتمّ بها.</h2>
-        <p>أواب أداة هادئة — والأدوات الهادئة تعيش في تفاصيلها.</p>
-      </div>
-
-      <div class="craft-grid">
-        <div class="craft-item reveal">
-          <span class="craft-key">٠١ · قراءة</span>
-          <h3>علامات تبقى لك</h3>
-          <p>الآيات المحفوظة تبقى على هاتفك. لا شيء يُرفع — ولا شيء يضيع.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٢ · قراءة</span>
-          <h3>المصحف العثماني</h3>
-          <p>الخط العثماني الكلاسيكي بخطّ <strong>أميري قرآن</strong> — مصمَّم للقراءة والخشوع. تفتتح البسملة كل سورة عدا التوبة، كما هي السنّة.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٣ · قراءة</span>
-          <h3>ترجمة صحيح إنترناشيونال</h3>
-          <p>تظهر الترجمة الإنجليزية بجانب العربية، آية بآية — ترجمة <strong>صحيح إنترناشيونال</strong> الهادئة الأمينة للمعنى.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٤ · قراءة</span>
-          <h3>شارك آية، بأناقة</h3>
-          <p>حوّل أي آية إلى بطاقة أنيقة وشاركها مع أحبّتك — بدون أي حساب.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٥ · صلاة</span>
-          <h3>ستّ طرق للحساب</h3>
-          <p>من أمّ القرى إلى كراتشي إلى طهران — اختر الطريقة التي يتّبعها مجتمعك، في أي مكان في العالم.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٦ · صلاة</span>
-          <h3>مذهب العصر</h3>
-          <p>عادي أو حنفي. يحترم أواب مذهبك ويتذكّره.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٧ · صلاة</span>
-          <h3>التقويم الهجري، اليوم</h3>
-          <p>كلا التاريخين الميلادي والهجري على الشاشة الرئيسية — التقويم الهجري حاضرٌ معك.</p>
-        </div>
-
-        <div class="craft-item reveal">
-          <span class="craft-key">٠٨ · النظام</span>
-          <h3>يتّبع مظهر هاتفك</h3>
-          <p>كريمي وبرونزي نهاراً، أردوازي عميق وكريمي دافئ ليلاً. لا توجد قائمة للتبديل.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── Verse of the moment ───── -->
-  <section class="band band-verse">
-    <div class="container">
-      <span class="eyebrow center">آية اللحظة</span>
-      <p class="verse-ar reveal">أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ</p>
-      <p class="verse-attr">سورة الرعد · ١٣ : ٢٨</p>
-    </div>
-  </section>
-
-  <!-- ───── Bilingual showcase ───── -->
-  <section class="bilingual">
-    <div class="container">
-      <span class="eyebrow">العربية · English</span>
-      <div class="bilingual-pair">
-        <span class="ar">أواب</span>
-        <span class="dot" aria-hidden="true"></span>
-        <span class="en" lang="en" dir="ltr">Awaab</span>
-      </div>
-      <p class="bilingual-sub">كلمة <em>أوّاب</em> في القرآن تصف من يكثر التوبة إلى الله. اقرأ التطبيق بالعربية، أو الإنجليزية، أو كلتيهما معاً.</p>
-    </div>
-  </section>
-
-  <!-- ───── Facts band ───── -->
-  <section class="band band-facts">
-    <div class="container">
-      <div class="facts-grid">
-        <div class="fact reveal">
-          <span class="fact-n">١١٤</span>
-          <span class="fact-l">سورة كاملة</span>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-n">٦</span>
-          <span class="fact-l">طرق للحساب</span>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-n">٢</span>
-          <span class="fact-l">لغتان، جنباً إلى جنب</span>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-n">٠</span>
-          <span class="fact-l">حسابات مطلوبة</span>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-n">٠</span>
-          <span class="fact-l">إعلانات، أبداً</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── FAQ ───── -->
-  <section class="band band-faq" id="faq">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">أسئلة</span>
-        <h2>ما يسأله الناس.</h2>
-      </div>
-
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>هل أواب مجاني فعلاً للأبد؟</summary>
-          <p>نعم. لا توجد مشتريات داخل التطبيق، ولا اشتراكات، ولا إعلانات. أواب تطبيق إسلامي مجاني — وهذه هي النيّة كاملة. إن تغيّر شيء يوماً، فسترى ذلك موثّقاً هنا بوضوح.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>لماذا سُمّي التطبيق "أواب"؟</summary>
-          <p>كلمة <em>أوّاب</em> وردت في القرآن لتصف من يُكثر الرجوع إلى الله. أسمينا التطبيق على روح الرجوع — فعل التذكّر اليومي اللطيف.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>هل يعمل أواب بدون اتصال بالإنترنت؟</summary>
-          <p>نعم. القرآن كاملاً موجود داخل التطبيق، وأوقات الصلاة تُحسب على هاتفك انطلاقاً من موقعك، وبوصلة القبلة تستخدم مستشعر هاتفك. أنت تحتاج إلى الإنترنت لمرّة واحدة فقط — لتنزيل التطبيق من المتجر.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>أيّ طريقة حساب يجب أن أختار؟</summary>
-          <p>الطريقة التي يتّبعها مجتمعك المحلّي. إن لم تكن متأكّداً: <strong>أمّ القرى</strong> شائعة في السعودية، و<strong>رابطة العالم الإسلامي</strong> خيار افتراضي عالمي، و<strong>ISNA</strong> مستخدمة في أمريكا الشمالية. يمكنك تغييرها في أي وقت من داخل التطبيق.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>ما الفرق بين العصر العادي والحنفي؟</summary>
-          <p>في المذهب العادي (الشافعي والمالكي والحنبلي)، يبدأ العصر حين يصير ظلّ الشيء مثله. وفي المذهب الحنفي، يبدأ حين يصير ظلّ الشيء مثليه. أواب يدعك تختار، ويتذكّر اختيارك.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>هل تجمعون عنّي بيانات؟</summary>
-          <p>لا. أواب لا يجمع أي بيانات، ولا يستخدم تحليلات، ولا إعلانات، ولا أي متتبّعات خارجية. اقرأ <a href="privacy.html">سياسة الخصوصية</a> لكامل التفاصيل.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── Privacy promise ───── -->
-  <section class="band" id="promise">
-    <div class="container">
-      <div class="promise-card reveal">
-        <span class="eyebrow">خصوصية بالتصميم</span>
-        <h2>بياناتك لا تغادر هاتفك أبداً.</h2>
-        <p class="lead">بدون حسابات. بدون تتبّع. بدون إعلانات. أواب تطبيق هادئ يعيش على هاتفك — وهذه القصة كاملة.</p>
-        <p><a href="privacy.html">اقرأ سياسة الخصوصية كاملةً ←</a></p>
-        <p class="also">انظر أيضاً <a href="accessibility.html">إمكانية الوصول</a> و<a href="age-suitability.html">ملاءمة العمر</a>.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site">
-  <div class="foot">
-    <div class="brand-mini">أواب</div>
-    <div class="nav-row">
-      <a href="index.html">الرئيسية</a><span class="sep" aria-hidden="true">·</span>
-      <a href="privacy.html">سياسة الخصوصية</a><span class="sep" aria-hidden="true">·</span>
-      <a href="accessibility.html">إمكانية الوصول</a><span class="sep" aria-hidden="true">·</span>
-      <a href="age-suitability.html">ملاءمة العمر</a><span class="sep" aria-hidden="true">·</span>
-      <a href="mailto:ahmed.shazly15@gmail.com">تواصل</a><span class="sep" aria-hidden="true">·</span>
-      <a href="../index.html" lang="en" dir="ltr">English</a>
-    </div>
-    <div class="version">الإصدار ١.٠ · صُنع لمن يذكر</div>
-  </div>
-</footer>
-
-<script>
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const eastern = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
-  const toEastern = n => String(n).replace(/\d/g, d => eastern[+d]);
-  const isEastern = s => /[٠-٩]/.test(s);
-  const parseNum = s => parseInt(
-    String(s).replace(/[٠-٩]/g, d => eastern.indexOf(d).toString()),
-    10
-  ) || 0;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting || e.target.dataset.animated) return;
-      e.target.dataset.animated = '1';
-      const final = e.target.textContent.trim();
-      const target = parseNum(final);
-      const useEastern = isEastern(final);
-      if (target === 0) return;
-      const duration = 800;
-      const t0 = performance.now();
-      function step(now) {
-        const k = Math.min(1, (now - t0) / duration);
-        const eased = 1 - Math.pow(1 - k, 3);
-        const v = Math.round(target * eased);
-        e.target.textContent = useEastern ? toEastern(v) : String(v);
-        if (k < 1) requestAnimationFrame(step);
-        else e.target.textContent = final;
-      }
-      requestAnimationFrame(step);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.fact-n').forEach(el => observer.observe(el));
-})();
-</script>
-
+  <script>
+    (function() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var arDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+      function toAr(n) { return String(n).split('').map(function(d){ return /[0-9]/.test(d) ? arDigits[+d] : d; }).join(''); }
+      var els = document.querySelectorAll('[data-count]');
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (!e.isIntersecting) return;
+          var el = e.target;
+          var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+          var start = performance.now();
+          var dur = 800;
+          if (target === 0) { el.textContent = '٠'; io.unobserve(el); return; }
+          function step(t) {
+            var k = Math.min(1, (t - start) / dur);
+            var eased = 1 - Math.pow(1 - k, 3);
+            el.textContent = toAr(Math.round(eased * target));
+            if (k < 1) requestAnimationFrame(step);
+            else el.textContent = toAr(target);
+          }
+          requestAnimationFrame(step);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

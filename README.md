@@ -25,8 +25,12 @@ Store and Google Play.
 ```
 .
 ├── awaab.css                  Single source of truth for tokens, type, components
-├── icon.png                   App icon (favicon, apple-touch-icon, manifest icon)
-├── og.png                     1200×630 social-share card (bilingual)
+├── icon.png                   Generic site icon (512×512)
+├── apple-touch-icon.png       180×180 home-screen pin (iOS)
+├── favicon-16/32/48.png       PNG favicon set (modern browsers)
+├── icon-192/512.png           PWA manifest icons
+├── og.png                     1200×630 social-share card (English)
+├── og-ar.png                  1200×630 social-share card (Arabic, RTL)
 ├── manifest.webmanifest       PWA manifest for "Add to Home Screen"
 ├── robots.txt                 Allow all crawlers, points at sitemap.xml
 ├── sitemap.xml                Eight canonical URLs with hreflang alternates
@@ -47,23 +51,34 @@ Store and Google Play.
 
 ## Design system
 
-Tokens mirror the app's `src/theme/colors.ts` and `src/theme/typography.ts`:
+Tokens mirror the app's `src/theme/colors.ts` and `src/theme/typography.ts`,
+canonicalized in `awaab-design/awaab-redesign-v1/spec.md`:
 
-| Token | Value |
-| --- | --- |
-| Background | `#F4EFE3` (warm cream) |
-| Surface (raised card) | `#FAF6EC` |
-| Primary ink | `#1A1814` |
-| Accent (bronze) | `#8A6E3A` |
-| Hairline | `rgba(26, 24, 20, 0.10)` |
+| Token             | Light       | Dark        | Purpose                       |
+| ----------------- | ----------- | ----------- | ----------------------------- |
+| `bg`              | `#F4EFE3`   | `#0E0F12`   | Canvas                        |
+| `surface`         | `#EBE5D6`   | `#16181D`   | Cards, chips, pickers         |
+| `surface2`        | `#DFD8C5`   | `#1E2129`   | Pressed, search wells         |
+| `ink`             | `#1A1916`   | `#EDE6D2`   | Body & display text           |
+| `inkSoft`         | `#4A463E`   | `#A39C87`   | Captions, secondary           |
+| `inkFaint`        | `#8A8576`   | `#5B5648`   | Tertiary, eyebrows            |
+| `hairline`        | `#D9D2BF`   | `#252830`   | 1px dividers                  |
+| `hairlineStrong`  | `#C7BFA8`   | `#363A45`   | Stronger separators           |
+| `accent`          | `#8A6E3A`   | `#B58447`   | Decorative bronze             |
+| `accentText`      | `#76592A`   | `#C9A86A`   | Text bronze — WCAG AA         |
 
-Dark theme tokens (auto-activated via `prefers-color-scheme: dark`) and
-the full type scale (display-l 44/52 down to caption 11/14) live in
-`awaab.css`.
+The two-bronze split keeps small-caps bronze legible on cream. `accent`
+is decorative (diamonds, dots, ornaments); `accentText` is the
+contrast-shifted variant for words — eyebrows, links, captions.
 
-Fonts: **Cormorant Garamond** (serif headings), **Inter Tight** (sans
-body), **Amiri** (Arabic serif), **Cairo** (Arabic sans),
-**JetBrains Mono** (numerals).
+Dark theme is auto-activated via `prefers-color-scheme: dark`. The
+full type ramp (displayL 44/52, monoXXL 64/64, eyebrow 10/12 +
+0.22em tracking, plus the four Arabic variants) lives in `awaab.css`.
+
+Fonts: **Cormorant Garamond** (serif headings, italic-only),
+**Inter Tight** (sans body), **Amiri Quran** (Arabic verses only),
+**Cairo** (Arabic UI), **JetBrains Mono** (numerals + small caps;
+three weights — Light 300 / Regular 400 / Medium 500).
 
 ## Local preview
 
