@@ -40,7 +40,7 @@ Store and Google Play.
 ├── privacy.html               English privacy policy
 ├── accessibility.html         English accessibility statement
 ├── age-suitability.html       English age-suitability statement
-├── 404.html                   Bilingual not-found page
+├── 404.html                   Not-found page (bilingual brand mark, English copy)
 │
 └── ar/                        Arabic mirror (right-to-left)
     ├── index.html
@@ -73,7 +73,8 @@ contrast-shifted variant for words — eyebrows, links, captions.
 
 Dark theme is auto-activated via `prefers-color-scheme: dark`. The
 full type ramp (displayL 44/52, monoXXL 64/64, eyebrow 10/12 +
-0.22em tracking, plus the four Arabic variants) lives in `awaab.css`.
+0.22em tracking, plus the two Arabic variants — Amiri Quran for
+verses, Cairo for UI) lives in `awaab.css`.
 
 Fonts: **Cormorant Garamond** (serif headings, italic-only),
 **Inter Tight** (sans body), **Amiri Quran** (Arabic verses only),
