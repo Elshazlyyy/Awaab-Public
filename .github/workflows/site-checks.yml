@@ -1,0 +1,131 @@
+name: Site checks
+
+# Guards the public-facing pages that the App Store + Google Play
+# reviewer-flow links to (privacy policy, accessibility statement,
+# age-suitability statement). Two checks:
+#
+#   1. lychee link-check — every <a href> and TOC anchor resolves.
+#      Catches dead intra-page anchors (id= drift), dead external
+#      links, and the "I renamed a file and forgot to update sitemap.xml"
+#      class of regression.
+#
+#   2. Lighthouse CI — asserts a11y/best-practices/SEO at 1.0 mobile
+#      (the harder target — if mobile passes, desktop is automatic).
+#      Performance is warn-only at 0.7 since Lighthouse mobile perf
+#      varies with runner load + network simulation jitter and a
+#      hard gate there would produce false-fail noise.
+#
+# Why this matters: every store reviewer's first impression of the
+# project's privacy posture is privacy.html. A 404 there, a broken
+# anchor jump, or an accessibility regression that drops the score
+# would land in the same UI a real user sees on first launch.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: site-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    name: Link check (lychee)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      # lychee caches successful link checks so we don't re-fetch the
+      # full external-URL set on every PR. 1-day max-age caps how long
+      # a now-dead external link can stay cached as "still good" before
+      # we'd notice — matches the audit appetite for marketing-site
+      # link rot (caught within a day, not within a release cycle).
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --include-fragments: validates intra-page anchor IDs
+          #   (e.g., a link to `#privacy` must have `id="privacy"` on
+          #   the target page). Without this, lychee only checks page
+          #   existence, NOT anchor existence — the "dead TOC entry"
+          #   bug class would slip past.
+          # --cache + --max-cache-age 1d: see comment above.
+          # Excludes:
+          #   mailto:   — lychee can't validate inboxes.
+          #   localhost — dev-only references in code samples.
+          #   appstoreconnect — aggressive rate-limits → false positives.
+          args: |
+            --no-progress
+            --include-fragments
+            --cache
+            --max-cache-age 1d
+            --exclude '^mailto:'
+            --exclude 'localhost'
+            --exclude 'appstoreconnect\.apple\.com'
+            './**/*.html'
+            './**/*.md'
+          fail: true
+
+  lighthouse:
+    name: Lighthouse CI (mobile)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node (for lighthouse-ci-action's deps)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Serve the site
+        # Python 3 is preinstalled on ubuntu-latest; http.server is
+        # sufficient for static-site Lighthouse (serves bytes, infers
+        # MIME from extension). Run in background; race-protect with
+        # a curl probe loop so the next step doesn't start before the
+        # server has bound to :8080.
+        run: |
+          python3 -m http.server 8080 >/dev/null 2>&1 &
+          for i in 1 2 3 4 5; do
+            if curl -fsS http://localhost:8080/ >/dev/null 2>&1; then
+              echo "✓ server up"
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Audit with Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          # Audit every store-reviewer-visible page in both locales.
+          # If a reviewer clicks any link from App Store Connect or
+          # Play Console, they land on one of these. Each is asserted
+          # against the same budget file.
+          urls: |
+            http://localhost:8080/
+            http://localhost:8080/privacy.html
+            http://localhost:8080/accessibility.html
+            http://localhost:8080/age-suitability.html
+            http://localhost:8080/ar/
+            http://localhost:8080/ar/privacy.html
+            http://localhost:8080/ar/accessibility.html
+            http://localhost:8080/ar/age-suitability.html
+          # Free uploader → public Lighthouse-CI server. Useful for
+          # PR-time comparison: a reviewer can click through and see
+          # the exact score breakdown without setting up their own
+          # LHCI server. Reports auto-expire after 14 days.
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: ./.github/lighthouserc.json

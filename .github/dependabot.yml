@@ -1,0 +1,24 @@
+# Awaab-Public — automated dependency PRs.
+#
+# Only ecosystem in play here is github-actions (the workflows under
+# .github/workflows/ use third-party actions like lycheeverse/lychee-action,
+# treosh/lighthouse-ci-action, actions/checkout, actions/cache,
+# actions/setup-node). Weekly cadence is enough — the site itself has
+# no JS or npm dependency graph to track.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Asia/Riyadh
+    open-pull-requests-limit: 3
+    labels:
+      - dependencies
+      - ci
+    commit-message:
+      prefix: chore(ci)
+      include: scope
