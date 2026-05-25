@@ -122,7 +122,12 @@ Verified at the production URL with Lighthouse:
 Zero failed audits at either viewport. The site is fully responsive
 from 320 px (iPhone SE) to wide desktop, supports dark mode via
 `prefers-color-scheme`, respects `prefers-reduced-motion`, and ships
-no analytics, no trackers, and no third-party scripts of any kind.
+no analytics, no trackers, and no third-party scripts. The only
+third-party network call from any page is the Google Fonts stylesheet
+import (`fonts.googleapis.com`) — disclosed in the
+[privacy policy](privacy.html#third). If you would prefer
+self-hosted fonts, [tell us](mailto:ahmed.shazly15@gmail.com) and
+we will switch.
 
 ## License
 
