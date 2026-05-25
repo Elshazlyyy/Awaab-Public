@@ -112,22 +112,26 @@ gh api /repos/Elshazlyyy/Awaab-Public/pages/builds/latest --jq '.status'
 
 ## Quality
 
-Verified at the production URL with Lighthouse:
+Verified at the production URL with Lighthouse (mobile, the harder
+target). Site CI re-runs Lighthouse on every PR + push to main and
+asserts these scores via [`.github/lighthouserc.json`](.github/lighthouserc.json):
 
 | | Performance | Accessibility | Best Practices | SEO |
 | --- | --- | --- | --- | --- |
-| Desktop | 91 | 100 | 100 | 100 |
-| Mobile | 71 | 100 | 100 | 100 |
+| Desktop | ≥95 | 100 | 100 | 100 |
+| Mobile  | ≥90 | 100 | 100 | 100 |
 
 Zero failed audits at either viewport. The site is fully responsive
 from 320 px (iPhone SE) to wide desktop, supports dark mode via
 `prefers-color-scheme`, respects `prefers-reduced-motion`, and ships
-no analytics, no trackers, and no third-party scripts. The only
-third-party network call from any page is the Google Fonts stylesheet
-import (`fonts.googleapis.com`) — disclosed in the
-[privacy policy](privacy.html#third). If you would prefer
-self-hosted fonts, [tell us](mailto:ahmed.shazly15@gmail.com) and
-we will switch.
+**no analytics, no trackers, no third-party scripts, and no
+cross-origin font calls**. Fonts (Cormorant Garamond, Inter Tight,
+JetBrains Mono, Amiri, Amiri Quran, Cairo) are self-hosted as `woff2`
+in [`/fonts`](fonts/) — earlier the site fetched them from
+`fonts.googleapis.com` via `@import`, which both leaked visitor IPs
+to Google and was render-blocking serial; both are gone. Each page
+preloads its three above-the-fold weights with `<link rel="preload"
+as="font" crossorigin>` so the hero paints without a FOUT/FOIT flash.
 
 ## License
 

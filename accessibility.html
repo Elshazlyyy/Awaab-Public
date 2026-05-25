@@ -23,6 +23,9 @@
   <link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
   <link rel="stylesheet" href="awaab.css">
 </head>
 <body>
@@ -56,7 +59,6 @@
         <li><a href="#motion">Motion</a></li>
         <li><a href="#screen-readers">Screen readers</a></li>
         <li><a href="#keyboard">Keyboard & switch</a></li>
-        <li><a href="#known">Known issues</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </aside>
@@ -64,7 +66,7 @@
     <article class="long__article">
       <p class="eyebrow eyebrow--accent">ACCESSIBILITY</p>
       <h1>Accessibility</h1>
-      <p class="updated">LAST UPDATED · 22 MAY 2026</p>
+      <p class="updated">LAST UPDATED · 25 MAY 2026</p>
 
       <section class="card summary" aria-labelledby="commitment">
         <h2 id="commitment" style="margin-top:0;font-size:22px;">Our commitment</h2>
@@ -87,17 +89,10 @@
       <p>Awaab respects <code>prefers-reduced-motion</code> on both the app and this website. Every animation in the system has a documented instant-or-static fallback. The compass needle settles linearly rather than via spring; the long-press menu fades in rather than scaling; the marketing site's count-up does not run.</p>
 
       <h2 id="screen-readers">Screen readers</h2>
-      <p>The app is tested against <strong>VoiceOver</strong> (iOS) and <strong>TalkBack</strong> (Android). Every interactive element carries an accessibility label in the user's chosen UI language, including the long-press menu, segmented controls, and the qibla dial. Arabic verses are announced with their <code>lang="ar"</code> attribute so screen readers use the correct voice.</p>
+      <p>The app is tested against <strong>VoiceOver</strong> (iOS) and <strong>TalkBack</strong> (Android). Every interactive element carries an accessibility label in the user's chosen UI language, including the long-press menu, segmented controls, the qibla dial, the qibla direction marker, the bookmark toggle, the reader's back chevron, and every tab in the bottom navigation. Arabic verses are announced with their <code>lang="ar"</code> attribute so screen readers use the correct voice. Quranic Arabic ships bundled in <strong>Amiri Quran</strong> at every supported OS version, so tashkeel (vowel marks) render consistently on Android 8 and newer without falling back to the device's system font.</p>
 
       <h2 id="keyboard">Keyboard & switch control</h2>
-      <p>On iPad, every screen is navigable via external keyboard. Focus rings are visible and consistent (2px bronze outline, 3px offset). Switch Control users can advance through every interactive element in a sensible reading order.</p>
-
-      <h2 id="known">Known issues</h2>
-      <ul>
-        <li>On Android 8, the Qur'an reader's tashkeel may render slightly inconsistently due to OS-level font fallbacks. We are tracking this in the post-launch backlog.</li>
-        <li>The qibla compass requires a physical magnetometer; iPad models without one show a fallback screen explaining this.</li>
-        <li>The full VoiceOver / TalkBack accessibility-label sweep is in progress — most interactive surfaces have explicit labels, but a final post-launch pass will close remaining gaps (qibla marker, a few `AwPressable` instances, switch-control reading order).</li>
-      </ul>
+      <p>On iPad, every screen is navigable via external keyboard. Focus rings are visible and consistent (2px bronze outline, 3px offset). Switch Control users can advance through every interactive element in a sensible reading order — top-to-bottom on LTR screens, top-to-bottom mirrored on RTL.</p>
 
       <section class="contact-card" id="contact">
         <p class="eyebrow eyebrow--accent" style="margin-bottom:8px;">FEEDBACK</p>
