@@ -25,7 +25,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   --surface-2:       #DFD8C5;
   --ink:             #1A1916;
   --ink-soft:        #4A463E;
-  --ink-faint:       #8A8576;
+  /* ink-faint bumped from #8A8576 (3.21:1) to #615C4F (5.81:1) to clear
+     WCAG AA 4.5:1 on the cream bg. Lighthouse CI was flagging the prior
+     value as a color-contrast failure on the long-form pages where
+     ink-faint shows up as actual body-adjacent text (the LAST UPDATED
+     stamp, .fact labels, etc.) — not just decoration. The new value is
+     still distinct from ink-soft (#4A463E) so the three-tier ink ramp
+     stays legible as a design choice. */
+  --ink-faint:       #615C4F;
   --hairline:        #D9D2BF;
   --hairline-strong: #C7BFA8;
   --accent:          #8A6E3A;            /* decorative bronze */
@@ -64,7 +71,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     --surface-2:       #1E2129;
     --ink:             #EDE6D2;
     --ink-soft:        #A39C87;
-    --ink-faint:       #5B5648;
+    /* ink-faint bumped from #5B5648 (2.62:1) to #928C7A (5.71:1) for
+       WCAG AA on the dark bg. Same Lighthouse motivation as the light
+       value. Stays distinct from ink-soft (#A39C87) so the three-tier
+       ramp survives in dark mode too. */
+    --ink-faint:       #928C7A;
     --hairline:        #252830;
     --hairline-strong: #363A45;
     --accent:          #B58447;

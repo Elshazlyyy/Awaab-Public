@@ -61,7 +61,7 @@ canonicalized in `awaab-design/awaab-redesign-v1/spec.md`:
 | `surface2`        | `#DFD8C5`   | `#1E2129`   | Pressed, search wells         |
 | `ink`             | `#1A1916`   | `#EDE6D2`   | Body & display text           |
 | `inkSoft`         | `#4A463E`   | `#A39C87`   | Captions, secondary           |
-| `inkFaint`        | `#8A8576`   | `#5B5648`   | Tertiary, eyebrows            |
+| `inkFaint`        | `#615C4F`   | `#928C7A`   | Tertiary, eyebrows (WCAG AA)  |
 | `hairline`        | `#D9D2BF`   | `#252830`   | 1px dividers                  |
 | `hairlineStrong`  | `#C7BFA8`   | `#363A45`   | Stronger separators           |
 | `accent`          | `#8A6E3A`   | `#B58447`   | Decorative bronze             |
