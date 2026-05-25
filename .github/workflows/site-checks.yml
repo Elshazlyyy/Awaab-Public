@@ -47,7 +47,7 @@ jobs:
       # we'd notice — matches the audit appetite for marketing-site
       # link rot (caught within a day, not within a release cycle).
       - name: Restore lychee cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .lycheecache
           key: lychee-${{ github.run_id }}
