@@ -1,0 +1,25 @@
+# Awaab-Public — code ownership for review enforcement.
+#
+# Small repo, single owner. Mirrors the pattern from the app repo's
+# CODEOWNERS so any future contributor sees the same trust model.
+# Critical paths: the privacy + accessibility + age-suitability pages
+# (visible to store reviewers), the workflows (CI gates), and the
+# manifest/sitemap (search-engine + PWA install).
+
+* @Elshazlyyy
+
+# ── CI + automation ──────────────────────────────────────────────────
+/.github/                   @Elshazlyyy
+
+# ── Store-reviewer-visible legal pages ───────────────────────────────
+/privacy.html               @Elshazlyyy
+/accessibility.html         @Elshazlyyy
+/age-suitability.html       @Elshazlyyy
+/ar/privacy.html            @Elshazlyyy
+/ar/accessibility.html      @Elshazlyyy
+/ar/age-suitability.html    @Elshazlyyy
+
+# ── Search + manifest surfaces ───────────────────────────────────────
+/sitemap.xml                @Elshazlyyy
+/robots.txt                 @Elshazlyyy
+/manifest.webmanifest       @Elshazlyyy
