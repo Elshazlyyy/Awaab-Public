@@ -23,6 +23,9 @@
   <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/_Xmo-Hk0rD6DbUL4_vH8Zp5v5i2-sf-3O38.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS8p4_RHH1.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
   <link rel="stylesheet" href="../awaab.css">
 </head>
 <body>
@@ -55,7 +58,6 @@
         <li><a href="#motion">الحركة</a></li>
         <li><a href="#screen-readers">قارئات الشاشة</a></li>
         <li><a href="#keyboard">لوحة المفاتيح</a></li>
-        <li><a href="#known">مشكلات معروفة</a></li>
         <li><a href="#contact">تواصل</a></li>
       </ul>
     </aside>
@@ -63,7 +65,7 @@
     <article class="long__article">
       <p class="eyebrow eyebrow--accent">إمكانية الوصول</p>
       <h1>إمكانية الوصول</h1>
-      <p class="updated">آخر تحديث · ٢٢ مايو ٢٠٢٦</p>
+      <p class="updated">آخر تحديث · ٢٥ مايو ٢٠٢٦</p>
 
       <section class="card summary" aria-labelledby="commitment">
         <h2 id="commitment" style="margin-top:0;font-size:22px;">التزامنا</h2>
@@ -86,17 +88,10 @@
       <p>يحترم أوّاب <code>prefers-reduced-motion</code> في التطبيق وهذا الموقع. لكلّ حركةٍ في النظام بديلٌ موثَّق إمّا فوريًّا أو ساكنًا. تستقرّ إبرة البوصلة بشكلٍ خطّيٍّ بدلًا من النابض؛ تظهر قائمة الضغط المطوّل بالتلاشي بدلًا من التكبير؛ لا يعمل العدّ التصاعدي في الموقع.</p>
 
       <h2 id="screen-readers">قارئات الشاشة</h2>
-      <p>اختُبر التطبيق مع <strong>VoiceOver</strong> (iOS) و<strong>TalkBack</strong> (Android). كلّ عنصرٍ تفاعليٍّ يحمل تسمية إمكانية وصولٍ بلغة الواجهة التي اخترتها، بما في ذلك قائمة الضغط المطوّل، والأشرطة المقسّمة، وقرص القبلة. تُنطق الآيات العربية بسمة <code>lang="ar"</code> فيستخدم القارئ الصوت الصحيح.</p>
+      <p>اختُبر التطبيق مع <strong>VoiceOver</strong> (iOS) و<strong>TalkBack</strong> (Android). كلّ عنصرٍ تفاعليٍّ يحمل تسمية إمكانية وصولٍ بلغة الواجهة التي اخترتها، بما في ذلك قائمة الضغط المطوّل، والأشرطة المقسّمة، وقرص القبلة، وعلامة اتّجاه القبلة، وزرّ التبديل إلى المحفوظات، وزرّ الرجوع في القارئ، وكلّ تبويبٍ في شريط التنقّل السفلي. تُنطق الآيات العربية بسمة <code>lang="ar"</code> فيستخدم القارئ الصوت الصحيح. النصّ القرآني العربي مُجمَّع بخطّ <strong>أميري قرآن</strong> في كلّ إصدار نظامٍ مدعوم، فيظهر التشكيل (الحركات) بشكلٍ متّسقٍ على Android 8 وما بعده دون الرجوع إلى خطّ النظام الافتراضي.</p>
 
       <h2 id="keyboard">لوحة المفاتيح والتحكّم بالمفاتيح</h2>
-      <p>على iPad، يمكن التنقّل في كلّ شاشةٍ بلوحة مفاتيح خارجية. حلقات التركيز مرئية ومتّسقة (إطار برونزي ٢ بكسل، إزاحة ٣ بكسل). يمكن لمستخدمي Switch Control المرور بكلّ عنصرٍ تفاعليٍّ بترتيب قراءةٍ منطقي.</p>
-
-      <h2 id="known">مشكلات معروفة</h2>
-      <ul>
-        <li>على Android 8، قد يظهر التشكيل في القارئ بشكلٍ غير متّسقٍ قليلًا بسبب احتياطيات الخط على مستوى النظام. نتابع هذا ضمن قائمة ما بعد الإطلاق.</li>
-        <li>تتطلّب بوصلة القبلة مقياس مغناطيسيٍّ ماديٍّ؛ تعرض موديلات iPad التي لا تحتويه شاشةً احتياطيّةً تشرح ذلك.</li>
-        <li>المراجعة الكاملة لتسميات VoiceOver / TalkBack جاريةٌ — معظم السطوح التفاعليّة تحمل تسميات صريحة، وستُغلق المراجعة النهائيّة بعد الإطلاق الفجوات المتبقّية (علامة القبلة، عدد من حالات `AwPressable`، ترتيب قراءة Switch Control).</li>
-      </ul>
+      <p>على iPad، يمكن التنقّل في كلّ شاشةٍ بلوحة مفاتيح خارجية. حلقات التركيز مرئية ومتّسقة (إطار برونزي ٢ بكسل، إزاحة ٣ بكسل). يمكن لمستخدمي Switch Control المرور بكلّ عنصرٍ تفاعليٍّ بترتيب قراءةٍ منطقي — من الأعلى إلى الأسفل في الشاشات LTR، ومن الأعلى إلى الأسفل مرآةً في RTL.</p>
 
       <section class="contact-card" id="contact">
         <p class="eyebrow eyebrow--accent" style="margin-bottom:8px;">ملاحظات</p>
