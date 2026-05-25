@@ -28,6 +28,15 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
 
+  <!-- Preload the three above-the-fold Latin font weights so the hero, body
+       prose, and mono-caps eyebrows paint without the FOUT/FOIT flash that
+       `font-display: swap` would otherwise cause on cold load. `crossorigin`
+       is required for preloaded font assets per the CSS spec (font fetches
+       use CORS-anonymous mode). -->
+  <link rel="preload" as="font" type="font/woff2" href="fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
+
   <link rel="stylesheet" href="awaab.css">
 </head>
 <body>
