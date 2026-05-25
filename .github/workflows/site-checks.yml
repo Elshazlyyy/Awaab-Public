@@ -63,9 +63,17 @@ jobs:
           #   bug class would slip past.
           # --cache + --max-cache-age 1d: see comment above.
           # Excludes:
-          #   mailto:   — lychee can't validate inboxes.
-          #   localhost — dev-only references in code samples.
-          #   appstoreconnect — aggressive rate-limits → false positives.
+          #   mailto:                            — lychee can't validate inboxes.
+          #   localhost                          — dev-only references in code samples.
+          #   appstoreconnect.apple.com          — aggressive rate-limits → false positives.
+          #   elshazlyyy.github.io/Awaab-Public  — the canonical / hreflang / og:url
+          #     metadata on every page points at the page's own live URL
+          #     on GH Pages. site-checks fires on push:main IN PARALLEL
+          #     with the GH Pages deploy, so during the ~30-60s deploy
+          #     window the live URL transiently 404s. We're already
+          #     checking each page's existence locally via the file
+          #     traversal — re-validating via HTTP is redundant AND
+          #     race-prone. Exclude the self-URL.
           args: |
             --no-progress
             --include-fragments
@@ -74,6 +82,7 @@ jobs:
             --exclude '^mailto:'
             --exclude 'localhost'
             --exclude 'appstoreconnect\.apple\.com'
+            --exclude 'elshazlyyy\.github\.io/Awaab-Public'
             './**/*.html'
             './**/*.md'
           fail: true
