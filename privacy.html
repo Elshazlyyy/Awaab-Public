@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy policy — Awaab</title>
-  <meta name="description" content="Awaab keeps your personal content on your device. We transmit a small set of anonymous operational telemetry via Expo Application Services — no PII, no advertising trackers.">
+  <meta name="description" content="Awaab keeps your personal content on your device. The only network call we make is an anonymous over-the-air update check via Expo. No PII, no analytics, no advertising trackers.">
   <meta property="og:title" content="Privacy policy — Awaab">
-  <meta property="og:description" content="Your personal content stays on your device. Anonymous operational telemetry via Expo — no PII, no advertising trackers.">
+  <meta property="og:description" content="Your personal content stays on your device. One anonymous OTA-update check via Expo, nothing else. No PII, no analytics, no advertising trackers.">
   <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png">
   <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/privacy.html">
   <meta property="og:locale" content="en_US">
@@ -66,11 +66,11 @@
     <article class="long__article">
       <p class="eyebrow eyebrow--accent">PRIVACY</p>
       <h1>Privacy policy</h1>
-      <p class="updated">LAST UPDATED · 23 MAY 2026</p>
+      <p class="updated">LAST UPDATED · 25 MAY 2026</p>
 
       <section class="card summary" aria-labelledby="summary">
         <h2 id="summary" style="margin-top:0;font-size:22px;">In one line</h2>
-        <p>Your personal content — location, settings, bookmarks, what you read — never leaves your device. Awaab does transmit a small set of <strong>anonymous operational telemetry</strong> via Expo Application Services so we can ship bug fixes and understand rough adoption. No name, no email, no advertising identifiers, no sale of data to anyone. The full disclosure is below.</p>
+        <p>Your personal content — location, settings, bookmarks, what you read — never leaves your device. The one network call Awaab makes is an <strong>anonymous over-the-air update check</strong> via Expo Application Services, so we can ship bug fixes. No name, no email, no advertising identifiers, no analytics, no sale of data to anyone. The full disclosure is below.</p>
       </section>
 
       <h2 id="not-collect">What we do not collect</h2>
@@ -84,12 +84,12 @@
       </ul>
 
       <h2 id="collect">What we do collect</h2>
-      <p>Awaab uses <strong>Expo Application Services</strong> — the platform we build and ship the app with — for two narrow operational purposes. Both transmit only anonymous, aggregated signals:</p>
+      <p>Awaab uses <strong>Expo Application Services</strong> — the platform we build and ship the app with — for one narrow operational purpose:</p>
       <ul>
         <li><strong><code>expo-updates</code> — over-the-air bug fix delivery.</strong> On launch, the app asks Expo whether a JavaScript bundle update is available for your installed app version. The request carries: your app version, runtime version, OS version, and an anonymous Expo install ID (randomly generated on first launch, not tied to your Apple/Google account or any device hardware identifier). No personal data is sent. Endpoint: <code>u.expo.dev</code>.</li>
-        <li><strong><code>expo-insights</code> — aggregate adoption metrics.</strong> On launch, the app records an anonymous app-launch event. The request carries: the same anonymous Expo install ID, OS version, app version, and basic diagnostic data (e.g. cold-start performance, JS errors if any). No personal data, no precise location, no usage details (we do not know which screens you visited, what you read, or what you searched). Endpoint: <code>i.expo.dev</code>.</li>
       </ul>
       <p>The Expo install ID is reset every time you uninstall and reinstall the app. Expo Inc. is the data processor; their privacy practices are at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. We do not sell, share, or otherwise hand this data to advertisers, brokers, or any other party.</p>
+      <p>An earlier release of this app shipped with the <code>expo-insights</code> dependency — confirmed in Expo SDK 54 to be a no-op shim that logs locally and does not transmit. We have removed it from the dependency graph so the on-device behavior matches this policy exactly.</p>
 
       <h2 id="device">What is stored on your device</h2>
       <p>The following data lives only on your device, and you can delete it by uninstalling the app:</p>
@@ -106,14 +106,13 @@
       <h2 id="network">Network traffic</h2>
       <p>The complete list of network requests Awaab makes:</p>
       <ul>
-        <li><strong><code>u.expo.dev</code></strong> (Expo Updates) — checked on cold launch and at most once per session, to fetch over-the-air JavaScript fixes for your installed app version. Anonymous install ID + app/runtime version only.</li>
-        <li><strong><code>i.expo.dev</code></strong> (Expo Insights) — anonymous launch event on cold launch. Anonymous install ID + OS/app version + basic diagnostic data.</li>
+        <li><strong><code>u.expo.dev</code></strong> (Expo Updates) — checked on cold launch and at most once per session, to fetch over-the-air JavaScript fixes for your installed app version. Anonymous install ID + app/runtime/OS version only.</li>
         <li><strong>App Store / Play Store</strong> (OS-level) — the operating system itself may check for binary updates. We do not control this; it is the same behavior as any other installed app.</li>
       </ul>
-      <p>That is the entire list. Awaab does not contact ad networks, third-party analytics services other than Expo Insights, third-party crash reporters, social-media SDKs, or any other server.</p>
+      <p>That is the entire list. Awaab does not contact ad networks, third-party analytics services, third-party crash reporters, social-media SDKs, or any other server.</p>
 
       <h2 id="third">Third-party services</h2>
-      <p>Awaab uses <strong>Expo Application Services</strong> (operated by Expo Inc.) as its sole third-party processor, for <code>expo-updates</code> and <code>expo-insights</code> as described above. Their privacy policy is at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. Awaab transmits no data to any other third party.</p>
+      <p>Awaab uses <strong>Expo Application Services</strong> (operated by Expo Inc.) as its sole third-party processor, for <code>expo-updates</code> over-the-air bug-fix delivery as described above. Their privacy policy is at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. Awaab transmits no data to any other third party.</p>
       <p>The marketing site at <code>elshazlyyy.github.io/Awaab-Public</code> uses no analytics, no cookies, and no third-party scripts other than Google Fonts (<code>fonts.googleapis.com</code>); if you would prefer Google Fonts were self-hosted, please tell us and we will move them.</p>
 
       <h2 id="deletion">Data deletion</h2>
