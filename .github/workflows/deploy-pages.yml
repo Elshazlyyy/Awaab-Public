@@ -1,0 +1,76 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static site to GitHub Pages on every push to main.
+#
+# Why this workflow exists explicitly (instead of the auto-generated
+# `pages-build-deployment` workflow that GH spins up for "Deploy from a
+# branch" mode):
+#
+# The auto-generated workflow wedged on 2026-05-23T14:10 — the latest
+# `pages-build-deployment` run sat in `queued` state for 2 days while
+# every subsequent push to main produced zero new deploy attempts. The
+# live site began returning 404 once the cached deploy aged out.
+# Cancelling the stuck run via `gh run cancel` returned "Cannot cancel
+# a workflow run that is completed", suggesting the run is in a
+# corrupted state on the GH side.
+#
+# Owning the deploy in an explicit workflow:
+#   1. Removes the dependency on GH's auto-generated workflow.
+#   2. Gives us version control over the deploy steps.
+#   3. Plays nicely with the `Source: GitHub Actions` mode in
+#      repo Settings → Pages, which is the modern recommended path
+#      for static sites.
+#
+# REQUIRED ONE-TIME MANUAL STEP after this file lands:
+#   Repo Settings → Pages → Build and deployment → Source →
+#   GitHub Actions  (was: Deploy from a branch)
+#   This switch is a Pages-config change that requires repo-admin
+#   action; CI cannot do it automatically without elevated scopes.
+
+on:
+  push:
+    branches: [main]
+  # Manual trigger so the operator can re-deploy without a new commit
+  # — useful when GH Pages or this workflow has been edited and the
+  # site needs a refresh without a no-op commit.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# `cancel-in-progress: false` — let an in-flight deploy finish before
+# starting a newer one. Partial deploys aren't safe (GH would serve
+# half-uploaded artifacts); queue is the right primitive here.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    # Pages deploys are I/O dominated: upload artifact, GH-side
+    # extraction, CDN propagation. 10 min is generous for a ~5MB site;
+    # anything longer is a GH-side hang we want to fail-loud on.
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          # Whole repo root is the site. (.nojekyll at root tells
+          # Pages not to run Jekyll processing.)
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
