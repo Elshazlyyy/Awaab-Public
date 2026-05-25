@@ -63,6 +63,15 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enables Pages on the repo + switches the source to
+          # "GitHub Actions" if it isn't already. Requires the workflow
+          # to have `pages: write` permission (declared above). Without
+          # this flag, the first run of this workflow fails with
+          # "Get Pages site failed" until someone manually enables
+          # Pages in repo Settings — which is exactly the breakage
+          # this workflow exists to fix in the first place.
+          enablement: true
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
