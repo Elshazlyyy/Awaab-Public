@@ -5,6 +5,14 @@
 # treosh/lighthouse-ci-action, actions/checkout, actions/cache,
 # actions/setup-node). Weekly cadence is enough — the site itself has
 # no JS or npm dependency graph to track.
+#
+# Major-version bumps on actions/* are intentionally blocked. Each new
+# major has historically introduced breaking changes (e.g.,
+# upload-artifact v3→v4 changed the deduplication semantics; checkout
+# v5+ shifted the bundled Node runtime). They should land in a manually-
+# tested PR, not automatically. Patch + minor still flow through —
+# those carry security fixes and behavior parity bumps that are safe
+# to take blind.
 
 version: 2
 updates:
@@ -22,3 +30,13 @@ updates:
     commit-message:
       prefix: chore(ci)
       include: scope
+    ignore:
+      # All third-party + first-party GitHub Actions: block major
+      # bumps (see file header for rationale). Catch-all pattern
+      # covers actions/checkout, actions/cache, actions/setup-node,
+      # actions/upload-artifact, lycheeverse/lychee-action,
+      # treosh/lighthouse-ci-action, etc. — anything dependabot
+      # discovers in this repo's workflows.
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
