@@ -1,0 +1,150 @@
+name: Cross-repo sanity
+
+# Verifies that strings rendered on this public marketing site stay
+# consistent with the canonical values in the private Awaab app repo.
+# Catches the drift class of bug where:
+#   - Awaab's app.json display name is renamed but this site still
+#     shows the old name (store reviewer would flag this)
+#   - iOS bundle id vs Android package drift inside Awaab itself
+#   - This site's privacy URL is restructured and the URL pattern
+#     stops being internally consistent across the public pages
+#
+# Requires a fine-grained PAT `AWAAB_REPO_READ_TOKEN` with read-only
+# `Contents` access to Elshazlyyy/Awaab. Without it, the check
+# self-skips (logs a warning) so this workflow doesn't block every PR
+# before the secret has been configured. Once configured, the check
+# becomes a hard CI gate.
+#
+# ── Security posture ───────────────────────────────────────────────────
+# No untrusted input is interpolated anywhere in this workflow:
+#   - secrets.AWAAB_REPO_READ_TOKEN is always env-bound, never inlined
+#     into a run: script body
+#   - github.ref is used only in `concurrency.group` (system-controlled)
+#   - No use of github.event.* fields (issue body, PR title, etc.)
+# Follows the workflow-injection-hardening guidance at:
+#   https://github.blog/security/vulnerability-research/how-to-catch-github-actions-workflow-injections-before-attackers-do/
+#
+# ── To configure the secret (one-time) ─────────────────────────────────
+#   1. github.com/settings/personal-access-tokens/new
+#   2. Token name: AWAAB_REPO_READ_TOKEN (for Awaab-Public sanity check)
+#   3. Expiration: 365 days  (track in Awaab/.github/secret-expiries.yml)
+#   4. Resource owner: @Elshazlyyy
+#   5. Repository access: Only select repositories → Elshazlyyy/Awaab
+#   6. Repository permissions:
+#        Contents → Read-only
+#        Metadata → Read-only  (auto-required)
+#   7. Generate, copy
+#   8. github.com/Elshazlyyy/Awaab-Public/settings/secrets/actions/new
+#        Name:  AWAAB_REPO_READ_TOKEN
+#        Value: <paste>
+# ─────────────────────────────────────────────────────────────────────
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: cross-repo-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sanity:
+    name: Awaab ↔ Awaab-Public consistency
+    runs-on: ubuntu-latest
+    # Two HTTPS calls + jq + grep. 3 min is generous; 5 lets a slow
+    # GH-API response settle without consuming the default 6h timeout.
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4 (SHA-pinned; Dependabot updates)
+
+      # Secrets evaluated at workflow-parse time are not exposed in
+      # `if:` expressions for security reasons — the canonical pattern
+      # is to bind the secret to an env var inside a step, then check
+      # its emptiness in the script body. Empty = secret not configured.
+      - name: Probe AWAAB_REPO_READ_TOKEN availability
+        id: token
+        env:
+          PROBE: ${{ secrets.AWAAB_REPO_READ_TOKEN }}
+        run: |
+          if [ -z "$PROBE" ]; then
+            echo "::warning title=Cross-repo check skipped::AWAAB_REPO_READ_TOKEN secret is not configured. See workflow header for setup instructions. Until then, this check is a no-op (it does not block PRs)."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch Awaab app.json
+        if: steps.token.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.AWAAB_REPO_READ_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh api repos/Elshazlyyy/Awaab/contents/app.json --jq '.content' \
+            | base64 -d > /tmp/awaab-app.json
+          # Surface size as a sanity signal — a 0-byte file means the
+          # PAT lacks the right scope or the file was deleted upstream.
+          bytes=$(wc -c < /tmp/awaab-app.json)
+          echo "Fetched Awaab/app.json ($bytes bytes)"
+          if [ "$bytes" -lt 200 ]; then
+            echo "::error::Awaab/app.json fetch came back suspiciously small ($bytes bytes). Likely cause: AWAAB_REPO_READ_TOKEN lacks 'Contents: Read' on Elshazlyyy/Awaab."
+            exit 1
+          fi
+
+      - name: Verify app name + bundle id + privacy URL consistency
+        if: steps.token.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+
+          APP_NAME=$(jq -r '.expo.name' /tmp/awaab-app.json)
+          BUNDLE_ID_IOS=$(jq -r '.expo.ios.bundleIdentifier' /tmp/awaab-app.json)
+          BUNDLE_ID_AND=$(jq -r '.expo.android.package' /tmp/awaab-app.json)
+
+          echo "── Awaab canonical values ────────────────────────"
+          echo "  app name:        $APP_NAME"
+          echo "  iOS bundle id:   $BUNDLE_ID_IOS"
+          echo "  Android package: $BUNDLE_ID_AND"
+          echo
+
+          fail=0
+
+          # 1. App name must appear on both hero pages (display, OG, etc.)
+          for f in index.html ar/index.html; do
+            if ! grep -qF "$APP_NAME" "$f"; then
+              echo "::error file=$f::app name '$APP_NAME' (from Awaab/app.json) not found in $f"
+              fail=1
+            fi
+          done
+
+          # 2. iOS bundle id and Android package must match (Awaab uses
+          #    one identifier on both stores; drift here means someone
+          #    edited app.json wrong).
+          if [ "$BUNDLE_ID_IOS" != "$BUNDLE_ID_AND" ]; then
+            echo "::error::Awaab/app.json has iOS bundle '$BUNDLE_ID_IOS' but Android package '$BUNDLE_ID_AND' — mismatch. Both should be the same string."
+            fail=1
+          fi
+
+          # 3. Privacy URL pattern internal consistency. Every cross-
+          #    link on this site that points at the privacy page should
+          #    use the canonical absolute URL pattern that store-listing
+          #    submissions (Apple / Google) reference.
+          PRIVACY_URL='https://elshazlyyy.github.io/Awaab-Public/privacy.html'
+          if ! grep -qF "$PRIVACY_URL" privacy.html; then
+            echo "::error file=privacy.html::canonical privacy URL '$PRIVACY_URL' not found in privacy.html (og:url / canonical metadata should reference it)"
+            fail=1
+          fi
+          if ! grep -qF "$PRIVACY_URL" ar/privacy.html; then
+            echo "::error file=ar/privacy.html::canonical privacy URL '$PRIVACY_URL' (LTR variant) should appear as the en-hreflang in the AR page"
+            fail=1
+          fi
+
+          if [ "$fail" -ne 0 ]; then
+            echo
+            echo "::error::Cross-repo sanity check failed. Annotations above point at the specific drift; fix the relevant file before merging."
+            exit 1
+          fi
+          echo "✓ All cross-repo consistency checks passed."

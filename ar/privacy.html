@@ -3,11 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks resource origins to same-origin. No inline JS here →
+       script-src 'none'. See /index.html for full rationale. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>سياسة الخصوصية — أوّاب</title>
   <meta name="description" content="محتواك الشخصيّ يبقى على جهازك. الطلب الشبكيّ الوحيد هو فحص تحديثات حيٍّ مجهول الهويّة عبر Expo. بلا بيانات شخصيّة، بلا تحليلات، بلا متتبّعات إعلانيّة.">
   <meta property="og:title" content="سياسة الخصوصية — أوّاب">
   <meta property="og:description" content="محتواك الشخصيّ يبقى على جهازك. فحص تحديثاتٍ واحد مجهول الهويّة عبر Expo، لا غير. بلا بيانات شخصيّة، بلا تحليلات، بلا متتبّعات إعلانيّة.">
   <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-ar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="أوّاب — سياسة الخصوصية">
   <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/ar/privacy.html">
   <meta property="og:locale" content="ar_SA">
   <meta property="og:locale:alternate" content="en_US">
@@ -23,6 +33,7 @@
   <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
   <link rel="preload" as="font" type="font/woff2" href="../fonts/_Xmo-Hk0rD6DbUL4_vH8Zp5v5i2-sf-3O38.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../fonts/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS8p4_RHH1.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
