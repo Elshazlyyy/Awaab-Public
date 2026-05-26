@@ -3,12 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks every resource origin to same-origin. The one inline
+       script on this page (count-up with Arabic-Indic digit converter)
+       is allowed via SHA-256 hash. Different hash from /index.html
+       because the AR script bundles the Arabic-digit table.
+
+       X-Content-Type-Options + Permissions-Policy are HTTP-header-
+       only — copy into CDN headers if this site moves off Pages. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-lcvz2HDwk0eRn5aCtNgvd5N6oPKL1d5LcecIf6/sr5Y='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة، يعمل دون اتّصال</title>
   <meta name="description" content="أوقات الصلاة، القبلة، والقرآن الكريم كاملًا. دون اتّصال. بلا حسابات، بلا إعلانات، بلا متتبّعات.">
 
   <meta property="og:title" content="أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة">
   <meta property="og:description" content="أوقات الصلاة، القبلة، والقرآن الكريم كاملًا. دون اتّصال.">
   <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-ar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة">
   <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/ar/">
   <meta property="og:locale" content="ar_SA">
   <meta property="og:locale:alternate" content="en_US">
@@ -27,6 +42,9 @@
   <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="manifest" href="../manifest.webmanifest">
+
+  <!-- IndieWeb verification — see comment in /index.html. -->
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
 
   <!-- Preload critical Arabic + mono fonts for the AR hero (Amiri Quran for
        the wordmark, Cairo for body, JetBrains Mono for the small-caps

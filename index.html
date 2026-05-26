@@ -3,12 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks every resource origin to same-origin. The one inline
+       script on this page (the count-up animation in §13 — Facts)
+       is allowed via SHA-256 hash. style-src needs 'unsafe-inline'
+       for the project's many inline `style="..."` attributes — CSP
+       has no per-attribute hashing for inline styles.
+
+       X-Content-Type-Options + Permissions-Policy are HTTP-header-
+       only (spec-ignored when delivered via <meta http-equiv>). GH
+       Pages has no response-header config — copy these into CDN
+       headers if this site ever moves off Pages. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>Awaab — A quiet, offline companion for the daily prayer</title>
   <meta name="description" content="Prayer times. Qibla. The full Qur'an. Offline. No accounts, no ads, no third-party trackers.">
 
   <meta property="og:title" content="Awaab — A quiet, offline companion for the daily prayer">
   <meta property="og:description" content="Prayer times. Qibla. The full Qur'an. Offline. No accounts, no ads, no third-party trackers.">
   <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awaab — A quiet, offline companion for the daily prayer">
   <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ar_SA">
@@ -27,6 +45,12 @@
   <link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- IndieWeb verification — links this page's identity to the contact
+       inbox so federated platforms (Mastodon, Bluesky) can verify
+       "this site claims this email belongs to it." Zero privacy cost —
+       the email is already in the page footer. -->
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
 
   <!-- Preload the three above-the-fold Latin font weights so the hero, body
        prose, and mono-caps eyebrows paint without the FOUT/FOIT flash that

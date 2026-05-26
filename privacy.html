@@ -3,11 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks every resource origin to same-origin. No inline JS on
+       this page → script-src 'none' is the strictest available value.
+       style-src needs 'unsafe-inline' for inline `style="..."`
+       attributes (no per-attribute hashing exists for inline styles).
+       See /index.html for full rationale. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>Privacy policy — Awaab</title>
   <meta name="description" content="Awaab keeps your personal content on your device. The only network call we make is an anonymous over-the-air update check via Expo. No PII, no analytics, no advertising trackers.">
   <meta property="og:title" content="Privacy policy — Awaab">
   <meta property="og:description" content="Your personal content stays on your device. One anonymous OTA-update check via Expo, nothing else. No PII, no analytics, no advertising trackers.">
   <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awaab — privacy policy">
   <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/privacy.html">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ar_SA">
@@ -23,6 +36,7 @@
   <link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
   <link rel="preload" as="font" type="font/woff2" href="fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
