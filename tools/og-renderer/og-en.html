@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <!-- This file is the local-only renderer for the deployed /og.png card.
+       It is held back from the live site by .github/workflows/deploy-pages.yml
+       and from crawlers by /robots.txt Disallow: /tools/. The noindex /
+       nofollow meta below is the third layer: if the URL leaks (e.g. via
+       a shared local-dev screenshot), search engines won't index it. -->
+  <meta name="robots" content="noindex,nofollow">
   <title>Awaab OG — EN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
