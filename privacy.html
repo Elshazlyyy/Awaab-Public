@@ -14,9 +14,9 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Privacy policy — Awaab</title>
-  <meta name="description" content="Awaab keeps your personal content on your device. The only network call we make is an anonymous over-the-air update check via Expo. No PII, no analytics, no advertising trackers.">
+  <meta name="description" content="Awaab keeps your personal content on your device. Disclosed: anonymous Expo update + launch-count pings, plus an Android OS geocoder lookup when you set your location. No PII, no analytics, no advertising trackers.">
   <meta property="og:title" content="Privacy policy — Awaab">
-  <meta property="og:description" content="Your personal content stays on your device. One anonymous OTA-update check via Expo, nothing else. No PII, no analytics, no advertising trackers.">
+  <meta property="og:description" content="Your personal content stays on your device. Anonymous Expo update + launch-count pings, plus an Android OS geocoder when you set your location. No PII, no analytics, no advertising trackers.">
   <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -87,7 +87,7 @@
 
       <section class="card summary" aria-labelledby="summary">
         <h2 id="summary" style="margin-top:0;font-size:22px;">In one line</h2>
-        <p>Your personal content — location, settings, bookmarks, what you read — never leaves your device. The only network calls Awaab makes are anonymous operational pings to <strong>Expo Application Services</strong> for over-the-air bug-fix delivery and aggregate launch counts. No name, no email, no advertising identifiers, no third-party analytics, no sale of data to anyone. The full disclosure is below.</p>
+        <p>Your personal content — settings, bookmarks, what you read — stays on your device. Two anonymous operational pings to <strong>Expo Application Services</strong> (for over-the-air bug-fix delivery and aggregate launch counts) leave the device on every launch. On Android only, your coordinates or typed city also leave the device for a single OS-level geocoder lookup via Google Play Services when you set your location — iOS performs the equivalent lookup entirely on-device. No name, no email, no advertising identifiers, no third-party analytics, no sale of data to anyone. The full disclosure is below.</p>
       </section>
 
       <h2 id="not-collect">What we do not collect</h2>
@@ -104,7 +104,7 @@
       <p>Awaab uses <strong>Expo Application Services</strong> — the platform we build and ship the app with — for two narrow operational purposes. Both are <strong>required for the app to function in production</strong> (delivering bug fixes and prioritising development based on real-world adoption signal); using the app constitutes acceptance of this operational telemetry, and there is no in-app opt-out. The data is non-PII, non-tracking, and the entire scope is described below:</p>
       <ul>
         <li><strong><code>expo-updates</code> — over-the-air bug fix delivery.</strong> On launch, the app asks Expo whether a JavaScript bundle update is available for your installed app version. The request carries: your app version, runtime version, OS version, and an anonymous Expo install ID. Endpoint: <code>u.expo.dev</code>. Without this, security and correctness fixes between binary releases would be undeliverable.</li>
-        <li><strong><code>expo-insights</code> — anonymous aggregate launch counts.</strong> Records that the app was opened on a device, so we can see how many users are on each shipped version and prioritize bug fixes for the versions in real use. The ping carries: your app version, runtime version, OS version, and the same anonymous Expo install ID. No screens visited, no taps, no search queries, no per-user behavior. Endpoint: <code>e.expo.dev</code>. Without this, post-launch fix prioritisation would be blind to which versions are actually in user hands.</li>
+        <li><strong><code>expo-insights</code> — anonymous aggregate launch counts.</strong> Records that the app was opened on a device, so we can see how many users are on each shipped version and prioritize bug fixes for the versions in real use. The ping carries: your app version, runtime version, OS version, and the same anonymous Expo install ID. No screens visited, no taps, no search queries, no per-user behavior. Endpoint: <code>i.expo.dev</code>. Without this, post-launch fix prioritisation would be blind to which versions are actually in user hands.</li>
       </ul>
       <p>The Expo install ID is <strong>randomly generated on first launch</strong> — not tied to your Apple/Google account, not an advertising identifier (IDFA/AAID), not derived from any hardware identifier. It is reset every time you uninstall and reinstall the app. No personal data is sent in either ping. Expo Inc. is the data processor; their privacy practices are at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. We do not sell, share, or otherwise hand this data to advertisers, brokers, or any other party.</p>
       <p><strong>EU/GDPR users — legal basis:</strong> the lawful basis for processing this operational telemetry is <strong>legitimate interest</strong> under Art. 6(1)(f) GDPR. The processing is necessary for the app to be supportable in production (without it we cannot ship targeted bug fixes or prioritise development against real adoption signal), the data carries no personal identifiers and no tracking surface, and the privacy intrusion is minimal. We assessed that the legitimate interest is not outweighed by user rights given those conditions. If you would prefer that none of this telemetry leaves your device, uninstalling the app removes the install ID and stops every future ping — Awaab is fully usable for as long as it is installed, and walking away leaves no residue.</p>
@@ -113,8 +113,8 @@
       <p>The following data lives only on your device, and you can delete it by uninstalling the app:</p>
       <ul>
         <li><strong>Settings</strong> — language, theme, calculation method, Asr school, time format, prayer-alert toggles, and Arabic font size.</li>
-        <li><strong>Location coordinates</strong> — when granted, used only to compute prayer times. We never transmit your location.</li>
-        <li><strong>City label</strong> — derived from your coordinates via on-device reverse-geocoding, or whatever city you manually entered.</li>
+        <li><strong>Location coordinates</strong> — when granted, used only to compute prayer times. Stored only on your device; on Android, they leave the device once for the OS-level geocoder lookup described under Network traffic (to derive your city name). Awaab itself does not store or transmit them.</li>
+        <li><strong>City label</strong> — derived from your coordinates via the OS geocoder (on iOS: Apple's on-device CLGeocoder; on Android: Google Play Services — see Network traffic), or whatever city you manually entered.</li>
         <li><strong>Last-read position</strong> — the sūrah and verse you were reading, so you can resume.</li>
         <li><strong>Bookmarks</strong> — verses you have saved.</li>
         <li><strong>Cached prayer times</strong> — pre-computed for your location, refreshed daily on-device.</li>
@@ -125,13 +125,14 @@
       <p>The complete list of network requests Awaab makes:</p>
       <ul>
         <li><strong><code>u.expo.dev</code></strong> (Expo Updates) — checked on cold launch and at most once per session, to fetch over-the-air JavaScript fixes for your installed app version. Anonymous install ID + app/runtime/OS version only.</li>
-        <li><strong><code>e.expo.dev</code></strong> (Expo Insights) — anonymous launch ping. Same install ID + version triplet. No screens, no taps, no per-user behavior.</li>
+        <li><strong><code>i.expo.dev</code></strong> (Expo Insights) — anonymous launch ping. Same install ID + version triplet. No screens, no taps, no per-user behavior.</li>
+        <li><strong>Google Play Services geocoder</strong> (Android only) — when you grant location permission, Android delegates the coordinate-to-city lookup to Google Play Services, and your coordinates leave the device once for that single OS-level lookup. The same delegation happens if you type a city name manually — the typed string is sent to Google for resolution. On iOS, the equivalent lookup happens entirely on-device via Apple's CLGeocoder and never reaches a server. Awaab does not store or transmit either the query or the response; the request originates at the OS level. Google's privacy policy applies: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</li>
         <li><strong>App Store / Play Store</strong> (OS-level) — the operating system itself may check for binary updates. We do not control this; it is the same behavior as any other installed app.</li>
       </ul>
-      <p>That is the entire list. Awaab does not contact ad networks, third-party analytics services, third-party crash reporters, social-media SDKs, or any other server.</p>
+      <p>That is the complete list. Awaab does not contact ad networks, third-party analytics services, third-party crash reporters, social-media SDKs, or any server beyond those listed above.</p>
 
       <h2 id="third">Third-party services</h2>
-      <p>Awaab uses <strong>Expo Application Services</strong> (operated by Expo Inc.) as its sole third-party processor, for the two purposes described above (<code>expo-updates</code> + <code>expo-insights</code>). Their privacy policy is at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. Awaab transmits no data to any other third party.</p>
+      <p>Awaab uses <strong>Expo Application Services</strong> (operated by Expo Inc.) as its primary third-party processor, for the two purposes described above (<code>expo-updates</code> + <code>expo-insights</code>). Their privacy policy is at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. On Android, the OS-level reverse-geocoder is provided by <strong>Google Play Services</strong>; when you grant location permission or type a city name, that single OS-level lookup is processed by Google under their <a href="https://policies.google.com/privacy">privacy policy</a>. Awaab transmits no data to any other third party.</p>
       <p>The marketing site at <code>elshazlyyy.github.io/Awaab-Public</code> uses no analytics, no cookies, and no third-party scripts. Fonts are self-hosted from this site, not loaded from any third-party CDN. Browsing these pages contacts no server other than GitHub Pages, which serves the static files.</p>
 
       <h2 id="deletion">Data deletion</h2>
