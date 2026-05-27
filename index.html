@@ -14,8 +14,16 @@
        X-Content-Type-Options + Permissions-Policy are HTTP-header-
        only (spec-ignored when delivered via <meta http-equiv>). GH
        Pages has no response-header config — copy these into CDN
-       headers if this site ever moves off Pages. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E='; object-src 'none'; base-uri 'self'; form-action 'self';">
+       headers if this site ever moves off Pages.
+
+       frame-ancestors 'none' is in the same HTTP-header-only category
+       per the CSP spec — browsers ignore it when delivered via meta.
+       It's included below as defense-in-depth documentation so that
+       (a) the policy intent is in one place with the rest of the CSP,
+       and (b) a future move to a CDN that supports custom headers
+       (Cloudflare, Vercel, custom domain) immediately gets the
+       anti-clickjacking enforcement without another PR. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E='; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Awaab — A quiet, offline companion for the daily prayer</title>

@@ -10,7 +10,7 @@
        style-src needs 'unsafe-inline' for inline `style="..."`
        attributes (no per-attribute hashing exists for inline styles).
        See /index.html for full rationale. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Privacy policy — Awaab</title>
@@ -74,6 +74,7 @@
         <li><a href="#backup">Device backup</a></li>
         <li><a href="#network">Network traffic</a></li>
         <li><a href="#third">Third-party services</a></li>
+        <li><a href="#regional">Other regional laws</a></li>
         <li><a href="#deletion">Data deletion</a></li>
         <li><a href="#children">Children's privacy</a></li>
         <li><a href="#changes">Changes to this policy</a></li>
@@ -143,6 +144,15 @@
       <h2 id="third">Third-party services</h2>
       <p>Awaab uses <strong>Expo Application Services</strong> (operated by Expo Inc.) as its primary third-party processor, for the two purposes described above (<code>expo-updates</code> + <code>expo-insights</code>). Their privacy policy is at <a href="https://expo.dev/privacy">expo.dev/privacy</a>. On Android, the OS-level reverse-geocoder is provided by <strong>Google Play Services</strong>; when you grant location permission or type a city name, that single OS-level lookup is processed by Google under their <a href="https://policies.google.com/privacy">privacy policy</a>. Awaab transmits no data to any other third party.</p>
       <p>The marketing site at <code>elshazlyyy.github.io/Awaab-Public</code> uses no analytics, no cookies, and no third-party scripts. Fonts are self-hosted from this site, not loaded from any third-party CDN. Browsing these pages contacts no server other than GitHub Pages, which serves the static files.</p>
+
+      <h2 id="regional">Other regional privacy laws</h2>
+      <p>Awaab's data practices — no personal identifiers collected, no advertising trackers, no data sold — comply with the consumer-protection statutes in jurisdictions outside the EU as well. A few worth naming explicitly because users frequently ask:</p>
+      <ul>
+        <li><strong>California (CCPA / CPRA)</strong> — we do not "sell" or "share" personal information as those terms are defined under the California Consumer Privacy Act, because nothing the app transmits is linked to a personally identifying record we hold. Your right to delete is fulfilled by uninstalling the app (the local Expo install ID — the only identifier — is removed); your right to know returns "no personal information on file"; your right to opt-out of sale/sharing is moot for the same reason.</li>
+        <li><strong>Brazil (LGPD)</strong> — same analysis. The anonymous operational telemetry under Article 7.IX (legitimate interest) parallels the GDPR Art. 6(1)(f) framing above; no personal data is processed.</li>
+        <li><strong>Other jurisdictions</strong> — Quebec (Law 25), the UK GDPR, Singapore (PDPA), Australia (Privacy Act), and similar regimes share the same building blocks: no PII, no profiling, no advertising tracking, an unconditional right-to-delete by uninstall. We have not identified a privacy regime under which Awaab's data practices require a different posture than what's described above.</li>
+      </ul>
+      <p>If your jurisdiction has a specific question or requirement we haven't addressed, please <a href="#contact">write to us</a> &mdash; we will respond.</p>
 
       <h2 id="deletion">Data deletion</h2>
       <p>Because no data on our side is linked to you personally, deletion happens automatically:</p>
