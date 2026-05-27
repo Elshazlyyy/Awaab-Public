@@ -71,6 +71,7 @@
         <li><a href="#not-collect">What we do not collect</a></li>
         <li><a href="#collect">What we do collect</a></li>
         <li><a href="#device">Stored on your device</a></li>
+        <li><a href="#backup">Device backup</a></li>
         <li><a href="#network">Network traffic</a></li>
         <li><a href="#third">Third-party services</a></li>
         <li><a href="#deletion">Data deletion</a></li>
@@ -120,6 +121,14 @@
         <li><strong>Cached prayer times</strong> — pre-computed for your location, refreshed daily on-device.</li>
       </ul>
       <p>None of this is shared with us, with Apple or Google beyond what the OS already does for any installed app, or with anyone else.</p>
+
+      <h2 id="backup">Device backup</h2>
+      <p>The on-device data above lives inside a regular app-private SQLite file. How that file is treated by your operating system's backup system differs by platform:</p>
+      <ul>
+        <li><strong>Android</strong> — Awaab opts out of Google Auto Backup (<code>android:allowBackup="false"</code>). Your Awaab data does <strong>not</strong> sync to your Google Drive. Uninstalling permanently removes it.</li>
+        <li><strong>iOS</strong> — Apple's iCloud Backup includes app data by default. If you have iCloud Backup enabled for your device, your Awaab settings, bookmarks, last-read position, and cached coordinates are part of the encrypted backup Apple stores for your Apple ID. The backup is between your device and Apple — Awaab does not see, receive, or transmit it. To exclude Awaab from iCloud Backup specifically, open Settings &rarr; [your name] &rarr; iCloud &rarr; Manage Account Storage &rarr; Backups &rarr; [this device] &rarr; and toggle Awaab off.</li>
+      </ul>
+      <p>Neither platform's backup mechanism transmits your data to Awaab. The disclosure is here because "stays on your device" naturally raises the question of "but what if my device's backup uploads it" — for transparency about the OS-level path your data may travel.</p>
 
       <h2 id="network">Network traffic</h2>
       <p>The complete list of network requests Awaab makes:</p>
