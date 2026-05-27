@@ -73,12 +73,58 @@ jobs:
           # this workflow exists to fix in the first place.
           enablement: true
 
+      - name: Stage public files (exclude internal-only paths)
+        # Build a staging directory containing only the files that should
+        # be publicly served. We deploy from `_site/` rather than the repo
+        # root so we can hold back paths whose presence on the live site
+        # would falsify privacy claims or expose internal tooling.
+        #
+        # Specifically excluded:
+        #   - tools/   Local-only OG-image renderer
+        #              (tools/og-renderer/og-{en,ar}.html). The renderer
+        #              loads fonts from fonts.googleapis.com when run
+        #              locally to regenerate /og.png + /og-ar.png. The
+        #              README.md and privacy.html both promise "no
+        #              cross-origin font calls / no third-party scripts"
+        #              — true for every served page once tools/ is held
+        #              back from the deploy artifact. The renderer stays
+        #              available locally (and in the git tree) for the
+        #              only thing it's used for: producing the OG PNGs
+        #              that ARE deployed.
+        #   - .git/, .github/   Repo plumbing; never user-facing. Removes
+        #              the deploy artifact's accidental /.github/... URL
+        #              surface and shrinks the artifact size.
+        #   - _site/, node_modules/   Defensive against re-runs / future
+        #              local-build steps that might create those at root.
+        #
+        # No untrusted input is interpolated into this script — every
+        # path is a literal string. The rsync exclusion patterns use
+        # leading slashes so they match the source root only (not any
+        # nested tools/ inside fonts/ or similar).
+        run: |
+          set -euo pipefail
+          rsync -a \
+            --exclude='/.git' \
+            --exclude='/.github' \
+            --exclude='/tools' \
+            --exclude='/_site' \
+            --exclude='/node_modules' \
+            ./ _site/
+          echo "Staged $(find _site -type f | wc -l | tr -d ' ') files."
+          if [ -e _site/tools ]; then
+            echo "::error::tools/ leaked into the deploy artifact — exclusion failed."
+            exit 1
+          fi
+          echo "✓ tools/ correctly excluded from deploy artifact"
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4 (SHA-pinned; Dependabot updates)
         with:
-          # Whole repo root is the site. (.nojekyll at root tells
-          # Pages not to run Jekyll processing.)
-          path: .
+          # Deploy the staged directory, not the repo root. See the
+          # "Stage public files" step above for the exclusion rationale.
+          # The .nojekyll file is carried over by rsync from the repo
+          # root, so Pages still skips Jekyll processing.
+          path: ./_site
 
       - name: Deploy to GitHub Pages
         id: deployment
