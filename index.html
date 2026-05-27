@@ -14,7 +14,22 @@
        X-Content-Type-Options + Permissions-Policy are HTTP-header-
        only (spec-ignored when delivered via <meta http-equiv>). GH
        Pages has no response-header config — copy these into CDN
-       headers if this site ever moves off Pages. -->
+       headers if this site ever moves off Pages.
+
+       Anti-clickjacking gap (acknowledged, not enforceable on GH Pages):
+       `frame-ancestors 'none'` is HTTP-header-only per the CSP spec.
+       Chrome emits a console warning if it appears in a meta tag,
+       and Lighthouse's errors-in-console Best Practices audit drops
+       the score. So the directive intentionally isn't in the meta
+       CSP below. When this site moves off GH Pages, add to the CDN
+       response headers:
+         Content-Security-Policy-Frame-Ancestors: 'none'
+       or equivalently:
+         X-Frame-Options: DENY
+       Both block all <iframe> embedding cross-origin. Until then the
+       clickjacking surface is "low" — this is a static marketing site
+       with no interactive forms, no auth, no state-changing actions
+       reachable via a UI an attacker could overlay. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E='; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
