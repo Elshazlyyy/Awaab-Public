@@ -12,8 +12,13 @@ name: Cross-repo sanity
 # Requires a fine-grained PAT `AWAAB_REPO_READ_TOKEN` with read-only
 # `Contents` access to Elshazlyyy/Awaab. Without it, the check
 # self-skips (logs a warning) so this workflow doesn't block every PR
-# before the secret has been configured. Once configured, the check
-# becomes a hard CI gate.
+# before the secret has been configured. Note: this check reports a
+# status on PRs but is ADVISORY — `main` has no required-status-check
+# rule (the release badge bot pushes to main directly, which a required
+# check would break), so a failing run does not by itself block a merge.
+# Review the check's conclusion before merging; if hard gating is ever
+# wanted, add a ruleset that requires this check plus a bypass actor for
+# the bot identity.
 #
 # ── Security posture ───────────────────────────────────────────────────
 # No untrusted input is interpolated anywhere in this workflow:

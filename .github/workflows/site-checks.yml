@@ -54,7 +54,10 @@ jobs:
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4 (SHA-pinned; Dependabot updates)
         with:
           path: .lycheecache
-          key: lychee-${{ github.run_id }}
+          # Content-addressed: identical HTML reuses the same cache entry
+          # instead of writing a new one every run (github.run_id never
+          # restores on the exact key). Falls back to the lychee- prefix.
+          key: lychee-${{ hashFiles('**/*.html') }}
           restore-keys: lychee-
 
       - name: Run lychee

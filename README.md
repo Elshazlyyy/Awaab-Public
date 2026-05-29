@@ -25,7 +25,6 @@ Store and Google Play.
 ```
 .
 ├── awaab.css                  Single source of truth for tokens, type, components
-├── icon.png                   Generic site icon (512×512)
 ├── apple-touch-icon.png       180×180 home-screen pin (iOS)
 ├── favicon-16/32/48.png       PNG favicon set (modern browsers)
 ├── icon-192/512.png           PWA manifest icons

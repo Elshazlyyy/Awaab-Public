@@ -8,7 +8,7 @@ Source HTML for the social-share cards at `../../og.png` (EN) and
 1. Serve this folder locally:
 
    ```bash
-   cd /path/to/Awaab-Public/.internal/og-renderer
+   cd /path/to/Awaab-Public/tools/og-renderer
    python3 -m http.server 8000
    ```
 
