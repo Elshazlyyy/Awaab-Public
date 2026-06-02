@@ -112,13 +112,17 @@ gh api /repos/Elshazlyyy/Awaab-Public/pages/builds/latest --jq '.status'
 ## Quality
 
 Verified at the production URL with Lighthouse (mobile, the harder
-target). Site CI re-runs Lighthouse on every PR + push to main and
-asserts these scores via [`.github/lighthouserc.json`](.github/lighthouserc.json):
+target). Site CI re-runs Lighthouse on every PR + push to main via
+[`.github/lighthouserc.json`](.github/lighthouserc.json). Accessibility,
+Best Practices, and SEO are **hard-gated at 100** — the run fails below
+that. Performance is a **warn-only floor at ≥0.70**: Lighthouse mobile
+performance swings with CI-runner load and network simulation, so a hard
+gate there would only produce false-fail noise.
 
 | | Performance | Accessibility | Best Practices | SEO |
 | --- | --- | --- | --- | --- |
-| Desktop | ≥95 | 100 | 100 | 100 |
-| Mobile  | ≥90 | 100 | 100 | 100 |
+| CI gate  | warn ≥70 (advisory) | **error 100** | **error 100** | **error 100** |
+| Observed | ≥90 mobile · ≥95 desktop | 100 | 100 | 100 |
 
 Zero failed audits at either viewport. The site is fully responsive
 from 320 px (iPhone SE) to wide desktop, supports dark mode via
