@@ -13,7 +13,7 @@
 
        X-Content-Type-Options + Permissions-Policy are HTTP-header-
        only — copy into CDN headers if this site moves off Pages. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-lcvz2HDwk0eRn5aCtNgvd5N6oPKL1d5LcecIf6/sr5Y=' 'sha256-BicUQYhCG0VaSsQZKOFyOlm8aYaF0gD6pD3k0MeKEbY='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-lcvz2HDwk0eRn5aCtNgvd5N6oPKL1d5LcecIf6/sr5Y=' 'sha256-XMeIgQMjLh0Bw86Hnd30cF3xa90DZ+yuUvOumK3JUB0='; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة، يعمل دون اتّصال</title>
@@ -62,9 +62,28 @@
     (function () {
       var KEY = 'awaab-theme';
       var root = document.documentElement;
+      var COLORS = { light: '#F4EFE3', dark: '#0E0F12', sepia: '#ECE3CE' };
+      // Tint the mobile browser chrome to match an explicit choice. Auto
+      // removes the override so the static media-scoped metas govern (and
+      // JS-disabled visitors are unaffected).
+      function setChrome(t) {
+        var m = document.head.querySelector('meta[name="theme-color"][data-managed]');
+        if (t === 'light' || t === 'dark' || t === 'sepia') {
+          if (!m) {
+            m = document.createElement('meta');
+            m.setAttribute('name', 'theme-color');
+            m.setAttribute('data-managed', '');
+            document.head.insertBefore(m, document.head.querySelector('meta[name="theme-color"]'));
+          }
+          m.setAttribute('content', COLORS[t]);
+        } else if (m) {
+          m.parentNode.removeChild(m);
+        }
+      }
       function apply(t) {
         if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
         else root.removeAttribute('data-theme');
+        setChrome(t);
       }
       var saved = null;
       try { saved = localStorage.getItem(KEY); } catch (e) {}
