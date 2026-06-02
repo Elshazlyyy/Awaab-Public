@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- ── Security headers ────────────────────────────────────────────
-       CSP locks every resource origin to same-origin. The one inline
-       script on this page (count-up with Arabic-Indic digit converter)
-       is allowed via SHA-256 hash. Different hash from /index.html
-       because the AR script bundles the Arabic-digit table.
+       CSP locks every resource origin to same-origin. Two inline
+       scripts (the theme selector + the count-up with Arabic-Indic
+       digit converter) are each allowed via a SHA-256 hash. The
+       count-up hash differs from /index.html because the AR script
+       bundles the Arabic-digit table; the theme hash is shared.
 
        X-Content-Type-Options + Permissions-Policy are HTTP-header-
        only — copy into CDN headers if this site moves off Pages. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-lcvz2HDwk0eRn5aCtNgvd5N6oPKL1d5LcecIf6/sr5Y='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-lcvz2HDwk0eRn5aCtNgvd5N6oPKL1d5LcecIf6/sr5Y=' 'sha256-BicUQYhCG0VaSsQZKOFyOlm8aYaF0gD6pD3k0MeKEbY='; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>أوّاب — رفيقٌ هادئٌ للصلاة اليوميّة، يعمل دون اتّصال</title>
@@ -54,6 +55,32 @@
   <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
 
   <link rel="stylesheet" href="../awaab.css">
+  <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
+       localStorage key; no network, no PII, no third-party code. Sets
+       [data-theme] on <html> before paint so there is no theme flash. -->
+  <script>
+    (function () {
+      var KEY = 'awaab-theme';
+      var root = document.documentElement;
+      function apply(t) {
+        if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
+        else root.removeAttribute('data-theme');
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved);
+      document.addEventListener('DOMContentLoaded', function () {
+        var sel = document.getElementById('theme-select');
+        if (!sel) return;
+        sel.value = saved || 'auto';
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          try { localStorage.setItem(KEY, v); } catch (e) {}
+          apply(v);
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">انتقل إلى المحتوى</a>
@@ -358,6 +385,17 @@
         <a href="licenses.html">الرُّخَص</a>
         <a href="../" lang="en" dir="ltr">English</a>
       </nav>
+    </div>
+    <div class="container theme-control-row">
+      <div class="theme-control">
+        <label for="theme-select" class="eyebrow">السمة</label>
+        <select id="theme-select" aria-label="سمة الألوان">
+          <option value="auto">تلقائي</option>
+          <option value="light">فاتح</option>
+          <option value="dark">داكن</option>
+          <option value="sepia">بنّي</option>
+        </select>
+      </div>
     </div>
   </footer>
 

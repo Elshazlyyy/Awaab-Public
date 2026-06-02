@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- ── Security headers ────────────────────────────────────────────
-       CSP locks every resource origin to same-origin. The one inline
-       script on this page (the count-up animation in §13 — Facts)
-       is allowed via SHA-256 hash. style-src needs 'unsafe-inline'
+       CSP locks every resource origin to same-origin. Two inline
+       scripts (the theme selector + the count-up animation in §13 —
+       Facts) are each allowed via a SHA-256 hash. style-src needs 'unsafe-inline'
        for the project's many inline `style="..."` attributes — CSP
        has no per-attribute hashing for inline styles.
 
@@ -30,7 +30,7 @@
        clickjacking surface is "low" — this is a static marketing site
        with no interactive forms, no auth, no state-changing actions
        reachable via a UI an attacker could overlay. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E=' 'sha256-BicUQYhCG0VaSsQZKOFyOlm8aYaF0gD6pD3k0MeKEbY='; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Awaab — A quiet, offline companion for the daily prayer</title>
@@ -77,6 +77,32 @@
   <link rel="preload" as="font" type="font/woff2" href="fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
 
   <link rel="stylesheet" href="awaab.css">
+  <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
+       localStorage key; no network, no PII, no third-party code. Sets
+       [data-theme] on <html> before paint so there is no theme flash. -->
+  <script>
+    (function () {
+      var KEY = 'awaab-theme';
+      var root = document.documentElement;
+      function apply(t) {
+        if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
+        else root.removeAttribute('data-theme');
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved);
+      document.addEventListener('DOMContentLoaded', function () {
+        var sel = document.getElementById('theme-select');
+        if (!sel) return;
+        sel.value = saved || 'auto';
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          try { localStorage.setItem(KEY, v); } catch (e) {}
+          apply(v);
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -411,6 +437,17 @@
         <a href="licenses.html">Licenses</a>
         <a href="ar/" lang="ar" dir="rtl">العربية</a>
       </nav>
+    </div>
+    <div class="container theme-control-row">
+      <div class="theme-control">
+        <label for="theme-select" class="eyebrow">THEME</label>
+        <select id="theme-select" aria-label="Color theme">
+          <option value="auto">Auto</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="sepia">Sepia</option>
+        </select>
+      </div>
     </div>
   </footer>
 

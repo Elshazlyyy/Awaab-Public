@@ -897,6 +897,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   --accent-text:     #76592A;            /* WCAG AA text bronze */
   --accent-soft:     #E8DDC4;
   --scrim:           rgba(26, 25, 22, 0.55);
+  --header-bg:       rgba(244, 239, 227, 0.86);  /* translucent sticky-header fill */
   --focus:           #8A6E3A;
   --success:         #56753D;
   --danger:          #9C3A2F;
@@ -921,18 +922,24 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   --max-w:    1180px;
 }
 
-/* ─── Dark theme via prefers-color-scheme ────────────────── */
+/* ─── Theme system ───────────────────────────────────────────
+ * Default (no explicit choice) follows the OS via prefers-color-scheme,
+ * so the site still themes correctly with JavaScript disabled. The
+ * footer control sets [data-theme] on <html>, which wins over the media
+ * query. Palettes mirror the app's src/theme/colors.ts (light·dark·sepia).
+ *
+ * Dark tokens are declared twice on purpose — once for auto-dark
+ * (:root:not([data-theme]) inside the media query) and once for the
+ * explicit [data-theme="dark"] choice. CSS can't share one block across
+ * a media query and a plain selector, so keep the two in sync. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg:              #0E0F12;
     --surface:         #16181D;
     --surface-2:       #1E2129;
     --ink:             #EDE6D2;
     --ink-soft:        #A39C87;
-    /* ink-faint bumped from #5B5648 (2.62:1) to #928C7A (5.71:1) for
-       WCAG AA on the dark bg. Same Lighthouse motivation as the light
-       value. Stays distinct from ink-soft (#A39C87) so the three-tier
-       ramp survives in dark mode too. */
+    /* ink-faint bumped to #928C7A (5.71:1) for WCAG AA on the dark bg. */
     --ink-faint:       #928C7A;
     --hairline:        #252830;
     --hairline-strong: #363A45;
@@ -940,11 +947,52 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     --accent-text:     #C9A86A;
     --accent-soft:     #2A2218;
     --scrim:           rgba(0, 0, 0, 0.7);
+    --header-bg:       rgba(14, 15, 18, 0.86);
     --focus:           #C9A86A;
     --shadow-card:
       0 1px 0 rgba(0,0,0,0.4),
       0 14px 36px rgba(0,0,0,0.45);
   }
+}
+/* Explicit dark — mirrors the auto-dark block above. */
+:root[data-theme="dark"] {
+  --bg:              #0E0F12;
+  --surface:         #16181D;
+  --surface-2:       #1E2129;
+  --ink:             #EDE6D2;
+  --ink-soft:        #A39C87;
+  --ink-faint:       #928C7A;
+  --hairline:        #252830;
+  --hairline-strong: #363A45;
+  --accent:          #B58447;
+  --accent-text:     #C9A86A;
+  --accent-soft:     #2A2218;
+  --scrim:           rgba(0, 0, 0, 0.7);
+  --header-bg:       rgba(14, 15, 18, 0.86);
+  --focus:           #C9A86A;
+  --shadow-card:
+    0 1px 0 rgba(0,0,0,0.4),
+    0 14px 36px rgba(0,0,0,0.45);
+}
+/* Sepia — warm aged-paper, mirrors the app's sepia palette. ink-faint
+   darkened from the app's #6E5C40 to #6A583C so it clears WCAG AA
+   (4.78:1) on the sepia card surface — same precedent as the light/dark
+   ink-faint bumps; sync this back to the app's sepia token. */
+:root[data-theme="sepia"] {
+  --bg:              #ECE3CE;
+  --surface:         #E2D7BD;
+  --surface-2:       #D6C9A9;
+  --ink:             #2B2417;
+  --ink-soft:        #5A4A33;
+  --ink-faint:       #6A583C;
+  --hairline:        #D2C3A1;
+  --hairline-strong: #C0AE86;
+  --accent:          #8A6E3A;
+  --accent-text:     #6E5226;
+  --accent-soft:     #E0D2B2;
+  --scrim:           rgba(43, 36, 23, 0.55);
+  --header-bg:       rgba(236, 227, 206, 0.86);
+  --focus:           #8A6E3A;
 }
 
 /* ─── Base ────────────────────────────────────────────────── */
@@ -1091,13 +1139,10 @@ html, body {
 /* ─── Sticky site header ─────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(244, 239, 227, 0.86);
+  background: var(--header-bg);
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--hairline);
-}
-@media (prefers-color-scheme: dark) {
-  .site-header { background: rgba(14, 15, 18, 0.86); }
 }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -1533,6 +1578,24 @@ html, body {
   color: var(--ink-soft);
 }
 .footer-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ─── Theme control (footer sub-row) ─────────────────────── */
+.theme-control-row {
+  margin-top: 32px; padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+  display: flex; justify-content: center;
+}
+.theme-control { display: inline-flex; align-items: center; gap: 10px; }
+.theme-control select {
+  font-family: var(--ff-ui); font-size: 13px; color: var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--hairline); border-radius: 9px;
+  padding: 0 12px; min-height: 44px;
+  cursor: pointer;
+  transition: border-color 180ms, color 180ms;
+}
+.theme-control select:hover { border-color: var(--hairline-strong); color: var(--ink); }
+.theme-control select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 /* ─── Long-form (privacy, accessibility, age-suitability) ─── */
 .long {
