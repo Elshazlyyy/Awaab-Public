@@ -118,7 +118,7 @@ jobs:
           fail=0
 
           # 1. App name must appear on both hero pages (display, OG, etc.)
-          for f in index.html ar/index.html; do
+          for f in index.html ar/index.html fr/index.html; do
             if ! grep -qF "$APP_NAME" "$f"; then
               echo "::error file=$f::app name '$APP_NAME' (from Awaab/app.json) not found in $f"
               fail=1
@@ -144,6 +144,10 @@ jobs:
           fi
           if ! grep -qF "$PRIVACY_URL" ar/privacy.html; then
             echo "::error file=ar/privacy.html::canonical privacy URL '$PRIVACY_URL' (LTR variant) should appear as the en-hreflang in the AR page"
+            fail=1
+          fi
+          if ! grep -qF "$PRIVACY_URL" fr/privacy.html; then
+            echo "::error file=fr/privacy.html::canonical privacy URL '$PRIVACY_URL' (LTR variant) should appear as the en-hreflang in the FR page"
             fail=1
           fi
 

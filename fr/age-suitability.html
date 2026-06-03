@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks resource origins to same-origin. The only inline JS is the hash-pinned,
+       first-party theme selector. See /index.html for full rationale. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-XMeIgQMjLh0Bw86Hnd30cF3xa90DZ+yuUvOumK3JUB0='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Âge conseillé — Awaab</title>
+  <meta name="description" content="Awaab est classé 4+ sur l'App Store et « Tout public » sur Google Play. Convient à tous les âges.">
+  <meta property="og:title" content="Âge conseillé — Awaab">
+  <meta property="og:description" content="Awaab est classé 4+ sur l'App Store et « Tout public » sur Google Play. Convient à tous les âges.">
+  <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awaab — âge conseillé">
+  <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/fr/age-suitability.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ar_SA">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Awaab">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/age-suitability.html">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/age-suitability.html">
+  <link rel="alternate" hreflang="fr" href="https://elshazlyyy.github.io/Awaab-Public/fr/age-suitability.html">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/fr/age-suitability.html">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
+  <link rel="stylesheet" href="../awaab.css">
+  <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
+       localStorage key; no network, no PII, no third-party code. Sets
+       [data-theme] on <html> before paint so there is no theme flash. -->
+  <script>
+    (function () {
+      var KEY = 'awaab-theme';
+      var root = document.documentElement;
+      var COLORS = { light: '#F4EFE3', dark: '#0E0F12', sepia: '#ECE3CE' };
+      // Tint the mobile browser chrome to match an explicit choice. Auto
+      // removes the override so the static media-scoped metas govern (and
+      // JS-disabled visitors are unaffected).
+      function setChrome(t) {
+        var m = document.head.querySelector('meta[name="theme-color"][data-managed]');
+        if (t === 'light' || t === 'dark' || t === 'sepia') {
+          if (!m) {
+            m = document.createElement('meta');
+            m.setAttribute('name', 'theme-color');
+            m.setAttribute('data-managed', '');
+            document.head.insertBefore(m, document.head.querySelector('meta[name="theme-color"]'));
+          }
+          m.setAttribute('content', COLORS[t]);
+        } else if (m) {
+          m.parentNode.removeChild(m);
+        }
+      }
+      function apply(t) {
+        if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
+        else root.removeAttribute('data-theme');
+        setChrome(t);
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved);
+      document.addEventListener('DOMContentLoaded', function () {
+        var sel = document.getElementById('theme-select');
+        if (!sel) return;
+        sel.value = saved || 'auto';
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          try { localStorage.setItem(KEY, v); } catch (e) {}
+          apply(v);
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name">Awaab</span>
+        <span class="brand__ar" lang="ar" dir="rtl">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="Principale">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="../age-suitability.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/age-suitability.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container long">
+    <aside class="long__toc" aria-label="Sur cette page">
+      <p class="eyebrow">SUR CETTE PAGE</p>
+      <ul>
+        <li><a href="#summary">Résumé</a></li>
+        <li><a href="#what">Ce que contient l'application</a></li>
+        <li><a href="#parents">Pour les parents</a></li>
+        <li><a href="#data">Données des enfants</a></li>
+        <li><a href="#purchases">Achats intégrés</a></li>
+      </ul>
+    </aside>
+
+    <article class="long__article">
+      <p class="eyebrow eyebrow--accent">ÂGE CONSEILLÉ</p>
+      <h1>Âge conseillé</h1>
+      <p class="updated">DERNIÈRE MISE À JOUR · 30 MAI 2026</p>
+
+      <section class="card summary" aria-labelledby="summary">
+        <h2 id="summary" style="margin-top:0;font-size:22px;">Classification</h2>
+        <p>Awaab est classé <strong>4+ sur l'App Store</strong> et <strong>« Tout public » sur Google Play</strong>. L'application convient à tous les âges, des jeunes enfants qui apprennent à lire le Coran aux personnes âgées qui accomplissent leur prière quotidienne.</p>
+      </section>
+
+      <h2 id="what">Ce que contient l'application</h2>
+      <p>Awaab contient le texte intégral du Coran en graphie arabe ʿuthmānī avec une traduction française (Muhammad Hamidullah), le calcul des heures de prière et une boussole qibla. Il n'y a aucun autre contenu. Il n'y a pas :</p>
+      <ul>
+        <li>de forums de discussion, de commentaires ou de fonctions sociales</li>
+        <li>de messagerie, de chat ou de fonctions de contact</li>
+        <li>de contenu généré par les utilisateurs, de quelque nature que ce soit</li>
+        <li>de publicités</li>
+        <li>de liens externes vers des services ou sites tiers au sein de l'application</li>
+        <li>de grossièretés, d'images violentes ou de thèmes pour adultes</li>
+      </ul>
+
+      <h2 id="parents">Pour les parents</h2>
+      <p>Vous pouvez confier à votre enfant un appareil exécutant Awaab sans inquiétude. L'application n'accède ni à la caméra, ni au microphone, ni aux contacts, ni à la photothèque, ni à aucune autre donnée personnelle hormis la position, utilisée uniquement pour calculer les heures de prière. Sur iOS, cette requête se fait entièrement sur l'appareil ; sur Android, le système d'exploitation effectue une seule requête aux services Google Play pour convertir les coordonnées en nom de ville. Rien d'autre concernant votre enfant ne quitte l'appareil.</p>
+      <p>Le menu d'appui long du lecteur comprend les actions Partager, Copier et Signet. Appuyer sur Partager ouvre la feuille de partage standard du système — ce qui se passe ensuite dépend des applications installées par votre enfant.</p>
+
+      <h2 id="data">Données des enfants</h2>
+      <p>Awaab ne collecte aucune information personnelle identifiante auprès d'aucun utilisateur, y compris les utilisateurs de moins de 13 ans — aucun nom, aucun e-mail, aucun compte, aucun identifiant publicitaire. Les seules données qui quittent l'appareil sont une télémétrie opérationnelle anonyme (comptage agrégé des lancements et vérifications de mises à jour à distance) qui ne peut identifier personne, quel que soit son âge. Cela est expliqué plus en détail dans notre <a href="privacy.html">politique de confidentialité</a>. L'application est conforme à la COPPA, au RGPD-K et aux réglementations équivalentes dans les autres juridictions.</p>
+
+      <h2 id="purchases">Achats intégrés</h2>
+      <p>Il n'y a aucun achat intégré. L'application est gratuite, et il n'existe aucune offre payante.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-serif);font-style:italic;font-size:22px;color:var(--ink);letter-spacing:-0.01em;">Awaab</span>
+          <span class="brand__ar" lang="ar">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© 2026 · TRADUCTION : HAMIDULLAH (QURANENC.COM) · CONÇU POUR CEUX QUI SE SOUVIENNENT</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="licenses.html">Licences</a>
+        <a href="../age-suitability.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/age-suitability.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+    <div class="container theme-control-row">
+      <div class="theme-control">
+        <label for="theme-select" class="eyebrow">THÈME</label>
+        <select id="theme-select" aria-label="Thème de couleur">
+          <option value="auto">Auto</option>
+          <option value="light">Clair</option>
+          <option value="dark">Sombre</option>
+          <option value="sepia">Sépia</option>
+        </select>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

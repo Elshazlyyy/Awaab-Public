@@ -125,7 +125,7 @@ jobs:
       - name: Audit with Lighthouse CI
         uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12 (SHA-pinned; Dependabot updates)
         with:
-          # Audit every store-reviewer-visible page in both locales.
+          # Audit every store-reviewer-visible page in all three locales.
           # If a reviewer clicks any link from App Store Connect or
           # Play Console, they land on one of these. Each is asserted
           # against the same budget file.
@@ -138,6 +138,10 @@ jobs:
             http://localhost:8080/ar/privacy.html
             http://localhost:8080/ar/accessibility.html
             http://localhost:8080/ar/age-suitability.html
+            http://localhost:8080/fr/
+            http://localhost:8080/fr/privacy.html
+            http://localhost:8080/fr/accessibility.html
+            http://localhost:8080/fr/age-suitability.html
           # Free uploader → public Lighthouse-CI server. Useful for
           # PR-time comparison: a reviewer can click through and see
           # the exact score breakdown without setting up their own

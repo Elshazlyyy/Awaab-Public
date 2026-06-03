@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks every resource origin to same-origin. The only inline JS is the
+       hash-pinned, first-party theme selector (no third-party scripts).
+       style-src needs 'unsafe-inline' for inline `style="..."`
+       attributes (no per-attribute hashing exists for inline styles).
+       See /index.html for full rationale. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-XMeIgQMjLh0Bw86Hnd30cF3xa90DZ+yuUvOumK3JUB0='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Politique de confidentialité — Awaab</title>
+  <meta name="description" content="Awaab garde votre contenu personnel sur votre appareil. Divulgué : deux pings Expo anonymes (mise à jour + comptage des lancements), plus une requête au géocodeur du système Android lorsque vous définissez votre position. Aucune donnée personnelle, aucune analyse, aucun traqueur publicitaire.">
+  <meta property="og:title" content="Politique de confidentialité — Awaab">
+  <meta property="og:description" content="Votre contenu personnel reste sur votre appareil. Deux pings Expo anonymes (mise à jour + comptage des lancements), plus un géocodeur du système Android lorsque vous définissez votre position. Aucune donnée personnelle, aucune analyse, aucun traqueur publicitaire.">
+  <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awaab — politique de confidentialité">
+  <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/fr/privacy.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ar_SA">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Awaab">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/privacy.html">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/privacy.html">
+  <link rel="alternate" hreflang="fr" href="https://elshazlyyy.github.io/Awaab-Public/fr/privacy.html">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/fr/privacy.html">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
+  <link rel="stylesheet" href="../awaab.css">
+  <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
+       localStorage key; no network, no PII, no third-party code. Sets
+       [data-theme] on <html> before paint so there is no theme flash. -->
+  <script>
+    (function () {
+      var KEY = 'awaab-theme';
+      var root = document.documentElement;
+      var COLORS = { light: '#F4EFE3', dark: '#0E0F12', sepia: '#ECE3CE' };
+      // Tint the mobile browser chrome to match an explicit choice. Auto
+      // removes the override so the static media-scoped metas govern (and
+      // JS-disabled visitors are unaffected).
+      function setChrome(t) {
+        var m = document.head.querySelector('meta[name="theme-color"][data-managed]');
+        if (t === 'light' || t === 'dark' || t === 'sepia') {
+          if (!m) {
+            m = document.createElement('meta');
+            m.setAttribute('name', 'theme-color');
+            m.setAttribute('data-managed', '');
+            document.head.insertBefore(m, document.head.querySelector('meta[name="theme-color"]'));
+          }
+          m.setAttribute('content', COLORS[t]);
+        } else if (m) {
+          m.parentNode.removeChild(m);
+        }
+      }
+      function apply(t) {
+        if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
+        else root.removeAttribute('data-theme');
+        setChrome(t);
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved);
+      document.addEventListener('DOMContentLoaded', function () {
+        var sel = document.getElementById('theme-select');
+        if (!sel) return;
+        sel.value = saved || 'auto';
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          try { localStorage.setItem(KEY, v); } catch (e) {}
+          apply(v);
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name">Awaab</span>
+        <span class="brand__ar" lang="ar" dir="rtl">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="Principale">
+        <a href="./">Accueil</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="age-suitability.html">Âge conseillé</a>
+        <a href="../privacy.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/privacy.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container long">
+    <aside class="long__toc" aria-label="Sur cette page">
+      <p class="eyebrow">SUR CETTE PAGE</p>
+      <ul>
+        <li><a href="#summary">Résumé</a></li>
+        <li><a href="#not-collect">Ce que nous ne collectons pas</a></li>
+        <li><a href="#collect">Ce que nous collectons</a></li>
+        <li><a href="#device">Stocké sur votre appareil</a></li>
+        <li><a href="#backup">Sauvegarde de l'appareil</a></li>
+        <li><a href="#network">Trafic réseau</a></li>
+        <li><a href="#third">Services tiers</a></li>
+        <li><a href="#regional">Autres lois régionales</a></li>
+        <li><a href="#deletion">Suppression des données</a></li>
+        <li><a href="#children">Confidentialité des enfants</a></li>
+        <li><a href="#changes">Modifications de cette politique</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </aside>
+
+    <article class="long__article">
+      <p class="eyebrow eyebrow--accent">CONFIDENTIALITÉ</p>
+      <h1>Politique de confidentialité</h1>
+      <p class="updated">DERNIÈRE MISE À JOUR · 25 MAI 2026</p>
+
+      <section class="card summary" aria-labelledby="summary">
+        <h2 id="summary" style="margin-top:0;font-size:22px;">En une ligne</h2>
+        <p>Votre contenu personnel — réglages, signets, ce que vous lisez — reste sur votre appareil. Deux pings opérationnels anonymes vers <strong>Expo Application Services</strong> (pour la livraison de correctifs à distance et le comptage agrégé des lancements) quittent l'appareil à chaque ouverture. Sur Android uniquement, vos coordonnées ou la ville que vous saisissez quittent aussi l'appareil pour une seule requête de géocodage au niveau du système via les services Google Play lorsque vous définissez votre position — iOS effectue la requête équivalente entièrement sur l'appareil. Aucun nom, aucun e-mail, aucun identifiant publicitaire, aucune analyse tierce, aucune vente de données à quiconque. La divulgation complète est ci-dessous.</p>
+      </section>
+
+      <h2 id="not-collect">Ce que nous ne collectons pas</h2>
+      <ul>
+        <li>Aucun nom, adresse e-mail, numéro de téléphone, ni aucune autre information personnelle identifiante.</li>
+        <li>Aucun compte utilisateur, aucune connexion, aucun profil.</li>
+        <li>Aucun identifiant publicitaire (IDFA sur iOS, AAID sur Android — explicitement bloqué dans le manifeste).</li>
+        <li>Aucun enregistrement de ce que vous lisez, des versets que vous mettez en signet, de la ville que vous définissez ou de la méthode de calcul que vous utilisez n'est transmis hors de votre appareil. (Ces préférences et votre dernière position de lecture résident dans un fichier SQLite local que l'application utilise pour se souvenir d'où vous en étiez — elles ne sont jamais envoyées nulle part, et vous pouvez toutes les supprimer en désinstallant l'application.)</li>
+        <li>Aucun suivi à travers d'autres applications ou sites web. Aucun reciblage. Aucune donnée vendue à quiconque.</li>
+        <li>Aucun accès au microphone, à la caméra, aux contacts, à la photothèque, au calendrier ou aux données de santé, à aucun moment.</li>
+      </ul>
+
+      <h2 id="collect">Ce que nous collectons</h2>
+      <p>Awaab utilise <strong>Expo Application Services</strong> — la plateforme avec laquelle nous construisons et publions l'application — à deux fins opérationnelles précises. Les deux sont <strong>nécessaires au fonctionnement de l'application en production</strong> (livrer les correctifs et prioriser le développement selon un signal d'adoption réel) ; l'utilisation de l'application vaut acceptation de cette télémétrie opérationnelle, et il n'existe pas d'option de désactivation dans l'application. Ces données ne contiennent aucune information personnelle, n'effectuent aucun suivi, et l'intégralité de leur portée est décrite ci-dessous :</p>
+      <ul>
+        <li><strong><code>expo-updates</code> — livraison de correctifs à distance.</strong> À l'ouverture, l'application demande à Expo si une mise à jour du paquet JavaScript est disponible pour la version installée. La requête transporte : la version de votre application, la version d'exécution, la version du système, et un identifiant d'installation Expo anonyme. Point de terminaison : <code>u.expo.dev</code>. Sans cela, les correctifs de sécurité et de justesse entre les versions binaires ne pourraient pas être livrés.</li>
+        <li><strong><code>expo-insights</code> — comptage agrégé et anonyme des lancements.</strong> Enregistre que l'application a été ouverte sur un appareil, afin que nous puissions voir combien d'utilisateurs sont sur chaque version publiée et prioriser les correctifs pour les versions réellement utilisées. Le ping transporte : la version de votre application, la version d'exécution, la version du système, et le même identifiant d'installation Expo anonyme. Aucun écran visité, aucun appui, aucune requête de recherche, aucun comportement individuel. Point de terminaison : <code>i.expo.dev</code>. Sans cela, la priorisation des correctifs après lancement serait aveugle aux versions réellement entre les mains des utilisateurs.</li>
+      </ul>
+      <p>L'identifiant d'installation Expo est <strong>généré aléatoirement au premier lancement</strong> — il n'est pas lié à votre compte Apple/Google, n'est pas un identifiant publicitaire (IDFA/AAID), et n'est dérivé d'aucun identifiant matériel. Il est réinitialisé chaque fois que vous désinstallez puis réinstallez l'application. Aucune donnée personnelle n'est envoyée dans l'un ou l'autre ping. Expo Inc. est le sous-traitant des données ; ses pratiques de confidentialité sont sur <a href="https://expo.dev/privacy">expo.dev/privacy</a>. Nous ne vendons, ne partageons ni ne cédons ces données à des annonceurs, des courtiers ou toute autre partie.</p>
+      <p><strong>Utilisateurs de l'UE/RGPD — base légale :</strong> la base légale du traitement de cette télémétrie opérationnelle est l'<strong>intérêt légitime</strong> au titre de l'art. 6(1)(f) du RGPD. Le traitement est nécessaire pour que l'application reste maintenable en production (sans lui, nous ne pouvons pas livrer de correctifs ciblés ni prioriser le développement selon un signal d'adoption réel), les données ne portent aucun identifiant personnel ni aucune surface de suivi, et l'atteinte à la vie privée est minime. Nous avons estimé que l'intérêt légitime n'est pas supplanté par les droits de l'utilisateur dans ces conditions. Si vous préférez qu'aucune de ces données ne quitte votre appareil, désinstaller l'application supprime l'identifiant d'installation et arrête tout ping futur — Awaab est pleinement utilisable tant qu'il est installé, et s'en aller ne laisse aucun résidu.</p>
+
+      <h2 id="device">Ce qui est stocké sur votre appareil</h2>
+      <p>Les données suivantes résident uniquement sur votre appareil, et vous pouvez les supprimer en désinstallant l'application :</p>
+      <ul>
+        <li><strong>Réglages</strong> — langue, thème, méthode de calcul, madhab pour l'Asr, format de l'heure, activation des rappels de prière, et taille de la police arabe.</li>
+        <li><strong>Coordonnées de position</strong> — lorsqu'elles sont autorisées, utilisées uniquement pour calculer les heures de prière. Stockées uniquement sur votre appareil ; sur Android, elles quittent l'appareil une fois pour la requête de géocodage au niveau du système décrite sous Trafic réseau (afin d'en déduire le nom de votre ville). Awaab lui-même ne les stocke ni ne les transmet.</li>
+        <li><strong>Nom de la ville</strong> — déduit de vos coordonnées via le géocodeur du système (sur iOS : le CLGeocoder d'Apple, sur l'appareil ; sur Android : les services Google Play — voir Trafic réseau), ou la ville que vous avez saisie manuellement.</li>
+        <li><strong>Dernière position de lecture</strong> — la sourate et le verset que vous lisiez, pour pouvoir reprendre.</li>
+        <li><strong>Signets</strong> — les versets que vous avez enregistrés.</li>
+        <li><strong>Heures de prière en cache</strong> — précalculées pour votre position, actualisées quotidiennement sur l'appareil.</li>
+      </ul>
+      <p>Rien de tout cela n'est partagé avec nous, avec Apple ou Google au-delà de ce que le système fait déjà pour toute application installée, ni avec quiconque d'autre.</p>
+
+      <h2 id="backup">Sauvegarde de l'appareil</h2>
+      <p>Les données sur l'appareil ci-dessus résident dans un fichier SQLite privé à l'application. La manière dont ce fichier est traité par le système de sauvegarde de votre système d'exploitation diffère selon la plateforme :</p>
+      <ul>
+        <li><strong>Android</strong> — Awaab se désinscrit de la sauvegarde automatique Google (<code>android:allowBackup="false"</code>). Vos données Awaab <strong>ne</strong> sont <strong>pas</strong> synchronisées vers votre Google Drive. La désinstallation les supprime définitivement.</li>
+        <li><strong>iOS</strong> — la sauvegarde iCloud d'Apple inclut les données des applications par défaut. Si la sauvegarde iCloud est activée pour votre appareil, vos réglages Awaab, vos signets, votre dernière position de lecture et vos coordonnées en cache font partie de la sauvegarde chiffrée qu'Apple conserve pour votre identifiant Apple. Cette sauvegarde se fait entre votre appareil et Apple — Awaab ne la voit pas, ne la reçoit pas et ne la transmet pas. Pour exclure spécifiquement Awaab de la sauvegarde iCloud, ouvrez : Réglages &rarr; [votre nom] &rarr; iCloud &rarr; Gérer le stockage du compte &rarr; Sauvegardes &rarr; [cet appareil] &rarr; et désactivez Awaab.</li>
+      </ul>
+      <p>Le mécanisme de sauvegarde d'aucune des deux plateformes ne transmet vos données à Awaab. Cette divulgation figure ici parce que « reste sur votre appareil » soulève naturellement la question « mais que se passe-t-il si la sauvegarde de mon appareil la téléverse » — par souci de transparence sur le chemin, au niveau du système, que vos données peuvent emprunter.</p>
+
+      <h2 id="network">Trafic réseau</h2>
+      <p>La liste complète des requêtes réseau effectuées par Awaab :</p>
+      <ul>
+        <li><strong><code>u.expo.dev</code></strong> (Expo Updates) — interrogé au démarrage à froid et au plus une fois par session, pour récupérer les correctifs JavaScript à distance de la version installée. Identifiant d'installation anonyme + versions application/exécution/système uniquement.</li>
+        <li><strong><code>i.expo.dev</code></strong> (Expo Insights) — ping de lancement anonyme. Même identifiant d'installation + triplet de versions. Aucun écran, aucun appui, aucun comportement individuel.</li>
+        <li><strong>Géocodeur des services Google Play</strong> (Android uniquement) — lorsque vous accordez l'autorisation de localisation, Android délègue la conversion des coordonnées en ville aux services Google Play, et vos coordonnées quittent l'appareil une fois pour cette unique requête au niveau du système. La même délégation se produit si vous saisissez un nom de ville manuellement — la chaîne saisie est envoyée à Google pour résolution. Sur iOS, la requête équivalente se fait entièrement sur l'appareil via le CLGeocoder d'Apple et n'atteint jamais de serveur. Awaab ne stocke ni ne transmet ni la requête ni la réponse ; la requête provient du niveau du système. La politique de confidentialité de Google s'applique : <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</li>
+        <li><strong>App Store / Play Store</strong> (au niveau du système) — le système d'exploitation lui-même peut vérifier les mises à jour binaires. Nous ne contrôlons pas cela ; c'est le même comportement que pour toute autre application installée.</li>
+      </ul>
+      <p>C'est la liste complète. Awaab ne contacte aucun réseau publicitaire, aucun service d'analyse tiers, aucun rapporteur de plantage tiers, aucun SDK de réseau social, ni aucun serveur au-delà de ceux listés ci-dessus.</p>
+
+      <h2 id="third">Services tiers</h2>
+      <p>Awaab utilise <strong>Expo Application Services</strong> (exploité par Expo Inc.) comme principal sous-traitant tiers, aux deux fins décrites ci-dessus (<code>expo-updates</code> + <code>expo-insights</code>). Sa politique de confidentialité est sur <a href="https://expo.dev/privacy">expo.dev/privacy</a>. Sur Android, le géocodeur inverse au niveau du système est fourni par <strong>les services Google Play</strong> ; lorsque vous accordez l'autorisation de localisation ou saisissez un nom de ville, cette unique requête au niveau du système est traitée par Google selon sa <a href="https://policies.google.com/privacy">politique de confidentialité</a>. Awaab ne transmet aucune donnée à aucun autre tiers.</p>
+      <p>Le site marketing à <code>elshazlyyy.github.io/Awaab-Public</code> n'utilise aucune analyse, aucun cookie et aucun script tiers. Les polices sont auto-hébergées depuis ce site, et non chargées depuis un CDN tiers. La navigation sur ces pages ne contacte aucun serveur autre que GitHub Pages, qui sert les fichiers statiques.</p>
+
+      <h2 id="regional">Autres lois régionales sur la confidentialité</h2>
+      <p>Les pratiques d'Awaab en matière de données — aucun identifiant personnel collecté, aucun traqueur publicitaire, aucune donnée vendue — respectent également les lois de protection des consommateurs dans les juridictions hors UE. En voici quelques-unes qu'il vaut la peine de nommer explicitement, car les utilisateurs le demandent souvent :</p>
+      <ul>
+        <li><strong>Californie (CCPA / CPRA)</strong> — nous ne « vendons » ni ne « partageons » d'informations personnelles au sens de ces termes dans le California Consumer Privacy Act, car rien de ce que l'application transmet n'est lié à un enregistrement personnel identifiant que nous détiendrions. Votre droit de suppression est satisfait en désinstallant l'application (l'identifiant d'installation Expo local — le seul identifiant — est supprimé) ; votre droit de savoir renvoie « aucune information personnelle au dossier » ; votre droit de refuser la vente/le partage est sans objet pour la même raison.</li>
+        <li><strong>Brésil (LGPD)</strong> — même analyse. La télémétrie opérationnelle anonyme au titre de l'article 7.IX (intérêt légitime) correspond au cadre de l'art. 6(1)(f) du RGPD ci-dessus ; aucune donnée personnelle n'est traitée.</li>
+        <li><strong>Autres juridictions</strong> — le Québec (Loi 25), le RGPD du Royaume-Uni, Singapour (PDPA), l'Australie (Privacy Act) et les régimes similaires partagent les mêmes fondements : aucune donnée personnelle, aucun profilage, aucun suivi publicitaire, un droit de suppression inconditionnel par désinstallation. Nous n'avons identifié aucun régime de confidentialité au titre duquel les pratiques d'Awaab exigeraient une posture différente de celle décrite ci-dessus.</li>
+      </ul>
+      <p>Si votre juridiction a une question ou une exigence spécifique que nous n'avons pas traitée, veuillez <a href="#contact">nous écrire</a> &mdash; nous répondrons.</p>
+
+      <h2 id="deletion">Suppression des données</h2>
+      <p>Comme aucune donnée de notre côté n'est liée à vous personnellement, la suppression se fait automatiquement :</p>
+      <ul>
+        <li><strong>Sur votre appareil</strong> — désinstaller Awaab supprime chaque réglage, signet, dernière position de lecture et heure de prière en cache. Il n'y a aucun compte cloud à supprimer, car il n'existe aucun compte cloud.</li>
+        <li><strong>L'identifiant d'installation Expo anonyme</strong> est généré aléatoirement en local au premier lancement. Désinstaller l'application le supprime ; une réinstallation ultérieure génère un identifiant neuf et sans lien. Expo ne conserve que le comptage agrégé et non identifiant des lancements.</li>
+        <li>Si vous souhaitez qu'Expo recherche ou supprime un enregistrement précis de son infrastructure, contactez-les sur <a href="https://expo.dev/privacy">expo.dev/privacy</a> en précisant la période ; nous sommes aussi heureux de vous aider — écrivez-nous et nous vous assisterons.</li>
+      </ul>
+
+      <h2 id="children">Confidentialité des enfants</h2>
+      <p>Awaab est classé 4+ sur l'App Store et « Tout public » sur Google Play, et convient à tous les âges. La télémétrie opérationnelle anonyme décrite ci-dessus ne contient aucune information personnelle identifiante sur quiconque, quel que soit son âge. Nous ne ciblons pas sciemment l'application sur les enfants de moins de 13 ans, et nous ne collectons aucune information susceptible d'identifier un enfant. L'application est donc conforme à la COPPA (États-Unis), aux normes du RGPD relatives aux enfants (UE/Royaume-Uni) et aux dispositions équivalentes dans les autres juridictions.</p>
+
+      <h2 id="changes">Modifications de cette politique</h2>
+      <p>Si nous changeons un jour les données que l'application traite, nous mettrons à jour la date en haut de cette page et publierons la nouvelle politique avec la version correspondante de l'application. Nous ne modifierons pas cette politique en silence.</p>
+
+      <section class="contact-card" id="contact">
+        <p class="eyebrow eyebrow--accent" style="margin-bottom:8px;">QUESTIONS</p>
+        <p class="title-sm" style="color:var(--ink);">Écrivez à <a href="mailto:ahmed.shazly15@gmail.com">ahmed.shazly15@gmail.com</a>.</p>
+        <p class="body" style="margin-top:8px;">Une vraie personne lit chaque e-mail.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-serif);font-style:italic;font-size:22px;color:var(--ink);letter-spacing:-0.01em;">Awaab</span>
+          <span class="brand__ar" lang="ar">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© 2026 · TRADUCTION : HAMIDULLAH (QURANENC.COM) · CONÇU POUR CEUX QUI SE SOUVIENNENT</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="./">Accueil</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="age-suitability.html">Âge conseillé</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="licenses.html">Licences</a>
+        <a href="../privacy.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/privacy.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+    <div class="container theme-control-row">
+      <div class="theme-control">
+        <label for="theme-select" class="eyebrow">THÈME</label>
+        <select id="theme-select" aria-label="Thème de couleur">
+          <option value="auto">Auto</option>
+          <option value="light">Clair</option>
+          <option value="dark">Sombre</option>
+          <option value="sepia">Sépia</option>
+        </select>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

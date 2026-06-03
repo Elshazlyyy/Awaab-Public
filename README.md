@@ -4,7 +4,7 @@
 
 Public marketing, support, and legal pages for **Awaab** — a quiet,
 offline Islamic companion app for iPhone, iPad, and Android. Qur'an
-reader, prayer times, qibla finder. Bilingual (English + Arabic).
+reader, prayer times, qibla finder. Trilingual (English + Arabic + French).
 
 This repository is the **static website only**. The application itself
 lives in a separate, proprietary repository.
@@ -19,6 +19,7 @@ Store and Google Play.
 | --- | --- |
 | English | <https://elshazlyyy.github.io/Awaab-Public/> |
 | العربية | <https://elshazlyyy.github.io/Awaab-Public/ar/> |
+| Français | <https://elshazlyyy.github.io/Awaab-Public/fr/> |
 
 ## What's in the repo
 
@@ -30,22 +31,32 @@ Store and Google Play.
 ├── icon-192/512.png           PWA manifest icons
 ├── og.png                     1200×630 social-share card (English)
 ├── og-ar.png                  1200×630 social-share card (Arabic, RTL)
+├── og-fr.png                  1200×630 social-share card (French, LTR)
 ├── manifest.webmanifest       PWA manifest for "Add to Home Screen"
 ├── robots.txt                 Allow all crawlers, points at sitemap.xml
-├── sitemap.xml                Eight canonical URLs with hreflang alternates
+├── sitemap.xml                Fifteen canonical URLs with hreflang alternates
 ├── .nojekyll                  Tells GitHub Pages to skip Jekyll processing
 │
 ├── index.html                 English home — hero, gallery, features, craft, verse, facts, FAQ, promise
 ├── privacy.html               English privacy policy
 ├── accessibility.html         English accessibility statement
 ├── age-suitability.html       English age-suitability statement
-├── 404.html                   Not-found page (bilingual brand mark, English copy)
+├── licenses.html              English licenses & attribution
+├── 404.html                   Not-found page (shared fallback, English copy)
 │
-└── ar/                        Arabic mirror (right-to-left)
+├── ar/                        Arabic mirror (right-to-left)
+│   ├── index.html
+│   ├── privacy.html
+│   ├── accessibility.html
+│   ├── age-suitability.html
+│   └── licenses.html
+│
+└── fr/                        French mirror (left-to-right)
     ├── index.html
     ├── privacy.html
     ├── accessibility.html
-    └── age-suitability.html
+    ├── age-suitability.html
+    └── licenses.html
 ```
 
 ## Design system
@@ -95,7 +106,7 @@ npx serve -p 8000
 # behave slightly differently than under a real server)
 ```
 
-Then open <http://localhost:8000/> and <http://localhost:8000/ar/>.
+Then open <http://localhost:8000/>, <http://localhost:8000/ar/>, and <http://localhost:8000/fr/>.
 
 ## Deploy
 

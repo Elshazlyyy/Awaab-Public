@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks resource origins to same-origin. The only inline JS is the hash-pinned,
+       first-party theme selector. See /index.html for full rationale. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-XMeIgQMjLh0Bw86Hnd30cF3xa90DZ+yuUvOumK3JUB0='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Licences — Awaab</title>
+  <meta name="description" content="Contenu et logiciels tiers intégrés à Awaab, avec leurs sources et licences : texte du Coran (CC BY-SA 4.0), traductions Hamidullah et Pickthall, polices (SIL OFL 1.1) et adhan (MIT).">
+  <meta property="og:title" content="Licences — Awaab">
+  <meta property="og:description" content="Contenu et logiciels tiers intégrés à Awaab, avec leurs sources et licences.">
+  <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awaab — licences">
+  <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/fr/licenses.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ar_SA">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Awaab">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/licenses.html">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/licenses.html">
+  <link rel="alternate" hreflang="fr" href="https://elshazlyyy.github.io/Awaab-Public/fr/licenses.html">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/fr/licenses.html">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
+  <link rel="stylesheet" href="../awaab.css">
+  <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
+       localStorage key; no network, no PII, no third-party code. Sets
+       [data-theme] on <html> before paint so there is no theme flash. -->
+  <script>
+    (function () {
+      var KEY = 'awaab-theme';
+      var root = document.documentElement;
+      var COLORS = { light: '#F4EFE3', dark: '#0E0F12', sepia: '#ECE3CE' };
+      // Tint the mobile browser chrome to match an explicit choice. Auto
+      // removes the override so the static media-scoped metas govern (and
+      // JS-disabled visitors are unaffected).
+      function setChrome(t) {
+        var m = document.head.querySelector('meta[name="theme-color"][data-managed]');
+        if (t === 'light' || t === 'dark' || t === 'sepia') {
+          if (!m) {
+            m = document.createElement('meta');
+            m.setAttribute('name', 'theme-color');
+            m.setAttribute('data-managed', '');
+            document.head.insertBefore(m, document.head.querySelector('meta[name="theme-color"]'));
+          }
+          m.setAttribute('content', COLORS[t]);
+        } else if (m) {
+          m.parentNode.removeChild(m);
+        }
+      }
+      function apply(t) {
+        if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
+        else root.removeAttribute('data-theme');
+        setChrome(t);
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved);
+      document.addEventListener('DOMContentLoaded', function () {
+        var sel = document.getElementById('theme-select');
+        if (!sel) return;
+        sel.value = saved || 'auto';
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          try { localStorage.setItem(KEY, v); } catch (e) {}
+          apply(v);
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name">Awaab</span>
+        <span class="brand__ar" lang="ar" dir="rtl">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="Principale">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="../licenses.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/licenses.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container long">
+    <aside class="long__toc" aria-label="Sur cette page">
+      <p class="eyebrow">SUR CETTE PAGE</p>
+      <ul>
+        <li><a href="#summary">Résumé</a></li>
+        <li><a href="#quran">Texte arabe du Coran</a></li>
+        <li><a href="#translation-fr">Traduction française</a></li>
+        <li><a href="#translation">Traduction anglaise</a></li>
+        <li><a href="#fonts">Polices</a></li>
+        <li><a href="#software">Logiciel</a></li>
+      </ul>
+    </aside>
+
+    <article class="long__article">
+      <p class="eyebrow eyebrow--accent">LICENCES</p>
+      <h1>Licences et attribution</h1>
+      <p class="updated">DERNIÈRE MISE À JOUR · 30 MAI 2026</p>
+
+      <section class="card summary" aria-labelledby="summary">
+        <h2 id="summary" style="margin-top:0;font-size:22px;">Résumé</h2>
+        <p>Awaab est construit à partir de contenus et de logiciels sous licence ouverte. Chaque source tierce ci-dessous est intégrée <strong>sans modification</strong> et créditée selon sa licence. Le texte complet de la licence SIL Open Font est disponible dans <a href="../OFL.txt">OFL.txt</a>.</p>
+      </section>
+
+      <h2 id="quran">Texte arabe du Coran (ʿuthmānī)</h2>
+      <p>Le texte intégral en graphie ʿuthmānī (Médine) est la numérisation publiée par <a href="https://quranenc.com/en/home">l'Encyclopédie du Noble Coran (quranenc.com)</a>, produite par le Complexe du Roi Fahd pour l'impression du Noble Coran (KFGQPC), redistribuée via <a href="https://github.com/risan/quran-json">risan/quran-json</a>.</p>
+      <ul>
+        <li><strong>Licence :</strong> <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution – Partage dans les mêmes conditions 4.0 International (CC BY-SA 4.0)</a></li>
+        <li><strong>Modifications :</strong> aucune — intégré octet pour octet, sans modification.</li>
+      </ul>
+
+      <h2 id="translation-fr">Traduction française</h2>
+      <p>Le sens français est la traduction de Muhammad Hamidullah, fournie par <a href="https://quranenc.com/fr/home">l'Encyclopédie du Noble Coran (quranenc.com)</a>.</p>
+      <ul>
+        <li><strong>Licence :</strong> rediffusion autorisée avec attribution à l'éditeur et à QuranEnc.com, sans modification, en citant la version.</li>
+        <li><strong>Modifications :</strong> aucune — intégrée octet pour octet, sans modification.</li>
+      </ul>
+
+      <h2 id="translation">Traduction anglaise</h2>
+      <p>Le sens anglais est <em>The Meaning of the Glorious Koran</em> (1930) de Marmaduke Pickthall, provenant de <a href="https://tanzil.net/trans/en.pickthall">Tanzil.net</a>.</p>
+      <ul>
+        <li><strong>Licence :</strong> domaine public (le traducteur est mort en 1936 ; l'œuvre de 1930 est entrée dans le domaine public dans ses principales juridictions en 2026).</li>
+      </ul>
+
+      <h2 id="fonts">Polices</h2>
+      <p>Toutes les polices sont sous licence <a href="https://openfontlicense.org">SIL Open Font License, version 1.1</a>. Le texte complet de la licence et les mentions de droits d'auteur par police sont regroupés dans <a href="../OFL.txt">OFL.txt</a>.</p>
+      <ul>
+        <li><strong>Amiri</strong> &amp; <strong>Amiri Quran</strong> — © Les auteurs du projet Amiri (<a href="https://github.com/aliftype/amiri">aliftype/amiri</a>)</li>
+        <li><strong>Cairo</strong> — © Les auteurs du projet Cairo (<a href="https://github.com/Gue3bara/Cairo">Gue3bara/Cairo</a>)</li>
+        <li><strong>Cormorant Garamond</strong> — © Les auteurs du projet Cormorant (<a href="https://github.com/CatharsisFonts/Cormorant">CatharsisFonts/Cormorant</a>)</li>
+        <li><strong>Inter Tight</strong> — © Les auteurs du projet Inter (<a href="https://github.com/rsms/inter">rsms/inter</a>)</li>
+        <li><strong>JetBrains Mono</strong> — © Les auteurs du projet JetBrains Mono (<a href="https://github.com/JetBrains/JetBrainsMono">JetBrains/JetBrainsMono</a>)</li>
+      </ul>
+
+      <h2 id="software">Logiciel</h2>
+      <p>Le calcul des heures de prière et de la qibla utilise <a href="https://github.com/batoulapps/adhan-js">adhan</a> (batoulapps).</p>
+      <ul>
+        <li><strong>Licence :</strong> MIT.</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-serif);font-style:italic;font-size:22px;color:var(--ink);letter-spacing:-0.01em;">Awaab</span>
+          <span class="brand__ar" lang="ar">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© 2026 · TRADUCTION : HAMIDULLAH (QURANENC.COM) · CONÇU POUR CEUX QUI SE SOUVIENNENT</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="licenses.html">Licences</a>
+        <a href="../licenses.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/licenses.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+    <div class="container theme-control-row">
+      <div class="theme-control">
+        <label for="theme-select" class="eyebrow">THÈME</label>
+        <select id="theme-select" aria-label="Thème de couleur">
+          <option value="auto">Auto</option>
+          <option value="light">Clair</option>
+          <option value="dark">Sombre</option>
+          <option value="sepia">Sépia</option>
+        </select>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

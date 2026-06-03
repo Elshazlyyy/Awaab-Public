@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,9 +7,12 @@
   <!-- ── Security headers ────────────────────────────────────────────
        CSP locks every resource origin to same-origin. Two inline
        scripts (the theme selector + the count-up animation in §13 —
-       Facts) are each allowed via a SHA-256 hash. style-src needs 'unsafe-inline'
-       for the project's many inline `style="..."` attributes — CSP
-       has no per-attribute hashing for inline styles.
+       Facts) are each allowed via a SHA-256 hash. The French page reuses
+       the English scripts byte-for-byte (Western digits, no Arabic-digit
+       converter), so its script-src hashes match /index.html exactly.
+       style-src needs 'unsafe-inline' for the project's many inline
+       `style="..."` attributes — CSP has no per-attribute hashing for
+       inline styles.
 
        X-Content-Type-Options + Permissions-Policy are HTTP-header-
        only (spec-ignored when delivered via <meta http-equiv>). GH
@@ -33,19 +36,19 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-nBkDWQ7RC513axjMvWg3HWdDR24E/cYPjIS3Etl8m9E=' 'sha256-XMeIgQMjLh0Bw86Hnd30cF3xa90DZ+yuUvOumK3JUB0='; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <title>Awaab — A quiet, offline companion for the daily prayer</title>
-  <meta name="description" content="Prayer times. Qibla. The full Qur'an. Offline. No accounts, no ads, no third-party trackers.">
+  <title>Awaab — Un compagnon paisible et hors ligne pour la prière quotidienne</title>
+  <meta name="description" content="Heures de prière. Qibla. Le Coran en entier. Hors ligne. Sans compte, sans publicité, sans traqueurs tiers.">
 
-  <meta property="og:title" content="Awaab — A quiet, offline companion for the daily prayer">
-  <meta property="og:description" content="Prayer times. Qibla. The full Qur'an. Offline. No accounts, no ads, no third-party trackers.">
-  <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og.png">
+  <meta property="og:title" content="Awaab — Un compagnon paisible et hors ligne pour la prière quotidienne">
+  <meta property="og:description" content="Heures de prière. Qibla. Le Coran en entier. Hors ligne. Sans compte, sans publicité, sans traqueurs tiers.">
+  <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-fr.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Awaab — A quiet, offline companion for the daily prayer">
-  <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:image:alt" content="Awaab — Un compagnon paisible et hors ligne pour la prière quotidienne">
+  <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/fr/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="ar_SA">
-  <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Awaab">
   <meta name="twitter:card" content="summary_large_image">
@@ -56,12 +59,12 @@
   <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/">
   <link rel="alternate" hreflang="fr" href="https://elshazlyyy.github.io/Awaab-Public/fr/">
   <link rel="alternate" hreflang="x-default" href="https://elshazlyyy.github.io/Awaab-Public/">
-  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/fr/">
 
-  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
 
   <!-- IndieWeb verification — links this page's identity to the contact
        inbox so federated platforms (Mastodon, Bluesky) can verify
@@ -74,11 +77,11 @@
        `font-display: swap` would otherwise cause on cold load. `crossorigin`
        is required for preloaded font assets per the CSS spec (font fetches
        use CORS-anonymous mode). -->
-  <link rel="preload" as="font" type="font/woff2" href="fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
 
-  <link rel="stylesheet" href="awaab.css">
+  <link rel="stylesheet" href="../awaab.css">
   <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
        localStorage key; no network, no PII, no third-party code. Sets
        [data-theme] on <html> before paint so there is no theme flash. -->
@@ -126,7 +129,7 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Aller au contenu</a>
 
   <!-- 1 · Header -->
   <header class="site-header">
@@ -138,13 +141,13 @@
         <span class="brand__name">Awaab</span>
         <span class="brand__ar" lang="ar" dir="rtl">أوّاب</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="accessibility.html">Accessibility</a>
-        <a href="age-suitability.html">Age suitability</a>
-        <a href="ar/" lang="ar" dir="rtl">العربية</a>
-        <a href="fr/" lang="fr" dir="ltr">Français</a>
+      <nav class="site-nav" aria-label="Principale">
+        <a href="#features">Fonctionnalités</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="age-suitability.html">Âge conseillé</a>
+        <a href="../" lang="en" dir="ltr">English</a>
+        <a href="../ar/" lang="ar" dir="rtl">العربية</a>
       </nav>
     </div>
   </header>
@@ -154,33 +157,33 @@
     <!-- 2 · Hero -->
     <section class="container hero band" aria-labelledby="hero-h1">
       <div>
-        <p class="eyebrow aw-enter aw-enter--1">أوّاب <span aria-hidden="true">·</span> AWWĀB <span aria-hidden="true">·</span> THE OFT-RETURNING</p>
-        <h1 class="hero__h1 aw-enter aw-enter--2" id="hero-h1">A quiet, offline companion for the daily prayer.</h1>
-        <p class="hero__lede aw-enter aw-enter--3">Prayer times. Qibla. The full Qur'an. No ads, no accounts, no third-party trackers. Everything runs on your device.</p>
+        <p class="eyebrow aw-enter aw-enter--1">أوّاب <span aria-hidden="true">·</span> AWWĀB <span aria-hidden="true">·</span> CELUI QUI REVIENT À DIEU</p>
+        <h1 class="hero__h1 aw-enter aw-enter--2" id="hero-h1">Un compagnon paisible pour la prière quotidienne, hors ligne.</h1>
+        <p class="hero__lede aw-enter aw-enter--3">Heures de prière. Qibla. Le Coran en entier. Sans publicité, sans compte, sans traqueurs tiers. Tout fonctionne sur votre appareil.</p>
         <div class="hero__cta aw-enter aw-enter--4">
-          <a class="badge" href="#" aria-disabled="true" tabindex="-1" aria-label="Coming soon to App Store">
+          <a class="badge" href="#" aria-disabled="true" tabindex="-1" aria-label="Bientôt sur l'App Store">
             <span class="badge__icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4C4 12.7 5.2 17 6.8 19.3c.8 1.1 1.8 2.4 3 2.3 1.2-.1 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.1 3-2.3.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.9-1-2.9-3.9zM15.2 6c.7-.8 1.1-1.9 1-3.1-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.5 2.8-1.3z"/></svg>
             </span>
             <span>
-              <span class="badge__tag">Coming soon to</span>
+              <span class="badge__tag">Bientôt sur</span>
               <span class="badge__name">App Store</span>
             </span>
           </a>
-          <a class="badge" href="#" aria-disabled="true" tabindex="-1" aria-label="Coming soon to Google Play">
+          <a class="badge" href="#" aria-disabled="true" tabindex="-1" aria-label="Bientôt sur Google Play">
             <span class="badge__icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5v19l11-9.5L4 2.5zm15.6 8.2-2.8-1.6-3.2 2.9 3.2 2.9 2.8-1.6c.7-.4 1.1-1.1 1.1-1.3s-.4-.9-1.1-1.3z" opacity="0.85"/></svg>
             </span>
             <span>
-              <span class="badge__tag">Coming soon to</span>
+              <span class="badge__tag">Bientôt sur</span>
               <span class="badge__name">Google Play</span>
             </span>
           </a>
         </div>
         <div class="hero__pills aw-enter aw-enter--6">
-          <span class="pill">Free</span>
-          <span class="pill">No account</span>
-          <span class="pill">No personal data</span>
+          <span class="pill">Gratuit</span>
+          <span class="pill">Sans compte</span>
+          <span class="pill">Aucune donnée personnelle</span>
           <span class="pill">iPhone · iPad · Android</span>
         </div>
         <p class="hero__note aw-enter aw-enter--6"><span class="dot" aria-hidden="true"></span> iOS 16+ · Android 8+</p>
@@ -188,19 +191,19 @@
 
       <!-- Hero device — pure-CSS phone with abstracted Home screen -->
       <div class="hero__device aw-enter aw-enter--device" aria-hidden="true">
-        <div class="device" role="img" aria-label="App screen mockup">
+        <div class="device" role="img" aria-label="Maquette d'écran de l'application">
           <div class="device__screen">
             <div class="device__island"></div>
             <div class="mock-today">
-              <p class="eyebrow">NEXT PRAYER</p>
-              <p class="next">ʿAsr</p>
+              <p class="eyebrow">PROCHAINE PRIÈRE</p>
+              <p class="next">Asr</p>
               <p class="countdown">0:47:00</p>
               <div class="rows">
                 <div class="row row--past"><span>Fajr</span><span class="t">04:15</span></div>
                 <div class="row row--past"><span>Dhuhr</span><span class="t">12:17</span></div>
-                <div class="row row--active"><span>ʿAsr</span><span class="t">15:33</span></div>
-                <div class="row"><span>Maghrib</span><span class="t">18:55</span></div>
-                <div class="row"><span>ʿIshāʾ</span><span class="t">20:25</span></div>
+                <div class="row row--active"><span>Asr</span><span class="t">15:33</span></div>
+                <div class="row"><span>Maghreb</span><span class="t">18:55</span></div>
+                <div class="row"><span>Isha</span><span class="t">20:25</span></div>
               </div>
             </div>
           </div>
@@ -211,61 +214,61 @@
     <!-- 3 · Companions gallery -->
     <section class="section section--muted band reveal" aria-labelledby="g-h">
       <div class="container">
-        <h2 class="eyebrow" id="g-h">THREE COMPANIONS · ONE COMPANY</h2>
+        <h2 class="eyebrow" id="g-h">TROIS COMPAGNONS · UNE SEULE COMPAGNIE</h2>
         <div class="gallery">
           <article class="gallery__item">
             <div class="gallery__device" aria-hidden="true">
-              <div class="device" role="img" aria-label="App screen mockup">
+              <div class="device" role="img" aria-label="Maquette d'écran de l'application">
                 <div class="device__screen">
                   <div class="device__island"></div>
                   <div class="mock-today">
-                    <p class="eyebrow">NEXT PRAYER</p>
-                    <p class="next">ʿAsr</p>
+                    <p class="eyebrow">PROCHAINE PRIÈRE</p>
+                    <p class="next">Asr</p>
                     <p class="countdown">0:47:00</p>
                     <div class="rows">
                       <div class="row row--past"><span>Fajr</span><span class="t">04:15</span></div>
                       <div class="row row--past"><span>Dhuhr</span><span class="t">12:17</span></div>
-                      <div class="row row--active"><span>ʿAsr</span><span class="t">15:33</span></div>
-                      <div class="row"><span>Maghrib</span><span class="t">18:55</span></div>
+                      <div class="row row--active"><span>Asr</span><span class="t">15:33</span></div>
+                      <div class="row"><span>Maghreb</span><span class="t">18:55</span></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <h3 class="title-sm">Today</h3>
-            <p class="body" style="text-align:center;max-width:260px;">Five prayers laid out as one calm horizon.</p>
+            <h3 class="title-sm">Aujourd'hui</h3>
+            <p class="body" style="text-align:center;max-width:260px;">Cinq prières disposées en un seul horizon paisible.</p>
           </article>
 
           <article class="gallery__item">
             <div class="gallery__device" aria-hidden="true">
-              <div class="device" role="img" aria-label="App screen mockup">
+              <div class="device" role="img" aria-label="Maquette d'écran de l'application">
                 <div class="device__screen">
                   <div class="device__island"></div>
                   <div class="mock-qibla">
                     <p class="eyebrow">QIBLA</p>
                     <p class="bearing">247<span style="font-size:18px;color:var(--ink-soft);">°</span></p>
-                    <p class="sub">Toward the Kaʿbah</p>
+                    <p class="sub">Vers la Kaʿba</p>
                     <div class="qibla-dial">
                       <span class="qibla-dial__N">N</span>
                       <span class="qibla-dial__E">E</span>
                       <span class="qibla-dial__S">S</span>
-                      <span class="qibla-dial__W">W</span>
+                      <span class="qibla-dial__W">O</span>
                       <span class="qibla-marker"></span>
                       <span class="qibla-needle"></span>
                       <span class="qibla-center"></span>
                     </div>
-                    <p class="help">Hold device flat — face the bronze marker.</p>
+                    <p class="help">Tenez l'appareil à plat — face au repère bronze.</p>
                   </div>
                 </div>
               </div>
             </div>
             <h3 class="title-sm">Qibla</h3>
-            <p class="body" style="text-align:center;max-width:260px;">A real compass. Aligned, not announced.</p>
+            <p class="body" style="text-align:center;max-width:260px;">Une vraie boussole. Alignée, pas annoncée.</p>
           </article>
 
           <article class="gallery__item">
             <div class="gallery__device" aria-hidden="true">
-              <div class="device" role="img" aria-label="App screen mockup">
+              <div class="device" role="img" aria-label="Maquette d'écran de l'application">
                 <div class="device__screen">
                   <div class="device__island"></div>
                   <div class="mock-quran">
@@ -278,22 +281,22 @@
                       <span class="badge-num">1</span>
                       <div>
                         <div class="ar">يسٓ ۚ</div>
-                        <div class="en">Ya, Sin.</div>
+                        <div class="en">Yâ Sîn.</div>
                       </div>
                     </div>
                     <div class="verse">
                       <span class="badge-num">2</span>
                       <div>
                         <div class="ar">وَٱلْقُرْءَانِ ٱلْحَكِيمِ</div>
-                        <div class="en">By the wise Qur'an.</div>
+                        <div class="en">Par le Coran plein de sagesse.</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <h3 class="title-sm">Qur'an</h3>
-            <p class="body" style="text-align:center;max-width:260px;">The full mushaf, offline. Bookmarks travel with you.</p>
+            <h3 class="title-sm">Coran</h3>
+            <p class="body" style="text-align:center;max-width:260px;">Le mushaf complet, hors ligne. Vos signets vous accompagnent.</p>
           </article>
         </div>
       </div>
@@ -302,41 +305,41 @@
     <!-- 4 · Feature cards -->
     <section class="section band reveal" aria-labelledby="features-h" id="features">
       <div class="container">
-        <h2 class="eyebrow" id="features-h">WHAT IT DOES</h2>
+        <h2 class="eyebrow" id="features-h">CE QU'IL FAIT</h2>
         <div class="features">
           <article class="feature">
             <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
-            <h3>Qur'an reader</h3>
-            <p>The full mushaf in Uthmānī script, with verse-by-verse English translation. Search across name, number, and meaning.</p>
+            <h3>Lecteur de Coran</h3>
+            <p>Le mushaf complet en graphie ʿuthmānī, avec une traduction française verset par verset. Recherche par nom, numéro et sens.</p>
             <ul>
-              <li>114 surahs, offline</li>
-              <li>Uthmānī script (Madinah)</li>
-              <li>English translation built in</li>
-              <li>Bookmark any verse</li>
-              <li>Long-press to share or copy</li>
+              <li>114 sourates, hors ligne</li>
+              <li>Graphie ʿuthmānī (Médine)</li>
+              <li>Traduction française intégrée</li>
+              <li>Mettez n'importe quel verset en signet</li>
+              <li>Appui long pour partager ou copier</li>
             </ul>
           </article>
           <article class="feature">
             <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
-            <h3>Prayer times</h3>
-            <p>Six calculation methods, auto-detected from your country. Asr school you choose. High-latitude rules where they matter.</p>
+            <h3>Heures de prière</h3>
+            <p>Six méthodes de calcul, détectées automatiquement selon votre pays. Le madhab pour l'Asr, à votre choix. Règles pour les hautes latitudes là où elles comptent.</p>
             <ul>
-              <li>Umm al-Qura, MWL, ISNA, Egyptian, Karachi, Tehran</li>
-              <li>Standard or Hanafi Asr</li>
-              <li>Per-prayer notifications</li>
-              <li>No badge dot on your home screen</li>
+              <li>Umm al-Qura, Ligue islamique mondiale, ISNA, égyptienne, Karachi, Téhéran</li>
+              <li>Asr standard ou hanafite</li>
+              <li>Notifications par prière</li>
+              <li>Aucune pastille sur votre écran d'accueil</li>
             </ul>
           </article>
           <article class="feature">
             <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
-            <h3>Qibla finder</h3>
-            <p>A real magnetic compass that points to the Kaʿbah. Subtle haptic when you are aligned. Works without a network.</p>
+            <h3>Boussole Qibla</h3>
+            <p>Une vraie boussole magnétique qui pointe vers la Kaʿba. Vibration discrète une fois aligné. Fonctionne sans réseau.</p>
             <ul>
-              <li>Magnetic + true-north corrected</li>
-              <li>Bearing in degrees</li>
-              <li>Distance to Mecca</li>
-              <li>Figure-8 calibration prompt</li>
-              <li>Works offline forever</li>
+              <li>Magnétique + corrigée au nord géographique</li>
+              <li>Relèvement en degrés</li>
+              <li>Distance jusqu'à La Mecque</li>
+              <li>Invite de calibrage en forme de 8</li>
+              <li>Fonctionne hors ligne, pour toujours</li>
             </ul>
           </article>
         </div>
@@ -346,16 +349,16 @@
     <!-- 5 · Crafted details -->
     <section class="section section--muted band reveal" aria-labelledby="craft-h" id="craft">
       <div class="container">
-        <h2 class="eyebrow" id="craft-h">CRAFTED DETAILS</h2>
+        <h2 class="eyebrow" id="craft-h">DÉTAILS SOIGNÉS</h2>
         <div class="craft">
-          <div class="craft-item"><div class="num">01</div><h3>Reading</h3><p>Uthmānī script set in Amiri Quran, with tashkeel breathing room (line-height 1.95) so vowel marks never crowd.</p></div>
-          <div class="craft-item"><div class="num">02</div><h3>Type</h3><p>Italic Cormorant Garamond for display; Inter Tight for body. Italic is Latin-only — Arabic stays upright.</p></div>
-          <div class="craft-item"><div class="num">03</div><h3>Bronze</h3><p>A single bronze accent. Two values: one for ornaments, one — slightly darker — for accent text. WCAG AA at every size.</p></div>
-          <div class="craft-item"><div class="num">04</div><h3>Motion</h3><p>Open the long-press menu and the preview emerges at 92% scale, settling with a 3% overshoot. Felt, not noticed.</p></div>
-          <div class="craft-item"><div class="num">05</div><h3>Privacy</h3><p>No accounts. No ads. No advertising trackers. No PII. Anonymous Expo telemetry only — for OTA bug fixes and aggregate adoption. <a href="privacy.html">Full disclosure</a>.</p></div>
-          <div class="craft-item"><div class="num">06</div><h3>Offline</h3><p>Every prayer time, every verse, every bookmark — computed and stored on-device. The plane mode test passes.</p></div>
-          <div class="craft-item"><div class="num">07</div><h3>Trilingual</h3><p>Arabic, English, and French are equally first-class. The Arabic surface was designed natively, not flipped from English.</p></div>
-          <div class="craft-item"><div class="num">08</div><h3>System</h3><p>Light and dark, automatic. Respects your dynamic type, your reduced-motion preference, your reduced-transparency setting.</p></div>
+          <div class="craft-item"><div class="num">01</div><h3>Lecture</h3><p>Graphie ʿuthmānī composée en Amiri Quran, avec de l'air pour le tashkīl (interligne 1,95) afin que les signes vocaliques ne se serrent jamais.</p></div>
+          <div class="craft-item"><div class="num">02</div><h3>Typographie</h3><p>Cormorant Garamond italique pour les titres ; Inter Tight pour le texte. L'italique est réservé au latin — l'arabe reste droit.</p></div>
+          <div class="craft-item"><div class="num">03</div><h3>Bronze</h3><p>Une seule teinte bronze. Deux valeurs : une pour les ornements, une — légèrement plus foncée — pour le texte. WCAG AA à toutes les tailles.</p></div>
+          <div class="craft-item"><div class="num">04</div><h3>Mouvement</h3><p>Ouvrez le menu d'appui long et l'aperçu surgit à 92 % d'échelle, se posant avec un dépassement de 3 %. Ressenti, non remarqué.</p></div>
+          <div class="craft-item"><div class="num">05</div><h3>Confidentialité</h3><p>Sans compte. Sans publicité. Sans traqueurs publicitaires. Aucune donnée personnelle. Uniquement une télémétrie Expo anonyme — pour les correctifs OTA et l'adoption agrégée. <a href="privacy.html">Divulgation complète</a>.</p></div>
+          <div class="craft-item"><div class="num">06</div><h3>Hors ligne</h3><p>Chaque heure de prière, chaque verset, chaque signet — calculé et stocké sur l'appareil. Le test du mode avion réussit.</p></div>
+          <div class="craft-item"><div class="num">07</div><h3>Trilingue</h3><p>L'arabe, l'anglais et le français sont au même niveau. La surface arabe a été conçue nativement, et non transposée de l'anglais.</p></div>
+          <div class="craft-item"><div class="num">08</div><h3>Système</h3><p>Clair et sombre, automatiquement. Respecte votre taille de texte dynamique, votre préférence de réduction des animations, votre réglage de réduction de la transparence.</p></div>
         </div>
       </div>
     </section>
@@ -363,36 +366,36 @@
     <!-- 6 · Verse of the moment -->
     <section class="section band reveal" aria-labelledby="verse-m">
       <div class="container verse-moment">
-        <h2 class="eyebrow" id="verse-m">VERSE OF THE MOMENT</h2>
+        <h2 class="eyebrow" id="verse-m">VERSET DU MOMENT</h2>
         <p class="arabic" lang="ar">وَمَنْ يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ</p>
-        <p class="english">And whoever places their trust in God — He is enough for them.</p>
-        <p class="ref">QUR'AN 65 <span aria-hidden="true">·</span> 3</p>
+        <p class="english">Et quiconque place sa confiance en Allah — Il lui suffit.</p>
+        <p class="ref">CORAN 65 <span aria-hidden="true">·</span> 3</p>
       </div>
     </section>
 
     <!-- 7 · Bilingual showcase -->
     <section class="section section--muted band reveal" aria-labelledby="bi-h">
       <div class="container bilingual">
-        <h2 class="eyebrow" id="bi-h">EQUALLY ARABIC</h2>
+        <h2 class="eyebrow" id="bi-h">ÉGALEMENT ARABE</h2>
         <div class="bilingual__pair">
           <span class="latin">Awaab</span>
           <span class="diamond diamond--lg" aria-hidden="true"></span>
           <span class="arabic" lang="ar">أوّاب</span>
         </div>
-        <p class="bilingual__prose">Right-to-left is not a mirrored layout. We designed the Arabic surface natively, with its own type, its own rhythm, its own sense of weight.</p>
+        <p class="bilingual__prose">La lecture de droite à gauche n'est pas une mise en page inversée. Nous avons conçu la surface arabe nativement, avec sa propre typographie, son propre rythme, son propre sens du poids.</p>
       </div>
     </section>
 
     <!-- 8 · Facts -->
     <section class="section band reveal" aria-labelledby="facts-h">
       <div class="container">
-        <h2 class="eyebrow" id="facts-h" style="text-align:center;margin-bottom:36px;">BY THE NUMBERS</h2>
+        <h2 class="eyebrow" id="facts-h" style="text-align:center;margin-bottom:36px;">EN CHIFFRES</h2>
         <div class="facts">
-          <div class="fact"><div class="n" data-count="114">114</div><div class="l">sūrahs</div></div>
-          <div class="fact"><div class="n" data-count="6">6</div><div class="l">calc methods</div></div>
-          <div class="fact"><div class="n" data-count="3">3</div><div class="l">languages</div></div>
-          <div class="fact"><div class="n" data-count="0">0</div><div class="l">ads</div></div>
-          <div class="fact"><div class="n" data-count="0">0</div><div class="l">trackers</div></div>
+          <div class="fact"><div class="n" data-count="114">114</div><div class="l">sourates</div></div>
+          <div class="fact"><div class="n" data-count="6">6</div><div class="l">méthodes</div></div>
+          <div class="fact"><div class="n" data-count="3">3</div><div class="l">langues</div></div>
+          <div class="fact"><div class="n" data-count="0">0</div><div class="l">publicités</div></div>
+          <div class="fact"><div class="n" data-count="0">0</div><div class="l">traqueurs</div></div>
         </div>
       </div>
     </section>
@@ -402,23 +405,23 @@
       <div class="container">
         <h2 class="eyebrow" id="faq-h">QUESTIONS</h2>
         <div class="faq">
-          <details open><summary>Does Awaab work offline?</summary>
-            <p>Yes — every prayer time, every verse, every bookmark is computed and stored on your device. We don't need the network.</p>
+          <details open><summary>Awaab fonctionne-t-il hors ligne ?</summary>
+            <p>Oui — chaque heure de prière, chaque verset, chaque signet est calculé et stocké sur votre appareil. Nous n'avons pas besoin du réseau.</p>
           </details>
-          <details><summary>Will you ever add accounts?</summary>
-            <p>No. The app does not have user accounts, and it never will. Your data stays where you put it.</p>
+          <details><summary>Ajouterez-vous un jour des comptes ?</summary>
+            <p>Non. L'application n'a pas de comptes utilisateurs, et n'en aura jamais. Vos données restent là où vous les laissez.</p>
           </details>
-          <details><summary>How is location used?</summary>
-            <p>Only to compute prayer times. On iOS the city lookup stays entirely on your device; on Android the OS performs one Google Play Services geocoder lookup to turn your coordinates into a city name. You can also override it manually with any city.</p>
+          <details><summary>Comment la position est-elle utilisée ?</summary>
+            <p>Uniquement pour calculer les heures de prière. Sur iOS, la recherche de ville reste entièrement sur votre appareil ; sur Android, le système effectue une seule requête au géocodeur des services Google Play pour convertir vos coordonnées en nom de ville. Vous pouvez aussi la définir manuellement avec n'importe quelle ville.</p>
           </details>
-          <details><summary>Why no ads?</summary>
-            <p>Because adhan and ads do not belong on the same screen. We support the project by other means.</p>
+          <details><summary>Pourquoi aucune publicité ?</summary>
+            <p>Parce que l'adhan et la publicité n'ont pas leur place sur le même écran. Nous soutenons le projet par d'autres moyens.</p>
           </details>
-          <details><summary>Is the translation reliable?</summary>
-            <p>We use Marmaduke Pickthall's classic English translation (public domain), long respected for its fidelity to the Arabic.</p>
+          <details><summary>La traduction est-elle fiable ?</summary>
+            <p>Nous utilisons la traduction française de référence de Muhammad Hamidullah, reconnue pour sa fidélité au texte arabe.</p>
           </details>
-          <details><summary>What translation does it use?</summary>
-            <p>Awaab uses Marmaduke Pickthall's English translation (public domain) and the Noble Qur’an Encyclopedia (quranenc.com) Arabic text (<a href="licenses.html">CC BY-SA 4.0</a>). Prayer-time math by <a href="https://github.com/batoulapps/adhan-js">adhan</a>. See <a href="licenses.html">full licenses</a> or <a href="https://github.com/Elshazlyyy/Awaab-Public">view source on GitHub</a>.</p>
+          <details><summary>Quelle traduction utilise-t-il ?</summary>
+            <p>Awaab utilise la traduction française de Muhammad Hamidullah et le texte arabe de l'Encyclopédie du Noble Coran (quranenc.com, <a href="licenses.html">licence CC BY-SA 4.0</a>). Calcul des heures de prière par <a href="https://github.com/batoulapps/adhan-js">adhan</a>. Consultez les <a href="licenses.html">licences complètes</a> ou le <a href="https://github.com/Elshazlyyy/Awaab-Public">code source sur GitHub</a>.</p>
           </details>
         </div>
       </div>
@@ -429,11 +432,11 @@
       <div class="container">
         <div class="promise">
           <div>
-            <h2 class="eyebrow eyebrow--accent" id="pp-h">PRIVACY PROMISE</h2>
-            <p class="promise__title">Your personal content stays on your device.</p>
-            <p class="promise__body">No accounts. No ads. No advertising trackers. No data sold to anyone. The app does transmit a small set of anonymous operational telemetry via Expo so we can ship bug fixes — no PII, no record of what you read. Read the full policy — it is short.</p>
+            <h2 class="eyebrow eyebrow--accent" id="pp-h">PROMESSE DE CONFIDENTIALITÉ</h2>
+            <p class="promise__title">Votre contenu personnel reste sur votre appareil.</p>
+            <p class="promise__body">Sans compte. Sans publicité. Sans traqueurs publicitaires. Aucune donnée vendue à qui que ce soit. L'application transmet un petit ensemble de données techniques anonymes via Expo afin que nous puissions corriger les bogues — aucune donnée personnelle, aucun enregistrement de ce que vous lisez. Lisez la politique complète — elle est courte.</p>
           </div>
-          <a class="cta" href="privacy.html">Read privacy policy</a>
+          <a class="cta" href="privacy.html">Lire la politique de confidentialité</a>
         </div>
       </div>
     </section>
@@ -448,27 +451,27 @@
           <span style="font-family:var(--ff-serif);font-style:italic;font-size:22px;color:var(--ink);letter-spacing:-0.01em;">Awaab</span>
           <span class="brand__ar" lang="ar">أوّاب</span>
         </div>
-        <p class="site-footer__legal">© 2026 · TRANSLATION: PICKTHALL (PUBLIC DOMAIN) · BUILT FOR THOSE WHO REMEMBER</p>
+        <p class="site-footer__legal">© 2026 · TRADUCTION : HAMIDULLAH (QURANENC.COM) · CONÇU POUR CEUX QUI SE SOUVIENNENT</p>
       </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="privacy.html">Privacy</a>
-        <a href="accessibility.html">Accessibility</a>
-        <a href="age-suitability.html">Age suitability</a>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="privacy.html">Confidentialité</a>
+        <a href="accessibility.html">Accessibilité</a>
+        <a href="age-suitability.html">Âge conseillé</a>
         <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
         <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
-        <a href="licenses.html">Licenses</a>
-        <a href="ar/" lang="ar" dir="rtl">العربية</a>
-        <a href="fr/" lang="fr" dir="ltr">Français</a>
+        <a href="licenses.html">Licences</a>
+        <a href="../" lang="en" dir="ltr">English</a>
+        <a href="../ar/" lang="ar" dir="rtl">العربية</a>
       </nav>
     </div>
     <div class="container theme-control-row">
       <div class="theme-control">
-        <label for="theme-select" class="eyebrow">THEME</label>
-        <select id="theme-select" aria-label="Color theme">
+        <label for="theme-select" class="eyebrow">THÈME</label>
+        <select id="theme-select" aria-label="Thème de couleur">
           <option value="auto">Auto</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-          <option value="sepia">Sepia</option>
+          <option value="light">Clair</option>
+          <option value="dark">Sombre</option>
+          <option value="sepia">Sépia</option>
         </select>
       </div>
     </div>

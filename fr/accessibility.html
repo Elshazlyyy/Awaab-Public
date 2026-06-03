@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── Security headers ────────────────────────────────────────────
+       CSP locks resource origins to same-origin. The only inline JS is the hash-pinned,
+       first-party theme selector. See /index.html for full rationale. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-XMeIgQMjLh0Bw86Hnd30cF3xa90DZ+yuUvOumK3JUB0='; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Accessibilité — Awaab</title>
+  <meta name="description" content="Awaab est conçu pour respecter le niveau WCAG 2.2 AA, souvent AAA. Fonctionnalités d'accessibilité et conformité détaillées.">
+  <meta property="og:title" content="Accessibilité — Awaab">
+  <meta property="og:description" content="Awaab est conçu pour respecter le niveau WCAG 2.2 AA, souvent AAA. Fonctionnalités d'accessibilité et conformité détaillées.">
+  <meta property="og:image" content="https://elshazlyyy.github.io/Awaab-Public/og-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awaab — déclaration d'accessibilité">
+  <meta property="og:url" content="https://elshazlyyy.github.io/Awaab-Public/fr/accessibility.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ar_SA">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Awaab">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="https://elshazlyyy.github.io/Awaab-Public/accessibility.html">
+  <link rel="alternate" hreflang="ar" href="https://elshazlyyy.github.io/Awaab-Public/ar/accessibility.html">
+  <link rel="alternate" hreflang="fr" href="https://elshazlyyy.github.io/Awaab-Public/fr/accessibility.html">
+  <link rel="canonical" href="https://elshazlyyy.github.io/Awaab-Public/fr/accessibility.html">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="me" href="mailto:ahmed.shazly15@gmail.com">
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2" crossorigin>
+  <link rel="stylesheet" href="../awaab.css">
+  <!-- Theme selector — first-party, hash-pinned. Reads/writes only a
+       localStorage key; no network, no PII, no third-party code. Sets
+       [data-theme] on <html> before paint so there is no theme flash. -->
+  <script>
+    (function () {
+      var KEY = 'awaab-theme';
+      var root = document.documentElement;
+      var COLORS = { light: '#F4EFE3', dark: '#0E0F12', sepia: '#ECE3CE' };
+      // Tint the mobile browser chrome to match an explicit choice. Auto
+      // removes the override so the static media-scoped metas govern (and
+      // JS-disabled visitors are unaffected).
+      function setChrome(t) {
+        var m = document.head.querySelector('meta[name="theme-color"][data-managed]');
+        if (t === 'light' || t === 'dark' || t === 'sepia') {
+          if (!m) {
+            m = document.createElement('meta');
+            m.setAttribute('name', 'theme-color');
+            m.setAttribute('data-managed', '');
+            document.head.insertBefore(m, document.head.querySelector('meta[name="theme-color"]'));
+          }
+          m.setAttribute('content', COLORS[t]);
+        } else if (m) {
+          m.parentNode.removeChild(m);
+        }
+      }
+      function apply(t) {
+        if (t === 'light' || t === 'dark' || t === 'sepia') root.setAttribute('data-theme', t);
+        else root.removeAttribute('data-theme');
+        setChrome(t);
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved);
+      document.addEventListener('DOMContentLoaded', function () {
+        var sel = document.getElementById('theme-select');
+        if (!sel) return;
+        sel.value = saved || 'auto';
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          try { localStorage.setItem(KEY, v); } catch (e) {}
+          apply(v);
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22"><g><line x1="4" y1="13" x2="18" y2="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="0.8"/><path d="M5 13 A 6 5 0 0 1 17 13" fill="none" stroke="currentColor" stroke-width="1"/><g transform="translate(11 8) rotate(45)"><rect x="-3" y="-3" width="6" height="6" fill="#8A6E3A"/></g></g></svg>
+        </span>
+        <span class="brand__name">Awaab</span>
+        <span class="brand__ar" lang="ar" dir="rtl">أوّاب</span>
+      </a>
+      <nav class="site-nav" aria-label="Principale">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="age-suitability.html">Âge conseillé</a>
+        <a href="../accessibility.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/accessibility.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container long">
+    <aside class="long__toc" aria-label="Sur cette page">
+      <p class="eyebrow">SUR CETTE PAGE</p>
+      <ul>
+        <li><a href="#commitment">Engagement</a></li>
+        <li><a href="#contrast">Contraste et couleur</a></li>
+        <li><a href="#type">Typographie et tailles</a></li>
+        <li><a href="#motion">Animations</a></li>
+        <li><a href="#screen-readers">Lecteurs d'écran</a></li>
+        <li><a href="#keyboard">Clavier et contacteur</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </aside>
+
+    <article class="long__article">
+      <p class="eyebrow eyebrow--accent">ACCESSIBILITÉ</p>
+      <h1>Accessibilité</h1>
+      <p class="updated">DERNIÈRE MISE À JOUR · 29 MAI 2026</p>
+
+      <section class="card summary" aria-labelledby="commitment">
+        <h2 id="commitment" style="margin-top:0;font-size:22px;">Notre engagement</h2>
+        <p>Awaab est conçu pour respecter le niveau AA de la norme <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a> sur chaque écran, et atteint le niveau AAA pour le corps de texte partout où cela est possible sans compromettre la voix éditoriale. L'application se veut utilisable par tout le monde, dans tout état, sur tout appareil.</p>
+      </section>
+
+      <h2 id="contrast">Contraste et couleur</h2>
+      <p>Le corps de texte satisfait au niveau <strong>WCAG AAA à 7:1</strong> dans les thèmes clair et sombre. Les intertitres et les libellés tertiaires atteignent le niveau AA. Le bronze, seule couleur d'accent, existe en deux valeurs : un « bronze de texte » légèrement plus foncé (<code>#76592A</code> en clair / <code>#C9A86A</code> en sombre) garantit que les légendes en petites capitales restent lisibles à 9–11 px.</p>
+      <p>La couleur ne porte jamais seule une signification critique. Chaque état affiché par l'application est encodé par une <strong>forme, un libellé et une position</strong>, en plus de la couleur. Vous pouvez utiliser Awaab avec des réglages de couleur en niveaux de gris, deutéranopie, protanopie ou tritanopie sans perdre la moindre information.</p>
+
+      <h2 id="type">Typographie et tailles</h2>
+      <ul>
+        <li><strong>La taille de texte dynamique</strong> est respectée sur iOS et Android. Tout le texte s'agrandit sans troncature jusqu'à 200 %.</li>
+        <li><strong>Les zones tactiles</strong> mesurent au moins 44×44 pt sur iOS et 48×48 dp sur Android.</li>
+        <li><strong>Le texte coranique arabe</strong> est rendu en Amiri Quran avec un interligne de 1,95 afin que le tashkīl (les signes vocaliques) respire.</li>
+        <li><strong>Les réglages de taille du lecteur</strong> vous permettent d'ajuster la taille du verset arabe d'environ 22 pt à environ 42 pt.</li>
+      </ul>
+
+      <h2 id="motion">Animations</h2>
+      <p>Awaab respecte <code>prefers-reduced-motion</code> à la fois dans l'application et sur ce site. Chaque animation du système dispose d'un repli documenté, instantané ou statique. L'aiguille de la boussole se pose de façon linéaire plutôt que par ressort ; le menu d'appui long apparaît en fondu plutôt qu'en agrandissement ; le comptage animé du site ne s'exécute pas.</p>
+
+      <h2 id="screen-readers">Lecteurs d'écran</h2>
+      <p>L'application est testée avec <strong>VoiceOver</strong> (iOS) et <strong>TalkBack</strong> (Android). Chaque élément interactif porte un libellé d'accessibilité dans la langue d'interface choisie par l'utilisateur, y compris le menu d'appui long, les contrôles segmentés, le cadran de la qibla, le repère de direction de la qibla, le bouton de signet, le chevron de retour du lecteur, et chaque onglet de la barre de navigation inférieure. Les versets arabes sont annoncés avec leur attribut <code>lang="ar"</code> afin que les lecteurs d'écran utilisent la voix appropriée. L'arabe coranique est fourni en <strong>Amiri Quran</strong> sur chaque version d'OS prise en charge, de sorte que le tashkīl (les signes vocaliques) s'affiche de manière cohérente sur Android 8 et plus récent, sans recourir à la police système de l'appareil.</p>
+
+      <h2 id="keyboard">Clavier et commande par contacteur</h2>
+      <p>Sur iPad, chaque écran est navigable au clavier externe. Les anneaux de focus sont visibles et cohérents (contour bronze de 2 px, décalage de 3 px). Les utilisateurs de la commande par contacteur peuvent parcourir chaque élément interactif dans un ordre de lecture sensé — de haut en bas sur les écrans de gauche à droite, de haut en bas en miroir sur ceux de droite à gauche.</p>
+
+      <section class="contact-card" id="contact">
+        <p class="eyebrow eyebrow--accent" style="margin-bottom:8px;">RETOUR</p>
+        <p class="title-sm" style="color:var(--ink);">Écrivez à <a href="mailto:ahmed.shazly15@gmail.com">ahmed.shazly15@gmail.com</a>.</p>
+        <p class="body" style="margin-top:8px;">Nous répondons à chaque signalement d'accessibilité sous 7 jours, souvent le jour même.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <div class="site-footer__mark">
+          <span class="diamond diamond--lg" aria-hidden="true"></span>
+          <span style="font-family:var(--ff-serif);font-style:italic;font-size:22px;color:var(--ink);letter-spacing:-0.01em;">Awaab</span>
+          <span class="brand__ar" lang="ar">أوّاب</span>
+        </div>
+        <p class="site-footer__legal">© 2026 · TRADUCTION : HAMIDULLAH (QURANENC.COM) · CONÇU POUR CEUX QUI SE SOUVIENNENT</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="age-suitability.html">Âge conseillé</a>
+        <a href="mailto:ahmed.shazly15@gmail.com">Contact</a>
+        <a href="https://github.com/Elshazlyyy/Awaab-Public">GitHub</a>
+        <a href="licenses.html">Licences</a>
+        <a href="../accessibility.html" lang="en" dir="ltr">English</a>
+        <a href="../ar/accessibility.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+    <div class="container theme-control-row">
+      <div class="theme-control">
+        <label for="theme-select" class="eyebrow">THÈME</label>
+        <select id="theme-select" aria-label="Thème de couleur">
+          <option value="auto">Auto</option>
+          <option value="light">Clair</option>
+          <option value="dark">Sombre</option>
+          <option value="sepia">Sépia</option>
+        </select>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
