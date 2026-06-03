@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Internal-only OG-image renderer (tools/og-renderer/og-{en,ar}.html).
+# Internal-only OG-image renderer (tools/og-renderer/og-{en,ar,fr}.html).
 # Excluded from the deploy artifact by .github/workflows/deploy-pages.yml
 # ("Stage public files" step), so well-behaved crawlers won't find it
 # anyway. This Disallow is belt-and-suspenders: if any future deploy

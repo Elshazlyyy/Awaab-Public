@@ -81,9 +81,9 @@ jobs:
         #
         # Specifically excluded:
         #   - tools/   Local-only OG-image renderer
-        #              (tools/og-renderer/og-{en,ar}.html). The renderer
+        #              (tools/og-renderer/og-{en,ar,fr}.html). The renderer
         #              loads fonts from fonts.googleapis.com when run
-        #              locally to regenerate /og.png + /og-ar.png. The
+        #              locally to regenerate /og.png + /og-ar.png + /og-fr.png. The
         #              README.md and privacy.html both promise "no
         #              cross-origin font calls / no third-party scripts"
         #              — true for every served page once tools/ is held
