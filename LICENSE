@@ -8,8 +8,8 @@ of the compiled application on the Apple App Store and Google Play.
 This repository, including but not limited to its HTML, CSS, JavaScript,
 configuration files (.gitignore, manifest.webmanifest, robots.txt,
 sitemap.xml), written content (prose, headings, marketing copy, page
-text, and all natural-language strings in English and Arabic), images
-(og.png), and visual design, is the proprietary and
+text, and all natural-language strings in English, Arabic, and French),
+images (og.png, og-ar.png, og-fr.png), and visual design, is the proprietary and
 confidential property of Ahmed Elshazly. No part of this repository
 may be reproduced, distributed, modified, sublicensed, mirrored, or
 transmitted in any form or by any means — electronic, mechanical,
