@@ -1144,6 +1144,15 @@ html, body {
           backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--hairline);
 }
+/* Honor reduced-transparency: drop the blur and fall back to an opaque
+   header fill (the translucent --header-bg relies on the backdrop). */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header {
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    background: var(--bg);
+  }
+}
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between;
   padding-block: 18px;
