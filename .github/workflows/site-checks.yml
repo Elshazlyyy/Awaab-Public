@@ -114,13 +114,15 @@ jobs:
         # server has bound to :8080.
         run: |
           python3 -m http.server 8080 >/dev/null 2>&1 &
-          for i in 1 2 3 4 5; do
-            if curl -fsS http://localhost:8080/ >/dev/null 2>&1; then
-              echo "✓ server up"
-              break
-            fi
-            sleep 1
-          done
+          # Block until the server binds, retrying on connection-refused.
+          # If it never comes up, fail loudly here instead of letting
+          # Lighthouse run against a dead port and fail confusingly.
+          if curl --retry 10 --retry-connrefused --retry-delay 1 -fsS http://localhost:8080/ >/dev/null; then
+            echo "✓ server up"
+          else
+            echo "::error::http.server did not bind in time"
+            exit 1
+          fi
 
       - name: Audit with Lighthouse CI
         uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12 (SHA-pinned; Dependabot updates)

@@ -110,14 +110,19 @@ Then open <http://localhost:8000/>, <http://localhost:8000/ar/>, and <http://loc
 
 ## Deploy
 
-Every push to `main` is auto-deployed by GitHub Pages from the repo
-root. No CI, no build, no preview environments. The CDN typically
-serves new content within ~30 seconds of push.
+Every push to `main` is deployed by the `deploy-pages` GitHub Actions
+workflow, which stages the public files into `_site/` (holding back
+non-served paths) and publishes that directory to GitHub Pages. The CDN
+typically serves new content within ~30 seconds of the deploy run
+finishing. Three workflows run in CI: `cross-repo-check`, `deploy-pages`,
+and `site-checks` (HTML/link/CSP checks + Lighthouse).
 
-To verify a deploy:
+To verify a deploy, check the latest `deploy-pages` run:
 
 ```bash
-gh api /repos/Elshazlyyy/Awaab-Public/pages/builds/latest --jq '.status'
+gh run list --workflow=deploy-pages.yml --limit 1
+# or inspect the live Pages deployment directly
+gh api repos/Elshazlyyy/Awaab-Public/pages --jq '.html_url'
 ```
 
 ## Quality
