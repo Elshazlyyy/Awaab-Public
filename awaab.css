@@ -1112,6 +1112,16 @@ html, body {
   letter-spacing: 0.04em;
   text-transform: none;
 }
+/* Inline Arabic wordmark inside an otherwise-Latin/LTR eyebrow (the EN/FR hero
+   "أوّاب · AWWĀB · …"): the ancestor-scoped rule above can't reach a descendant
+   span, so the base --ff-mono + 0.22em tracking + uppercase would render the
+   Arabic glyphs as tofu/degraded. Target the inline [lang="ar"] span directly —
+   works regardless of page direction. (Audit #10 — twin of the in-app fix.) */
+.eyebrow [lang="ar"] {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
 /* Explicit alias of the default eyebrow color — kept as a semantic marker in
    markup even though it matches the base `.eyebrow` color above. */
 .eyebrow--accent { color: var(--accent-text); }

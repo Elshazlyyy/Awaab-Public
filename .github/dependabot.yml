@@ -8,11 +8,11 @@
 #
 # Major-version bumps on actions/* are intentionally blocked. Each new
 # major has historically introduced breaking changes (e.g.,
-# upload-artifact v3→v4 changed the deduplication semantics; checkout
-# v5+ shifted the bundled Node runtime). They should land in a manually-
-# tested PR, not automatically. Patch + minor still flow through —
-# those carry security fixes and behavior parity bumps that are safe
-# to take blind.
+# upload-pages-artifact major bumps have changed the artifact format the
+# deploy step expects; checkout v5+ shifted the bundled Node runtime).
+# They should land in a manually-tested PR, not automatically. Patch +
+# minor still flow through — those carry security fixes and behavior
+# parity bumps that are safe to take blind.
 
 version: 2
 updates:
