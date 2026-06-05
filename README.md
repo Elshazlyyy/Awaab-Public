@@ -61,9 +61,8 @@ Store and Google Play.
 
 ## Design system
 
-Tokens mirror the app's `src/theme/colors.ts` and `src/theme/typography.ts`,
-canonicalized in `awaab-design/awaab-redesign-v1/spec.md` (paths in the private
-app repo, not this one):
+Tokens mirror the app's theme tokens, maintained in the private app repo
+(not this one):
 
 | Token             | Light       | Dark        | Purpose                       |
 | ----------------- | ----------- | ----------- | ----------------------------- |
