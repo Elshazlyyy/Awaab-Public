@@ -6,8 +6,8 @@
 
   <!-- ── Security headers ────────────────────────────────────────────
        CSP locks every resource origin to same-origin. Two inline
-       scripts (the theme selector + the count-up animation in §13 —
-       Facts) are each allowed via a SHA-256 hash. The French page reuses
+       scripts (the theme selector + the count-up animation in the
+       Facts section) are each allowed via a SHA-256 hash. The French page reuses
        the English scripts byte-for-byte (Western digits, no Arabic-digit
        converter), so its script-src hashes match /index.html exactly.
        style-src needs 'unsafe-inline' for the project's many inline
@@ -161,7 +161,7 @@
         <h1 class="hero__h1 aw-enter aw-enter--2" id="hero-h1">Un compagnon paisible pour la prière quotidienne, hors ligne.</h1>
         <p class="hero__lede aw-enter aw-enter--3">Heures de prière. Qibla. Le Coran en entier. Sans publicité, sans compte, sans traqueurs tiers. Tout fonctionne sur votre appareil.</p>
         <div class="hero__cta aw-enter aw-enter--4">
-          <a class="badge" href="#" aria-disabled="true" tabindex="-1" aria-label="Bientôt sur l'App Store">
+          <span class="badge">
             <span class="badge__icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4C4 12.7 5.2 17 6.8 19.3c.8 1.1 1.8 2.4 3 2.3 1.2-.1 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.1 3-2.3.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.9-1-2.9-3.9zM15.2 6c.7-.8 1.1-1.9 1-3.1-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.5 2.8-1.3z"/></svg>
             </span>
@@ -169,8 +169,8 @@
               <span class="badge__tag">Bientôt sur</span>
               <span class="badge__name">App Store</span>
             </span>
-          </a>
-          <a class="badge" href="#" aria-disabled="true" tabindex="-1" aria-label="Bientôt sur Google Play">
+          </span>
+          <span class="badge">
             <span class="badge__icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5v19l11-9.5L4 2.5zm15.6 8.2-2.8-1.6-3.2 2.9 3.2 2.9 2.8-1.6c.7-.4 1.1-1.1 1.1-1.3s-.4-.9-1.1-1.3z" opacity="0.85"/></svg>
             </span>
@@ -178,7 +178,7 @@
               <span class="badge__tag">Bientôt sur</span>
               <span class="badge__name">Google Play</span>
             </span>
-          </a>
+          </span>
         </div>
         <div class="hero__pills aw-enter aw-enter--6">
           <span class="pill">Gratuit</span>
@@ -322,7 +322,7 @@
           <article class="feature">
             <div class="feature__icon"><span class="diamond diamond--md" aria-hidden="true"></span></div>
             <h3>Heures de prière</h3>
-            <p>Six méthodes de calcul, détectées automatiquement selon votre pays. Le madhab pour l'Asr, à votre choix. Règles pour les hautes latitudes là où elles comptent.</p>
+            <p>Seize méthodes de calcul, détectées automatiquement selon votre pays. Le madhab pour l'Asr, à votre choix. Règles pour les hautes latitudes là où elles comptent.</p>
             <ul>
               <li>Umm al-Qura, Ligue islamique mondiale, ISNA, égyptienne, Karachi, Téhéran</li>
               <li>Asr standard ou hanafite</li>
@@ -392,7 +392,7 @@
         <h2 class="eyebrow" id="facts-h" style="text-align:center;margin-bottom:36px;">EN CHIFFRES</h2>
         <div class="facts">
           <div class="fact"><div class="n" data-count="114">114</div><div class="l">sourates</div></div>
-          <div class="fact"><div class="n" data-count="6">6</div><div class="l">méthodes</div></div>
+          <div class="fact"><div class="n" data-count="16">16</div><div class="l">méthodes</div></div>
           <div class="fact"><div class="n" data-count="3">3</div><div class="l">langues</div></div>
           <div class="fact"><div class="n" data-count="0">0</div><div class="l">publicités</div></div>
           <div class="fact"><div class="n" data-count="0">0</div><div class="l">traqueurs</div></div>
@@ -418,10 +418,10 @@
             <p>Parce que l'adhan et la publicité n'ont pas leur place sur le même écran. Nous soutenons le projet par d'autres moyens.</p>
           </details>
           <details><summary>La traduction est-elle fiable ?</summary>
-            <p>Nous utilisons la traduction française de référence de Muhammad Hamidullah, reconnue pour sa fidélité au texte arabe.</p>
+            <p>Nous utilisons la traduction française de référence de Muhammad Hamidullah et la traduction anglaise (domaine public) de Marmaduke Pickthall, toutes deux reconnues pour leur fidélité au texte arabe.</p>
           </details>
           <details><summary>Quelle traduction utilise-t-il ?</summary>
-            <p>Awaab utilise la traduction française de Muhammad Hamidullah et le texte arabe de l'Encyclopédie du Noble Coran (quranenc.com, <a href="licenses.html">usage libre</a>). Calcul des heures de prière par <a href="https://github.com/batoulapps/adhan-js">adhan</a>. Consultez les <a href="licenses.html">licences complètes</a> ou le <a href="https://github.com/Elshazlyyy/Awaab-Public">code source sur GitHub</a>.</p>
+            <p>Awaab utilise la traduction française de Muhammad Hamidullah, la traduction anglaise (domaine public) de Marmaduke Pickthall et le texte arabe de l'Encyclopédie du Noble Coran (quranenc.com, <a href="licenses.html">usage libre</a>). Calcul des heures de prière par <a href="https://github.com/batoulapps/adhan-js">adhan</a>. Consultez les <a href="licenses.html">licences complètes</a> ou le <a href="https://github.com/Elshazlyyy/Awaab-Public">code source sur GitHub</a>.</p>
           </details>
         </div>
       </div>

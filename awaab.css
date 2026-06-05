@@ -1102,8 +1102,19 @@ html, body {
   text-transform: uppercase;
   color: var(--accent-text);
 }
+/* Arabic/RTL eyebrows: JetBrains Mono (--ff-mono) carries no Arabic glyphs, and
+   the 0.22em tracking + uppercase break Arabic cursive joining — route them to
+   Cairo (--ff-ar) with relaxed tracking and no case transform (uppercase is a
+   no-op on Arabic). This is the stylesheet twin of the in-app AwText tofu fix. */
+[lang="ar"] .eyebrow,
+[dir="rtl"] .eyebrow {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+/* Explicit alias of the default eyebrow color — kept as a semantic marker in
+   markup even though it matches the base `.eyebrow` color above. */
 .eyebrow--accent { color: var(--accent-text); }
-.eyebrow--faint  { color: var(--ink-soft); }
 
 .mono { font-family: var(--ff-mono); font-feature-settings: 'tnum'; }
 
@@ -1297,6 +1308,11 @@ html, body {
   display: flex; flex-direction: column;
 }
 .mock-today .eyebrow { font-size: 8px; letter-spacing: 0.18em; }
+/* Relax the tighter mock tracking for Arabic so device-mock eyebrows
+   ("الصلاة القادمة" / "القبلة") keep their cursive joining (font-family is
+   inherited from the [dir="rtl"] .eyebrow rule above). */
+[dir="rtl"] .mock-today .eyebrow,
+[dir="rtl"] .mock-qibla .eyebrow { letter-spacing: 0.04em; }
 .mock-today .next {
   font-family: var(--ff-serif); font-style: italic; font-size: 36px; line-height: 1; margin-top: 8px;
 }
