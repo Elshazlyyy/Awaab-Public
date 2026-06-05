@@ -17,6 +17,11 @@ Source HTML for the social-share cards at `../../og.png` (EN),
    / `og-ar.png` / `og-fr.png` respectively. Crop to top-left 1200×630 if the
    browser produces a taller canvas:
 
+   > Note: `og-en.html` intentionally outputs **`og.png`** (not `og-en.png`)
+   > to match the deployed root filename referenced by every page's
+   > `og:image`. The AR/FR cards keep the `-ar`/`-fr` suffix. Don't rename
+   > the EN output to `og-en.png` — that would leave the served `og.png` stale.
+
    ```bash
    ffmpeg -y -i raw.png -vf "crop=1200:630:0:0" og.png
    ```

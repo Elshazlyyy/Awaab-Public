@@ -37,6 +37,13 @@ updates:
       # actions/upload-artifact, lycheeverse/lychee-action,
       # treosh/lighthouse-ci-action, etc. — anything dependabot
       # discovers in this repo's workflows.
+      #
+      # NOTE: this also suppresses major bumps that happen to ship a
+      # security fix. Dependabot version-update PRs are separate from
+      # Dependabot *security* alerts — the latter are NOT silenced by
+      # this `ignore` rule. Watch the GitHub Security tab → Dependabot
+      # alerts and apply any security-relevant major manually (tested),
+      # since no automatic PR will be opened for it here.
       - dependency-name: '*'
         update-types:
           - 'version-update:semver-major'

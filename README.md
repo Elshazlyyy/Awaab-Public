@@ -122,7 +122,7 @@ To verify a deploy, check the latest `deploy-pages` run:
 ```bash
 gh run list --workflow=deploy-pages.yml --limit 1
 # or inspect the live Pages deployment directly
-gh api repos/Elshazlyyy/Awaab-Public/pages --jq '.html_url'
+gh api repos/elshazlyyy/Awaab-Public/pages --jq '.html_url'
 ```
 
 ## Quality

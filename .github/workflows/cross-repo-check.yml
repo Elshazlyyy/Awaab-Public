@@ -117,10 +117,18 @@ jobs:
 
           fail=0
 
-          # 1. App name must appear on both hero pages (display, OG, etc.)
+          # 1. App name must appear on each hero page in a *display* context
+          #    (a rendered text node, e.g. <span>Awaab</span>), not merely
+          #    anywhere in the markup. Matching the bare string would pass
+          #    on the URL slug alone: 'Awaab' is a substring of the GH Pages
+          #    path 'Awaab-Public', which appears ~9x per page in canonical /
+          #    og:url / hreflang metadata — so a rename of the visible name
+          #    everywhere would still slip past a bare grep. The '>NAME<'
+          #    delimiters require the name between element tags, which the
+          #    'Awaab-Public' URL slug never satisfies.
           for f in index.html ar/index.html fr/index.html; do
-            if ! grep -qF "$APP_NAME" "$f"; then
-              echo "::error file=$f::app name '$APP_NAME' (from Awaab/app.json) not found in $f"
+            if ! grep -qF ">$APP_NAME<" "$f"; then
+              echo "::error file=$f::app name '$APP_NAME' (from Awaab/app.json) not found as visible display text (>$APP_NAME<) in $f"
               fail=1
             fi
           done
