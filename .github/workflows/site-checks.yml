@@ -81,6 +81,14 @@ jobs:
           #     checking each page's existence locally via the file
           #     traversal — re-validating via HTTP is redundant AND
           #     race-prone. Exclude the self-URL.
+          # --exclude-path 'tools': skip the internal-only OG renderer
+          #   (tools/og-renderer/og-{en,ar,fr}.html). deploy-pages.yml holds
+          #   tools/ back from the deploy artifact (--exclude='/tools'), so
+          #   these files are never served. They also load fonts from
+          #   fonts.googleapis.com / fonts.gstatic.com — re-validating those
+          #   on every PR makes live calls to Google Fonts that can rate-limit
+          #   into a false CI failure. Mirror the deploy exclusion so the
+          #   link-checker and the deploy step agree on what "the site" is.
           args: |
             --no-progress
             --include-fragments
@@ -90,6 +98,7 @@ jobs:
             --exclude 'localhost'
             --exclude 'appstoreconnect\.apple\.com'
             --exclude 'elshazlyyy\.github\.io/Awaab-Public'
+            --exclude-path 'tools'
             './**/*.html'
             './**/*.md'
           fail: true
@@ -131,19 +140,32 @@ jobs:
           # If a reviewer clicks any link from App Store Connect or
           # Play Console, they land on one of these. Each is asserted
           # against the same budget file.
+          #
+          # licenses.html (+ ar/, fr/): the third-party-attribution
+          #   source-of-truth a store reviewer or user can reach — linked
+          #   from every index page AND privacy.html, and listed in
+          #   sitemap.xml. Held to the same a11y/SEO budget as the rest.
+          # 404.html is deliberately NOT audited here: it carries
+          #   <meta name="robots" content="noindex"> (correct for an error
+          #   page), which fails Lighthouse's is-crawlable SEO audit and
+          #   would drop the SEO category below the 1.0 hard gate. It is
+          #   still covered by the lychee link-check glob.
           urls: |
             http://localhost:8080/
             http://localhost:8080/privacy.html
             http://localhost:8080/accessibility.html
             http://localhost:8080/age-suitability.html
+            http://localhost:8080/licenses.html
             http://localhost:8080/ar/
             http://localhost:8080/ar/privacy.html
             http://localhost:8080/ar/accessibility.html
             http://localhost:8080/ar/age-suitability.html
+            http://localhost:8080/ar/licenses.html
             http://localhost:8080/fr/
             http://localhost:8080/fr/privacy.html
             http://localhost:8080/fr/accessibility.html
             http://localhost:8080/fr/age-suitability.html
+            http://localhost:8080/fr/licenses.html
           # Free uploader → public Lighthouse-CI server. Useful for
           # PR-time comparison: a reviewer can click through and see
           # the exact score breakdown without setting up their own

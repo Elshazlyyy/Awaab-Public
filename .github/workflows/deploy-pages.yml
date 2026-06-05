@@ -118,7 +118,7 @@ jobs:
           echo "✓ tools/ correctly excluded from deploy artifact"
 
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4 (SHA-pinned; Dependabot updates)
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0 (SHA-pinned; Dependabot updates)
         with:
           # Deploy the staged directory, not the repo root. See the
           # "Stage public files" step above for the exclusion rationale.
@@ -128,4 +128,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4 (SHA-pinned; Dependabot updates)
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5 (SHA-pinned; Dependabot updates)

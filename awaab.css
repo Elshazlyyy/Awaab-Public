@@ -1047,6 +1047,14 @@ html, body {
   font-family: var(--ff-mono); font-size: 12px; letter-spacing: 0.18em;
   z-index: 100;
 }
+/* Arabic/RTL skip link: the AR skip-to-content text is Arabic
+   (انتقل إلى المحتوى); --ff-mono has no Arabic glyphs and the 0.18em tracking
+   breaks cursive joining. Route to Cairo. Twin of the .eyebrow tofu fix. */
+[lang="ar"] .skip:focus,
+[dir="rtl"] .skip:focus {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+}
 
 /* ─── Layout primitives ──────────────────────────────────── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-page); }
@@ -1474,6 +1482,14 @@ html, body {
   font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.2em;
   color: var(--accent-text);
 }
+/* Arabic/RTL craft numerals: the AR homepage renders Arabic-Indic digits (٠١–٠٨)
+   here; --ff-mono carries none, so route to Cairo with relaxed tracking to match
+   the surrounding Arabic. Twin of the .eyebrow tofu fix. */
+[lang="ar"] .craft-item .num,
+[dir="rtl"] .craft-item .num {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+}
 .craft-item h3 {
   font-family: var(--ff-serif); font-style: italic; font-size: 20px;
   color: var(--ink); margin-top: 8px;
@@ -1536,6 +1552,20 @@ html, body {
   font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.22em;
   color: var(--ink-faint); margin-top: 10px;
   text-transform: uppercase;
+}
+/* Arabic/RTL facts: --ff-mono (JetBrains Mono) has no Arabic glyphs, and the
+   0.22em tracking + uppercase break Arabic cursive joining on the AR homepage's
+   By-the-numbers labels (سورة / طرق حسابية / …) and Arabic-Indic count digits.
+   Route to Cairo (--ff-ar). Twin of the .eyebrow tofu fix. */
+[lang="ar"] .fact .n,
+[dir="rtl"] .fact .n {
+  font-family: var(--ff-ar);
+}
+[lang="ar"] .fact .l,
+[dir="rtl"] .fact .l {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 /* ─── FAQ ──────────────────────────────────────────────── */
@@ -1607,6 +1637,16 @@ html, body {
   font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.06em;
   color: var(--ink-soft); margin-top: 16px; text-transform: uppercase;
 }
+/* Arabic/RTL footer legal: the AR footer carries Arabic prose
+   (© ٢٠٢٦ · الترجمة: … · صُنع لأهل الذِّكر); --ff-mono has no Arabic glyphs and
+   uppercase is a no-op that adds tracking artifacts. Route to Cairo. Twin of
+   the .eyebrow tofu fix. */
+[lang="ar"] .site-footer__legal,
+[dir="rtl"] .site-footer__legal {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
 .footer-nav {
   display: flex; gap: 24px;
   font-family: var(--ff-ui); font-size: 13px;
@@ -1665,6 +1705,16 @@ html, body {
   font-family: var(--ff-mono); font-size: 11px;
   letter-spacing: 0.16em; color: var(--ink-faint);
   margin-top: 14px; text-transform: uppercase;
+}
+/* Arabic/RTL last-updated stamp: the AR long-pages render Arabic prose + month
+   name here (آخر تحديث · … مايو ٢٠٢٦); --ff-mono has no Arabic glyphs and the
+   0.16em tracking + uppercase break cursive joining. Route to Cairo. Twin of
+   the .eyebrow tofu fix. */
+[lang="ar"] .long__article .updated,
+[dir="rtl"] .long__article .updated {
+  font-family: var(--ff-ar);
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 .long__article h2 {
   font-family: var(--ff-serif); font-style: italic;
