@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4 (SHA-pinned; Dependabot updates)
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3 (SHA-pinned; Dependabot updates)
 
       # lychee caches successful link checks so we don't re-fetch the
       # full external-URL set on every PR. 1-day max-age caps how long
@@ -51,7 +51,7 @@ jobs:
       # we'd notice — matches the audit appetite for marketing-site
       # link rot (caught within a day, not within a release cycle).
       - name: Restore lychee cache
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4 (SHA-pinned; Dependabot updates)
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5 (SHA-pinned; Dependabot updates)
         with:
           path: .lycheecache
           # Content-addressed: identical HTML reuses the same cache entry
@@ -108,10 +108,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4 (SHA-pinned; Dependabot updates)
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3 (SHA-pinned; Dependabot updates)
 
       - name: Install Node (for lighthouse-ci-action's deps)
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4 (SHA-pinned; Dependabot updates)
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0 (SHA-pinned; Dependabot updates)
         with:
           node-version: '20'
 
