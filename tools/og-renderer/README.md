@@ -30,10 +30,9 @@ Source HTML for the social-share cards at `../../og.png` (EN),
 
 ## Why the bottom-right shows `elshazlyyy.github.io`
 
-The site is hosted at `https://elshazlyyy.github.io/Awaab-Public/`.
-The marketing domain `awaab.app` is currently not owned. The OG card
-shows the host so the share preview matches the URL someone is
-clicking through.
+The site is hosted at `https://elshazlyyy.github.io/Awaab-Public/`, and no
+custom domain is used. The OG card shows that host so the share preview
+matches the URL someone is clicking through.
 
 If the project ever moves to a custom domain, update the `.url`
 text in both HTML files and regenerate.
