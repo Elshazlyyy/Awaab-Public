@@ -1,7 +1,7 @@
 {
   "name": "Awaab — A quiet companion for the daily prayer",
   "short_name": "Awaab",
-  "description": "Prayer times, qibla compass, and the full Qur'an. Offline. No accounts, no ads, no third-party trackers.",
+  "description": "Prayer times, qibla compass, and the full Qur'an. Offline. No accounts, no ads, no advertising trackers.",
   "start_url": "./",
   "scope": "./",
   "display": "browser",

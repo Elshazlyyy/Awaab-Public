@@ -126,7 +126,7 @@
     <article class="long__article">
       <p class="eyebrow eyebrow--accent">ACCESSIBILITY</p>
       <h1>Accessibility</h1>
-      <p class="updated">LAST UPDATED · 29 MAY 2026</p>
+      <p class="updated">LAST UPDATED · 10 JUNE 2026</p>
 
       <section class="card summary" aria-labelledby="commitment">
         <h2 id="commitment" style="margin-top:0;font-size:22px;">Our commitment</h2>
@@ -139,7 +139,7 @@
 
       <h2 id="type">Type &amp; sizing</h2>
       <ul>
-        <li><strong>Dynamic Type</strong> is respected on iOS and Android. All text scales without truncation up to 200%.</li>
+        <li><strong>Dynamic Type</strong> is respected on iOS and Android. Body and reading text scales up to 200%; large display titles and fixed dial and HUD labels cap between 125% and 160% and shrink to fit rather than clipping, so nothing overflows the screen.</li>
         <li><strong>Tap targets</strong> are at least 44×44 pt on iOS and 48×48 dp on Android.</li>
         <li><strong>Arabic Quranic text</strong> is rendered in Amiri Quran with line-height 1.95 so tashkeel (vowel marks) breathe.</li>
         <li><strong>Reader type controls</strong> let you scale the Arabic verse size up to about 42 pt and down to about 22 pt.</li>
@@ -149,7 +149,7 @@
       <p>Awaab respects <code>prefers-reduced-motion</code> on both the app and this website. Every animation in the system has a documented instant-or-static fallback. The compass needle settles linearly rather than via spring; the long-press menu fades in rather than scaling; the marketing site's count-up does not run.</p>
 
       <h2 id="screen-readers">Screen readers</h2>
-      <p>The app is tested against <strong>VoiceOver</strong> (iOS) and <strong>TalkBack</strong> (Android). Every interactive element carries an accessibility label in the user's chosen UI language, including the long-press menu, segmented controls, the qibla dial, the qibla direction marker, the bookmark toggle, the reader's back chevron, and every tab in the bottom navigation. Arabic verses are announced with their <code>lang="ar"</code> attribute so screen readers use the correct voice. Quranic Arabic ships bundled in <strong>Amiri Quran</strong> at every supported OS version, so tashkeel (vowel marks) render consistently on Android 8 and newer without falling back to the device's system font.</p>
+      <p>The app is tested against <strong>VoiceOver</strong> (iOS) and <strong>TalkBack</strong> (Android). Every interactive element carries an accessibility label in the user's chosen UI language, including the long-press menu, segmented controls, the qibla dial, the qibla direction marker, the bookmark toggle, the reader's back chevron, and every tab in the bottom navigation. Arabic verses are read in the system's Arabic voice — VoiceOver and TalkBack detect the Arabic script automatically. Quranic Arabic ships bundled in <strong>Amiri Quran</strong> at every supported OS version, so tashkeel (vowel marks) render consistently on Android 8 and newer without falling back to the device's system font.</p>
 
       <h2 id="keyboard">Keyboard &amp; switch control</h2>
       <p>On iPad, every screen is navigable via external keyboard. Focus rings are visible and consistent (2px bronze outline, 3px offset). Switch Control users can advance through every interactive element in a sensible reading order — top-to-bottom on LTR screens, top-to-bottom mirrored on RTL.</p>
