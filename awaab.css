@@ -1139,6 +1139,11 @@ html, body {
 /* Arabic specific */
 [lang="ar"], [dir="rtl"] {
   --ff-serif: 'Amiri', serif;  /* fallback for italic-display in AR */
+  /* Arabic body prose: Inter Tight (--ff-ui) carries zero Arabic glyphs and its
+     @font-face unicode-ranges exclude Arabic, so every AR paragraph silently
+     fell through to system-ui. Route the UI voice to Cairo — the app's own
+     Arabic UI face — so site and app speak the same Arabic. */
+  --ff-ui: 'Cairo', system-ui, -apple-system, sans-serif;
 }
 [dir="rtl"] .display-l,
 [dir="rtl"] .display-m,
@@ -1331,6 +1336,19 @@ html, body {
    inherited from the [dir="rtl"] .eyebrow rule above). */
 [dir="rtl"] .mock-today .eyebrow,
 [dir="rtl"] .mock-qibla .eyebrow { letter-spacing: 0.04em; }
+/* Same tofu class for the mock DIGITS: the AR mocks put Arabic-Indic numerals
+   (countdown "٠:٤٧:٠٠", bearing "٢٤٧", verse badge "١") inside --ff-mono runs;
+   JetBrains Mono carries no Arabic-Indic digits, so they fell through to a
+   mismatched system face beside JetBrains punctuation. Route them to Cairo —
+   the stylesheet twin of the recurring .eyebrow fix. */
+[lang="ar"] .mock-today .countdown,
+[dir="rtl"] .mock-today .countdown,
+[lang="ar"] .mock-qibla .bearing,
+[dir="rtl"] .mock-qibla .bearing,
+[lang="ar"] .mock-quran .badge-num,
+[dir="rtl"] .mock-quran .badge-num {
+  font-family: var(--ff-ar);
+}
 .mock-today .next {
   font-family: var(--ff-serif); font-style: italic; font-size: 36px; line-height: 1; margin-top: 8px;
 }
