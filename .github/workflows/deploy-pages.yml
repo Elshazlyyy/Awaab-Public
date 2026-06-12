@@ -48,8 +48,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # F19 — pre-deploy gate: never publish a site whose internal links or TOC
+  # anchors are broken. `--offline` checks local files + fragments ONLY (no
+  # network), so external-link flakiness can never block a deploy; external
+  # link rot is still caught by site-checks.yml on PRs + content pushes. If
+  # this fails the deploy job is skipped and the live site keeps the previous
+  # good version — a broken push can never take the site down.
+  link-check:
+    name: Link check (pre-deploy gate)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3 (SHA-pinned; Dependabot updates)
+      - name: Run lychee (offline — internal links + fragments)
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2 (SHA-pinned; Dependabot updates)
+        with:
+          args: |
+            --no-progress
+            --offline
+            --include-fragments
+            --exclude-path 'tools'
+            './**/*.html'
+          fail: true
+
   deploy:
     name: Deploy
+    needs: link-check
     runs-on: ubuntu-latest
     # Pages deploys are I/O dominated: upload artifact, GH-side
     # extraction, CDN propagation. 10 min is generous for a ~5MB site;
