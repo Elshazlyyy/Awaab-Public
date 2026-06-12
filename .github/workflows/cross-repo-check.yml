@@ -49,6 +49,10 @@ on:
     branches: [main]
   push:
     branches: [main]
+    # The badge bot's push (badges/last-deploy.json) can't change app-name /
+    # bundle-id / privacy-URL consistency — skip the cross-repo check for it.
+    paths-ignore:
+      - 'badges/**'
 
 concurrency:
   group: cross-repo-${{ github.ref }}
