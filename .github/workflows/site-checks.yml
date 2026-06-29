@@ -57,7 +57,7 @@ jobs:
       # we'd notice — matches the audit appetite for marketing-site
       # link rot (caught within a day, not within a release cycle).
       - name: Restore lychee cache
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5 (SHA-pinned; Dependabot updates)
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.0.5 (SHA-pinned; Dependabot updates)
         with:
           path: .lycheecache
           # Content-addressed: identical HTML reuses the same cache entry
